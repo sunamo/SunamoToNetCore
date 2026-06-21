@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SunamoMsBuild</name>
+    </assembly>
+    <members>
+        <member name="T:SunamoDevCode.MsBuild.Enums.Configuration">
+            <summary>
+            Defines MSBuild build configurations.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Enums.Configuration.Release">
+            <summary>
+            Release build configuration.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Enums.Configuration.Debug">
+            <summary>
+            Debug build configuration.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.MsBuild.Enums.KeysInConfiguration">
+            <summary>
+            Defines property keys found within MSBuild configuration property groups.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Enums.KeysInConfiguration.DefineConstants">
+            <summary>
+            DefineConstants property for preprocessor directives.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Enums.KeysInConfiguration.PlatformTarget">
+            <summary>
+            PlatformTarget property for CPU architecture targeting.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.MsBuild.Values.ProjectFrameworks">
+            <summary>
+            Framework versions and platform constants for MSBuild projects
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.ProjectFrameworks.UapFwVersions">
+            <summary>
+            List of Universal Windows Platform framework versions
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.ProjectFrameworks.NetFwVersions">
+            <summary>
+            List of .NET Framework versions
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.ProjectFrameworks.TargetPlatformVersion">
+            <summary>
+            Target platform version property name
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.ProjectFrameworks.TargetPlatformMinVersion">
+            <summary>
+            Target platform minimum version property name
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.MsBuild.Values.VsProjectItemTypes">
+            <summary>
+            Constants for MSBuild project item types used in csproj files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.VsProjectItemTypes.Content">
+            <summary>
+            Content item type - files included as content in the output.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.VsProjectItemTypes.Compile">
+            <summary>
+            Compile item type - source code files to compile.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.VsProjectItemTypes.Reference">
+            <summary>
+            Reference item type - assembly references.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.VsProjectItemTypes.PackageReference">
+            <summary>
+            PackageReference item type - NuGet package references.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.VsProjectItemTypes.ProjectReference">
+            <summary>
+            ProjectReference item type - project-to-project references.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.MsBuild.Values.VsProjectItemTypes.None">
+            <summary>
+            None item type - files included in the project but not compiled or copied.
+            </summary>
+        </member>
+    </members>
+</doc>

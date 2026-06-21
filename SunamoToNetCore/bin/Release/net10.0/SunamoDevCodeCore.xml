@@ -1,0 +1,1472 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SunamoDevCodeCore</name>
+    </assembly>
+    <members>
+        <member name="T:SunamoDevCode.BackslashEncoding">
+            <summary>
+            Helper for handling backslash encoding in strings
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.BackslashEncoding.RemoveWhichIsInString(System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Removes positions that are inside strings
+            </summary>
+            <param name="inputString">Input string to analyze</param>
+            <param name="positionsList">List of positions to filter</param>
+        </member>
+        <member name="T:SunamoDevCode.Boilerplate">
+            <summary>
+            Provides boilerplate code templates for C# code generation
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Boilerplate.CSharpCmd(System.String)">
+            <summary>
+            Generates C# command-line program boilerplate
+            </summary>
+            <param name="innerMain">Main method content</param>
+        </member>
+        <member name="M:SunamoDevCode.Boilerplate.CSharpClass(System.String,System.String,System.String,System.String)">
+            <summary>
+            Generates C# class boilerplate with initialization method
+            </summary>
+            <param name="addNamespacesLines">Additional namespace using declarations</param>
+            <param name="className">Name of the class</param>
+            <param name="fields">Field declarations</param>
+            <param name="contentOfInitMethod">Content of Init method</param>
+        </member>
+        <member name="T:SunamoDevCode.Constants.TsTypes">
+            <summary>
+            TypeScript primitive and built-in type names as string constants.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.String">
+            <summary>
+            TypeScript string type.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.Number">
+            <summary>
+            TypeScript number type.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.Bigint">
+            <summary>
+            TypeScript bigint type.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.Boolean">
+            <summary>
+            TypeScript boolean type.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.Symbol">
+            <summary>
+            TypeScript symbol type.
+            See https://www.typescriptlang.org/docs/handbook/symbols.html
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.Undefined">
+            <summary>
+            TypeScript undefined type.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.Object">
+            <summary>
+            TypeScript object type.
+            The TypeScript object type represents all values that are not in primitive types.
+            All other types here are primitive types.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Constants.TsTypes.Function">
+            <summary>
+            TypeScript function type.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.ConstsManager">
+            <summary>
+            Manager for working with constant definitions in XlfKeys.cs file
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.ConstsManager.PathXlfKeys">
+            <summary>
+            Path to XlfKeys.cs file
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ConstsManager.AddConsts(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Add to XlfKeys.cs from xlf
+            Must manually call XlfResourcesH.SaveResouresToRL(BasePathsHelper.sunamoProject) before
+            Called externally from MiAddTranslationWhichIsntInKeys_Click
+            </summary>
+            <param name="keysAll">List of keys to add</param>
+            <param name="valuesAll">Optional list of values corresponding to keys. If null, keys will be used as values.</param>
+        </member>
+        <member name="M:SunamoDevCode.ConstsManager.AddConst(SunamoDevCode.CSharpGenerator,System.String,System.String)">
+            <summary>
+            Adds C# const code to the generator
+            </summary>
+            <param name="generator">CSharp code generator instance</param>
+            <param name="constantName">Name of the constant to add</param>
+            <param name="constantValue">Value of the constant</param>
+        </member>
+        <member name="M:SunamoDevCode.ConstsManager.GetConsts">
+            <summary>
+            Get consts which exists in XlfKeys.cs
+            </summary>
+            <returns>Tuple containing keys, first line index, and all lines</returns>
+        </member>
+        <member name="M:SunamoDevCode.ConstsManager.#ctor(System.String,System.Func{System.String,System.Boolean})">
+            <summary>
+            Initializes a new instance of ConstsManager
+            </summary>
+            <param name="pathXlfKeys">Path to XlfKeys.cs file</param>
+            <param name="shouldIncludeInXlfKeys">Function to determine if key should be in XlfKeys</param>
+        </member>
+        <member name="M:SunamoDevCode.ConstsManager.AddKeysConsts(System.Collections.Generic.List{System.String},System.Int32,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Add constant keys to the generated code
+            </summary>
+            <param name="keysAll">List of all keys to add</param>
+            <param name="first">Position where to insert the generated code</param>
+            <param name="lines">List of source code lines to modify</param>
+            <param name="valuesAll">Optional list of values. If null, keys will be used as values.</param>
+        </member>
+        <member name="T:SunamoDevCode.CsFileFilter">
+            <summary>
+            EN: Filter for C# files with configurable filtering rules
+            CZ: Filtr pro C# soubory s konfigurovatelными pravidly filtrování
+            </summary>
+            <remarks>
+            Cannot be derived from FiltersNotTranslateAble to make finding instances of CsFileFilter easier
+            </remarks>
+            <summary>
+                Cant be derived from FiltersNotTranslateAble because easy of finding instances of CsFileFilter
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.#ctor">
+            <summary>
+                In default is everything in false
+                Call some Set* method
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.GetFilesFiltered(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            Gets filtered list of C# files based on configured filtering rules.
+            </summary>
+            <param name="path">Directory path to search</param>
+            <param name="searchPattern">File search pattern (e.g., "*.cs")</param>
+            <param name="searchOption">Search option (TopDirectoryOnly or AllDirectories)</param>
+            <returns>Filtered list of file paths</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.AllowOnly(System.String,SunamoDevCode.CsFileFilter.EndArgs,SunamoDevCode.CsFileFilter.ContainsArgs)">
+            <summary>
+            Checks if a file path is allowed based on end and contains filtering rules.
+            </summary>
+            <param name="filePath">File path to check</param>
+            <param name="end">End arguments for filtering</param>
+            <param name="containsArgs">Contains arguments for filtering</param>
+            <returns>True if the file is allowed, false if it should be filtered out</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.AllowOnly(System.String,SunamoDevCode.CsFileFilter.EndArgs,SunamoDevCode.CsFileFilter.ContainsArgs,System.Boolean@,System.Boolean)">
+            <summary>
+                A2 is also for master.designer.cs and aspx.designer.cs
+                A2,3 can be null
+            </summary>
+            <param name="filePath">File path to check</param>
+            <param name="end">End arguments for filtering</param>
+            <param name="containsArgs">Contains arguments for filtering</param>
+            <param name="hasEndMatch">Output parameter indicating if end pattern matched</param>
+            <param name="isAlsoCheckingEnds">Whether to also check end patterns</param>
+            <returns>True if the file is allowed, false if it should be filtered out</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.Set(SunamoDevCode.CsFileFilter.EndArgs,SunamoDevCode.CsFileFilter.ContainsArgs)">
+            <summary>
+            Sets the end and contains arguments for filtering.
+            </summary>
+            <param name="endArguments">End arguments for filtering</param>
+            <param name="containsArguments">Contains arguments for filtering</param>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.SetDefault">
+            <summary>
+            Sets the default filtering configuration with standard exclusion patterns.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.GetContainsByFlags(System.Boolean)">
+            <summary>
+                Gets list of "contains" patterns based on flags
+            </summary>
+            <param name="negate">Whether to negate the flag values</param>
+            <returns>List of contains patterns</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.GetEndingByFlags(System.Boolean)">
+            <summary>
+            Gets list of file ending patterns based on configured flags.
+            </summary>
+            <param name="negate">Whether to negate the flag values</param>
+            <returns>List of file ending patterns</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.AllowOnlyContains(System.String,SunamoDevCode.CsFileFilter.ContainsArgs)">
+            <summary>
+            Checks if a file path is allowed based on contains filtering rules only.
+            </summary>
+            <param name="itemPath">File path to check</param>
+            <param name="containsArgs">Contains arguments for filtering</param>
+            <returns>True if the file is allowed, false if it should be filtered out</returns>
+        </member>
+        <member name="T:SunamoDevCode.CsFileFilter.Contains">
+            <summary>
+            Constants and helper methods for path-contains based filtering patterns.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.Contains.notTranslateAbleFp">
+            <summary>
+            Pattern for files containing "NotTranslateAble" in the path.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.Contains.objFp">
+            <summary>
+            Pattern for files in the obj directory.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.Contains.binFp">
+            <summary>
+            Pattern for files in the bin directory.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.Contains.tildaRFFp">
+            <summary>
+            Pattern for files with tilda RF marker.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.Contains.FillEndFromFileList(System.Collections.Generic.List{System.String})">
+            <summary>
+                Into A1 is inserting copy to leave only unindexed
+            </summary>
+            <param name="unindexablePathEnds">List of unindexable path endings</param>
+            <returns>Configured ContainsArgs instance</returns>
+        </member>
+        <member name="T:SunamoDevCode.CsFileFilter.ContainsArgs">
+            <summary>
+            Arguments controlling which path-contains patterns to include or exclude during filtering.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.ContainsArgs.binFp">
+            <summary>
+            Whether to include files from bin directories.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.ContainsArgs.objFp">
+            <summary>
+            Whether to include files from obj directories.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.ContainsArgs.tildaRF">
+            <summary>
+            Whether to include files with tilda RF marker.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.ContainsArgs.#ctor(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+                false which not to index, true which to index
+            </summary>
+            <param name="objFp">Whether to include obj directory files</param>
+            <param name="binFp">Whether to include bin directory files</param>
+            <param name="tildaRF">Whether to include tilda RF files</param>
+        </member>
+        <member name="T:SunamoDevCode.CsFileFilter.End">
+            <summary>
+            Constants and helper methods for file-ending based filtering patterns.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.NotTranslateAblePp">
+            <summary>
+            Pattern for NotTranslateAble files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.designerCsPp">
+            <summary>
+            Pattern for .designer.cs files (lowercase).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.DesignerCsPp">
+            <summary>
+            Pattern for .Designer.cs files (PascalCase).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.xamlCsPp">
+            <summary>
+            Pattern for .xaml.cs code-behind files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.sharedCsPp">
+            <summary>
+            Pattern for Shared.cs files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.iCsPp">
+            <summary>
+            Pattern for .i.cs intermediate files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.gICsPp">
+            <summary>
+            Pattern for .g.i.cs generated intermediate files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.gCsPp">
+            <summary>
+            Pattern for .g.cs generated files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.tmpPp">
+            <summary>
+            Pattern for .tmp temporary files (lowercase).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.End.TMPPp">
+            <summary>
+            Pattern for .TMP temporary files (uppercase).
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.End.FillEndFromFileList(System.Collections.Generic.List{System.String})">
+            <summary>
+                Into A1 is inserting copy to leave only unindexed
+            </summary>
+            <param name="unindexablePathEnds">List of unindexable path endings</param>
+            <returns>Configured EndArgs instance</returns>
+        </member>
+        <member name="T:SunamoDevCode.CsFileFilter.EndArgs">
+            <summary>
+            Arguments controlling which file endings to include or exclude during filtering.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.designerCs">
+            <summary>
+            Whether to include .designer.cs files (lowercase).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.DesignerCs">
+            <summary>
+            Whether to include .Designer.cs files (uppercase D).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.gCs">
+            <summary>
+            Whether to include .g.cs generated files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.gICs">
+            <summary>
+            Whether to include .g.i.cs generated intermediate files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.iCs">
+            <summary>
+            Whether to include .i.cs intermediate files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.notTranslateAble">
+            <summary>
+            Whether to include files marked as not translatable.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.sharedCs">
+            <summary>
+            Whether to include .shared.cs files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.tmp">
+            <summary>
+            Whether to include .tmp files (lowercase).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.TMP">
+            <summary>
+            Whether to include .TMP files (uppercase).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.CsFileFilter.EndArgs.xamlCs">
+            <summary>
+            Whether to include .xaml.cs code-behind files.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.EndArgs.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+                false which not to index, true which to index
+            </summary>
+            <param name = "designerCs"></param>
+            <param name = "xamlCs"></param>
+            <param name = "sharedCs"></param>
+            <param name = "iCs"></param>
+            <param name = "gCs"></param>
+            <param name = "tmp"></param>
+            <param name = "TMP"></param>
+            <param name = "DesignerCs"></param>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.AllowOnly(System.String)">
+            <summary>
+            Checks whether the given file path passes all filter criteria including both contains and end checks.
+            </summary>
+            <param name="filePath">File path to evaluate.</param>
+            <returns>True if the file is allowed by the filter.</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.AllowOnly(System.String,System.Boolean)">
+            <summary>
+            Checks whether the given file path passes filter criteria, optionally including end-of-path checks.
+            </summary>
+            <param name="filePath">File path to evaluate.</param>
+            <param name="isAlsoCheckingEnds">Whether to also check file path endings.</param>
+            <returns>True if the file is allowed by the filter.</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsFileFilter.AllowOnlyContains(System.String)">
+            <summary>
+            Checks whether the given file path passes the contains-only filter criteria.
+            </summary>
+            <param name="itemPath">File path to evaluate.</param>
+            <returns>True if the file is allowed by the contains filter.</returns>
+        </member>
+        <member name="T:SunamoDevCode.CsprojShared">
+            <summary>
+            EN: Although this is from CommandsToAllCsprojs.Shared, it is useful for all CommandsToAll* projects
+            EN: Not adding it there as a single file but as an entire csproj
+            CZ: Toto je sice z CommandsToAllCsprojs.Shared ale hodí se na to všechny CommandsToAll*
+            CZ: Nepřidávám to tam jako soubor ale jako celý csproj
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.CsprojShared.DetectIsSlnOrCsprojFolder(Microsoft.Extensions.Logging.ILogger,System.String,SunamoDevCode.Enums.WhatIsExcepted)">
+            <summary>
+            Detects whether the folder contains a solution or csproj file. Returns true for sln, false for csproj, null for neither or both.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="path">Folder path to check.</param>
+            <param name="whatIsExcepted">Preference when both sln and csproj exist.</param>
+            <returns>True for sln, false for csproj, null if neither or ambiguous.</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsprojShared.GetCsprojForFolder(Microsoft.Extensions.Logging.ILogger,System.String,System.Boolean)">
+            <summary>
+            Gets the single .csproj file in the given folder.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="path">Folder path to search.</param>
+            <param name="isThrowingExceptionOrReturningNull">If true, throws on not found or multiple; if false, returns null.</param>
+            <returns>Path to the csproj file, or null if not found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsprojShared.GetSlnForFolder(Microsoft.Extensions.Logging.ILogger,System.String,System.Boolean)">
+            <summary>
+            Gets the single solution file (.sln, .slnx, .slnj) in the given folder.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="path">Folder path to search.</param>
+            <param name="isThrowingExceptionOrReturningNull">If true, throws on not found; if false, returns null.</param>
+            <returns>Path to the solution file, or null if not found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsprojShared.GetExtForFolder(Microsoft.Extensions.Logging.ILogger,System.String,System.Boolean,System.String)">
+            <summary>
+            Gets the single file matching the extension in the given folder.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="path">Folder path to search.</param>
+            <param name="isThrowingExceptionOrReturningNull">If true, throws on not found or multiple; if false, returns null.</param>
+            <param name="ext">File extension to search for (with or without leading dot).</param>
+            <returns>Path to the matching file, or null if not found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.CsprojShared.HasSlnFileInUpFolder(Microsoft.Extensions.Logging.ILogger,System.String,System.String@)">
+            <summary>
+            Checks whether a solution file exists in the parent folder of the given csproj path.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="csprojPath">Path to the csproj file.</param>
+            <param name="slnFolder">Output: the parent folder path where solution files were searched.</param>
+            <returns>True if at least one solution file exists in the parent folder.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Data.CsprojsInSolution">
+            <summary>
+            Represents the collection of csproj files and their folder paths within a solution.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.CsprojsInSolution.CsprojFolderPaths">
+            <summary>
+            List of folder paths containing csproj files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.CsprojsInSolution.CsprojPaths">
+            <summary>
+            List of full csproj file paths.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Data.CsprojsInSolution.ToDictionary">
+            <summary>
+            Converts the csproj folder paths and csproj paths to a dictionary.
+            </summary>
+            <returns>Dictionary mapping folder paths to csproj file paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Data.CsprojsInSolution.TestBothHaveSameLength">
+            <summary>
+            Tests that both lists have the same length.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Data.CsprojsInSolution.Intersect(SunamoDevCode.Data.CsprojsInSolution)">
+            <summary>
+            Intersects the current instance with another CsprojsInSolution instance.
+            </summary>
+            <param name="other">Other CsprojsInSolution instance to merge with.</param>
+            <returns>The current instance with merged data.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Data.DotnetBuildOutputLine">
+            <summary>
+            Represents a single line from dotnet build output containing error or warning information.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.DotnetBuildOutputLine.Path">
+            <summary>
+            Gets or sets the file path where the error/warning occurred.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.DotnetBuildOutputLine.Line">
+            <summary>
+            Gets or sets the line number where the error/warning occurred.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.DotnetBuildOutputLine.Column">
+            <summary>
+            Gets or sets the column number where the error/warning occurred.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.DotnetBuildOutputLine.Type">
+            <summary>
+            Gets or sets the type of message (error, warning, etc.).
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.DotnetBuildOutputLine.ErrorCode">
+            <summary>
+            Gets or sets the error code (e.g., CS0103, CS0246).
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.DotnetBuildOutputLine.Message">
+            <summary>
+            Gets or sets the error/warning message text.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Data.DotnetBuildOutputLine.Deconstruct(System.String@,System.Int32@,System.Int32@,System.String@,System.String@,System.String@)">
+            <summary>
+            Deconstructs the build output line into individual components.
+            </summary>
+            <param name="path">File path where the error/warning occurred.</param>
+            <param name="line">Line number where the error/warning occurred.</param>
+            <param name="column">Column number where the error/warning occurred.</param>
+            <param name="type">Type of message (error, warning, etc.).</param>
+            <param name="errorCode">Error code.</param>
+            <param name="message">Error/warning message text.</param>
+        </member>
+        <member name="T:SunamoDevCode.Data.ExistsNonExistsList`1">
+            <summary>
+            Generic class that separates items into two lists: existing and non-existing.
+            </summary>
+            <typeparam name="T">Type of items in the lists.</typeparam>
+        </member>
+        <member name="P:SunamoDevCode.Data.ExistsNonExistsList`1.Exists">
+            <summary>
+            Gets or sets the list of items that exist.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.ExistsNonExistsList`1.NonExists">
+            <summary>
+            Gets or sets the list of items that do not exist.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Data.ParseGlobalUsingsResult">
+            <summary>
+            Result of parsing global usings from a C# file.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.ParseGlobalUsingsResult.GlobalUsings">
+            <summary>
+            Gets or sets the list of global using statements.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.ParseGlobalUsingsResult.GlobalSymbols">
+            <summary>
+            Gets or sets the dictionary of global symbols (e.g., #define symbols).
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Data.UnindexableFiles">
+            <summary>
+            Singleton class that maintains collections of files that should not be indexed.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Data.UnindexableFiles.Instance">
+            <summary>
+            Gets the singleton instance of UnindexableFiles.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Data.UnindexableFiles.#ctor">
+            <summary>
+            Prevents external instantiation.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.UnindexableFiles.UnindexablePathPartsFiles">
+            <summary>
+            Gets or sets files that should not be indexed based on path parts.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.UnindexableFiles.UnindexableFileNamesFiles">
+            <summary>
+            Gets or sets files that should not be indexed based on file names (partial match).
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.UnindexableFiles.UnindexableFileNamesExactlyFiles">
+            <summary>
+            Gets or sets files that should not be indexed based on exact file names.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.UnindexableFiles.UnindexablePathEndsFiles">
+            <summary>
+            Gets or sets files that should not be indexed based on path endings.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Data.UnindexableFiles.UnindexablePathStartsFiles">
+            <summary>
+            Gets or sets files that should not be indexed based on path starts.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Data.UniqueCsprojs">
+            <summary>
+            EN: Loads all csproj in directory, can convert from path to name and vice versa
+            CZ: Načte všechny csproj v dir, umí převádět z cesty na název a vice versa
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Data.UniqueCsprojs.AddFromSlnFolder(SunamoDevCode.Data.CsprojsInSolution)">
+            <summary>
+            Populates the dictionary with csproj names and paths from the given solution if not already populated.
+            </summary>
+            <param name="csprojsInSolution">Solution containing csproj paths to add.</param>
+        </member>
+        <member name="M:SunamoDevCode.Data.UniqueCsprojs.ToName(System.String)">
+            <summary>
+            Converts a csproj file path to its project name (file name without extension).
+            </summary>
+            <param name="csprojPath">Full path to the csproj file.</param>
+            <returns>Project name extracted from the path.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Data.UniqueCsprojs.ToPath(System.String)">
+            <summary>
+            EN: Converts to csproj path, not to folder path
+            CZ: Převede na csproj path, nikoliv na cestu ke složce
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.DevNotTranslateAble">
+            <summary>
+            Contains constant strings used in development that should not be translated.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.DevNotTranslateAble.x86">
+            <summary>
+            The x86 platform target identifier.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.DevNotTranslateAble.x64">
+            <summary>
+            The x64 platform target identifier.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.FiltersNotTranslateAble">
+            <summary>
+            Contains filters for files and paths that should not be processed for translation.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Instance">
+            <summary>
+            Singleton instance of the filters.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Contains">
+            <summary>
+            List of substrings - if a path contains any of these, it should not be translated.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Ending">
+            <summary>
+                Is good include the most files as is possible due to performamce
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.AssemblyInfo">
+            <summary>
+            AssemblyInfo.cs filename filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Attributes">
+            <summary>
+            Attributes folder/file filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Consts">
+            <summary>
+            Consts folder/file filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Credentials">
+            <summary>
+            Credentials folder/file filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.EnigmaData">
+            <summary>
+            EnigmaData.cs filename filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Enums">
+            <summary>
+            Enums folder/file filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Interfaces">
+            <summary>
+            Interfaces folder/file filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Layer">
+            <summary>
+            Layer.cs filename filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.NotTranslateAbleCs">
+            <summary>
+            NotTranslateAble.cs filename ending filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.NotTranslateAblePp">
+            <summary>
+            NotTranslateAble path part filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.Standard">
+            <summary>
+            Standard subfolder path filter.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.SunamoXlf">
+            <summary>
+                in XLF is not available sess coz is in sunamo
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FiltersNotTranslateAble.WithoutDep">
+            <summary>
+                All which is WithoutDep cant have Xlf
+                If yes, I couldn't have Xlf.web and Xlf
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.FrameworkNameDetector">
+            <summary>
+            Detects the .NET framework name and version from a project file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FrameworkNameDetector.DefaultIdentifier">
+            <summary>
+            Default .NET framework identifier used when none is specified in the project.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.FrameworkNameDetector.DefaultFrameworkVersion">
+            <summary>
+            Default .NET framework version used when none is specified in the project.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.FrameworkNameDetector.Detect(System.Object)">
+            <summary>
+                Working only for .net fw, for sdk style return .net 4.0
+                Must return FrameworkName due to FubuCsProjFile
+            </summary>
+            <param name="project"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SunamoDevCode.FSGetFilesDC">
+            <summary>
+            Provides methods for retrieving files from solution and project directories with DevCode-specific filtering.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.FSGetFilesDC.GetFilesDC(System.String,System.String,System.IO.SearchOption,SunamoDevCode.Args.GetFilesDCArgs)">
+            <summary>
+            Gets files from project directories within a solution folder, optionally filtering to _sunamo subfolders only.
+            </summary>
+            <param name="slnFolder">Root solution folder to search.</param>
+            <param name="fileMask">File mask pattern (e.g., "*.cs").</param>
+            <param name="searchOption">Whether to search top directory only or all subdirectories.</param>
+            <param name="arguments">Arguments controlling the search behavior.</param>
+            <returns>List of matching file paths.</returns>
+        </member>
+        <member name="T:SunamoDevCode.GenerateJson">
+            <summary>
+            Provides methods for generating JSON content using snake_case naming convention.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.GenerateJson.WithSnakeConventionDict(System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a dictionary mapping snake_case keys to original values.
+            </summary>
+            <param name="list">List of values to convert to snake_case keys.</param>
+            <returns>Dictionary with snake_case keys and original values.</returns>
+        </member>
+        <member name="M:SunamoDevCode.GenerateJson.WithSnakeConvention(System.Collections.Generic.List{System.String})">
+            <summary>
+            Generates a JSON-formatted string with snake_case keys mapped to original values.
+            </summary>
+            <param name="list">List of values to include in the JSON output.</param>
+            <returns>JSON-formatted string.</returns>
+        </member>
+        <member name="T:SunamoDevCode.GetCsprojs">
+            <summary>
+            Provides methods for finding and enumerating csproj files across solutions and project folders.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.GetCsprojs.GetCsprojsAll(Microsoft.Extensions.Logging.ILogger,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Vrátí plné cesty k složce řešení
+            </summary>
+            <param name="logger"></param>
+            <param name="__NotCore_Projects"></param>
+            <param name="__NotCoreWeb_Projects"></param>
+            <param name="__OnlyWindowsCore_Projects"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunamoDevCode.GetCsprojs.GetFoldersWithAtLeastOneCsprojInSolution(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Gets folders that contain exactly one csproj file within the given solution folder.
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <param name="slnFolder">Solution folder to search.</param>
+            <returns>List of folder paths containing exactly one csproj.</returns>
+        </member>
+        <member name="M:SunamoDevCode.GetCsprojs.GetCsprojInSwdNotmineAndSunamo(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Gets csproj files from the PlatformIndependentNuGetPackages solution folder.
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <returns>Collection of csprojs found in the solution.</returns>
+        </member>
+        <member name="M:SunamoDevCode.GetCsprojs.GetCsprojsAllDict(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Gets all csproj files as a dictionary mapping file names to full paths, excluding Runner.csproj.
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <returns>Dictionary of csproj file names to their full paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.GetCsprojs.GetCsprojInSolutionClass(Microsoft.Extensions.Logging.ILogger,System.String,System.Boolean)">
+            <summary>
+            Rozdíl oproti GetCsprojInSolution je že vrací v objektu co je z GetCsprojInSolution v Tuple
+            </summary>
+            <param name="logger"></param>
+            <param name="slnFolder"></param>
+            <param name="automaticallyAddToUniqueCsprojs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunamoDevCode.GetCsprojs.GetCsprojInSolution(Microsoft.Extensions.Logging.ILogger,System.String)">
+             <summary>
+             Rozdíl oproti GetCsprojInSolution je že vrací v objektu co je z GetCsprojInSolution v Tuple
+            
+             1 - csprojFolderPaths
+             2 - csprojPaths
+             </summary>
+             <param name="logger">Logger instance for logging operations.</param>
+             <param name="slnFolder">Solution folder to search for csproj files.</param>
+             <returns>Tuple of (csprojFolderPaths, csprojPaths).</returns>
+        </member>
+        <member name="M:SunamoDevCode.GetCsprojs.GetCsprojsInSolution(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Gets all csproj file paths within the specified solution folder. Deprecated in favor of GetCsprojInSolution.
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <param name="slnFolder">Solution folder to search for csproj files.</param>
+            <returns>List of csproj file paths.</returns>
+        </member>
+        <member name="T:SunamoDevCode.GetSlns">
+            <summary>
+            Provides methods for retrieving Visual Studio solution folders.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.GetSlns.GetSolutions(Microsoft.Extensions.Logging.ILogger,System.Boolean)">
+            <summary>
+            Gets all solution folder paths, optionally filtered to C# projects only.
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <param name="onlyCs">If true, returns only C# project solution folders.</param>
+            <returns>List of solution folder paths.</returns>
+        </member>
+        <member name="T:SunamoDevCode.GlobalUsingsHelper">
+            <summary>
+                Druhá část je v ToNugets
+                Vložit sem jak toto šílenství s nugety skončí
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.GlobalUsingsHelper.globalUsing">
+            <summary>
+            Prefix for global using directives in C# source files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.GlobalUsingsHelper.global">
+            <summary>
+            Prefix for global directives (used for global symbols with = assignments).
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.GlobalUsingsHelper.Parse(System.Collections.Generic.List{System.String})">
+            <summary>
+            Parses a list of lines to extract global using directives and global symbol definitions.
+            </summary>
+            <param name="list">Lines to parse.</param>
+            <returns>Parsed result containing global usings and symbols.</returns>
+        </member>
+        <member name="T:SunamoDevCode.GlobalUsingsInstance">
+            <summary>
+            Manages global using declarations in a C# file, supporting adding, removing, and saving.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.GlobalUsingsInstance.Init(System.String)">
+            <summary>
+            Initializes the instance by reading and parsing the global usings file at the given path.
+            </summary>
+            <param name="path">Path to the global usings file.</param>
+        </member>
+        <member name="M:SunamoDevCode.GlobalUsingsInstance.AddNewGlobalUsing(System.String)">
+            <summary>
+            Adds a new global using namespace if it is not already present.
+            </summary>
+            <param name="_using">Namespace to add as global using.</param>
+        </member>
+        <member name="M:SunamoDevCode.GlobalUsingsInstance.RemoveGlobalUsingsStartingWith(System.String)">
+            <summary>
+            EN: Remove all global usings that start with the specified prefix (case insensitive)
+            CZ: Odstraň všechny global usings které začínají zadaným prefixem (case insensitive)
+            </summary>
+            <param name="prefix">Prefix to match (e.g., "MyNamespace.ExcludedFolder")</param>
+        </member>
+        <member name="M:SunamoDevCode.GlobalUsingsInstance.Save">
+            <summary>
+            Saves the current global usings and symbols back to the file.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Helpers.RemoveCommentsHelper">
+             <summary>
+             Jednotné místo pro remove commentů odevšad
+             protože jsem chtěl odst # a nemohl jsem si vzpomenout kde se používají
+            
+            
+             </summary>
+        </member>
+        <member name="M:SunamoDevCode.Helpers.RemoveCommentsHelper.Powershell(System.String)">
+            <summary>
+            Removes PowerShell comment lines (starting with #) from the given text.
+            </summary>
+            <param name="text">PowerShell script content to process.</param>
+            <returns>Text with comment lines removed.</returns>
+        </member>
+        <member name="T:SunamoDevCode.HtmlSB">
+            <summary>
+                InstantSB(can specify own delimiter, check whether dont exists)
+                TextBuilder(implements Undo, save to Sb or List)
+                HtmlSB(Same as InstantSB, use br)
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.HtmlSB.#ctor">
+            <summary>
+            Initializes a new instance of HtmlSB using HTML break tag as delimiter.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Interfaces.ICsFileFilter">
+            <summary>
+            Interface for filtering C# files
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Interfaces.ICsFileFilter.GetFilesFiltered(System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            Gets filtered list of files
+            </summary>
+            <param name="path">Directory path to search</param>
+            <param name="searchPattern">File search pattern (e.g., "*.cs")</param>
+            <param name="searchOption">Search option (TopDirectoryOnly or AllDirectories)</param>
+            <returns>Filtered list of file paths</returns>
+        </member>
+        <member name="T:SunamoDevCode.ProjectTypeGuid">
+            <summary>
+            Contains Visual Studio project type GUIDs for different project types.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ProjectTypeGuid.Unspecified">
+            <summary>
+            Represents an unspecified project type GUID.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ProjectTypeGuid.WellKnown">
+            <summary>
+            Dictionary mapping project type GUIDs to their human-readable names.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.RepoGetFileMascGeneratorData">
+            <summary>
+            EN: Data for generating file mask for repository. Unsure what would be better - explicitly allowing (source files) or explicitly forbidding (e.g., images, archives). Later can add all source_file from AllExtensions here.
+            CZ: Data pro generování masky souborů pro repozitář. Nevím co by bylo lepší - zda explicitně povolovat (zdrojové soubory) nebo explicitně zakazovat (např. obrázky), archívy. Později zde můžu přidat všechny source_file z AllExtensions.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.RepoGetFileMascGeneratorData.Cs">
+            <summary>
+            Whether to include C# (.cs) files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.RepoGetFileMascGeneratorData.Css">
+            <summary>
+            Whether to include CSS (.css) files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.RepoGetFileMascGeneratorData.JsJsx">
+            <summary>
+            Whether to include JavaScript (.js, .jsx) files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.RepoGetFileMascGeneratorData.Json">
+            <summary>
+            Whether to include JSON (.json) files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.RepoGetFileMascGeneratorData.Scss">
+            <summary>
+            Whether to include SCSS (.scss) files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.RepoGetFileMascGeneratorData.TsTsx">
+            <summary>
+            Whether to include TypeScript (.ts, .tsx) files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.RepoGetFileMascGeneratorData.Yaml">
+            <summary>
+            Whether to include YAML (.yaml) files.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.RepoGetFileMascGeneratorData.NumbersOf(System.Boolean)">
+            <summary>
+            Counts how many file type flags match the specified value.
+            </summary>
+            <param name="value">Value to compare each flag against.</param>
+            <returns>Number of flags matching the value.</returns>
+        </member>
+        <member name="M:SunamoDevCode.RepoGetFileMascGeneratorData.AllSourceCodes">
+            <summary>
+            Creates a new instance with all source code file types enabled.
+            </summary>
+            <returns>A new instance with all flags set to true.</returns>
+        </member>
+        <member name="M:SunamoDevCode.RepoGetFileMascGeneratorData.AllTo(System.Boolean)">
+            <summary>
+            Sets all file type flags to the specified value.
+            </summary>
+            <param name="value">Value to set all flags to.</param>
+        </member>
+        <member name="M:SunamoDevCode.RepoGetFileMascGeneratorData.Generate">
+            <summary>
+            Generates a semicolon-separated file mask string based on enabled file types.
+            </summary>
+            <returns>File mask string (e.g., "*.ts;*.tsx;*.cs;").</returns>
+        </member>
+        <member name="T:SunamoDevCode.Services.AddOrEditNamespaceService">
+            <summary>
+            Service for adding or editing file-scoped namespace declarations in C# source files.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Services.AddOrEditNamespaceService.AddOrEditNamespaceForSingleFileAndSave(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Adds or edits namespace declaration in a single C# file and saves it
+            </summary>
+            <param name="pathToCsprojFolder">Path to csproj folder</param>
+            <param name="projectName">Project name for namespace</param>
+            <param name="csPath">Path to C# file</param>
+            <param name="linesFile">Optional pre-loaded file lines</param>
+            <param name="pathToSave">Optional alternative save path</param>
+            <returns>New namespace or null if file was skipped</returns>
+        </member>
+        <member name="M:SunamoDevCode.Services.AddOrEditNamespaceService.AddNamespaceIfIsMissingInCs(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Pracovní metoda která se už volá na konkrétní soubor
+            Volána z AddNamespaceByInputFolderName
+            </summary>
+            <param name="lines">File content as list of lines.</param>
+            <param name="newNs">Namespace to add if missing.</param>
+            <returns>Modified file content with namespace added.</returns>
+        </member>
+        <member name="F:SunamoDevCode.Services.AddOrEditNamespaceService.classCodeElements">
+            <summary>
+            Keywords that indicate the start of a type declaration in C# source code.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Services.AddOrEditNamespaceService.RemoveFileScopedNamespaceWhenIsInSharpIf(System.Collections.Generic.List{System.String})">
+            <summary>
+            FUnguje to OK, prošel jsem si všechny soubory před commitem
+            </summary>
+            <param name="list">File content as list of lines.</param>
+            <returns>Modified file content with file-scoped namespace removed when inside #if directive.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Services.AddOrEditNamespaceService.AddNamespaceOnBegin(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Přidá nový file scoped namespace na začátek souboru
+            </summary>
+            <param name="newNs"></param>
+            <param name="lines"></param>
+        </member>
+        <member name="T:SunamoDevCode.Services.DotnetOutputService">
+            <summary>
+            Service for parsing dotnet build output
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Services.DotnetOutputService.GetPartsFromDotnetBuildLine(System.String)">
+            <summary>
+            Parses a single line from dotnet build output into structured format
+            </summary>
+            <param name="line">Line from dotnet build output</param>
+            <returns>Parsed output line or null if line is not parseable</returns>
+        </member>
+        <member name="T:SunamoDevCode.SunamoDevCodeHelper">
+            <summary>
+            Helper methods for common SunamoDevCode operations like file cleanup and solution copying.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.SunamoDevCodeHelper.TryDeleteDirectory(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Attempts to delete a directory. If the first attempt fails, normalizes file attributes and retries.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="directoryPath">Path to the directory to delete.</param>
+            <returns>True if the directory was successfully deleted or does not exist.</returns>
+        </member>
+        <member name="M:SunamoDevCode.SunamoDevCodeHelper.CopySolution(System.String,System.String,System.Action{System.String})">
+            <summary>
+            Copies a solution folder to a destination, excluding temporary VS files and git files, then creates an archive.
+            </summary>
+            <param name="slnFolder">Source solution folder path.</param>
+            <param name="folderTo">Destination folder path.</param>
+            <param name="archive">Action to create an archive from the copied folder.</param>
+        </member>
+        <member name="M:SunamoDevCode.SunamoDevCodeHelper.RemoveGitFiles(System.Collections.Generic.List{System.String},System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Removes git-related files and downloaded/temporary folder entries from the file list.
+            </summary>
+            <param name="files">List of file paths to filter in-place.</param>
+            <param name="isIncludingGitFiles">Whether to keep git files (true) or remove them (false).</param>
+            <param name="isIncludingDownloadedFolders">Whether to keep downloaded folders (true) or remove them (false).</param>
+            <param name="isIncludingFoldersToDelete">Whether to keep folders marked for deletion (true) or remove them (false).</param>
+        </member>
+        <member name="M:SunamoDevCode.SunamoDevCodeHelper.RemoveTemporaryFilesVS(System.Collections.Generic.List{System.String})">
+            <summary>
+            Removes Visual Studio temporary files (bin, obj, packages, etc.) from the file list.
+            </summary>
+            <param name="files">List of file paths to filter in-place.</param>
+        </member>
+        <member name="M:SunamoDevCode.SunamoDevCodeHelper.IsNameOfHtmlTag(System.String,System.Boolean)">
+            <summary>
+            Determines whether the given text is a known HTML tag name, optionally with a numeric suffix.
+            </summary>
+            <param name="between">Text to check against known HTML tags.</param>
+            <param name="add">Initial value indicating whether to add (overwritten internally).</param>
+            <returns>True if the text matches an HTML tag name.</returns>
+        </member>
+        <member name="M:SunamoDevCode.SunamoDevCodeHelper.IsNameOfControl(System.String)">
+            <summary>
+                A1 normal, not lower
+            </summary>
+            <param name="between"></param>
+        </member>
+        <member name="T:SunamoDevCode.SunamoFramework">
+            <summary>
+            Provides utility methods for the Sunamo framework including HTML entity processing.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.SunamoFramework.HtmlEntitiesForNonDigitsOrLetterChars">
+            <summary>
+            Identifies non-digit, non-letter characters in translation data and maps them to their HTML entities.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Templates.SqlTemplates">
+            <summary>
+            SQL query templates.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Templates.SqlTemplates.Select">
+            <summary>
+            SELECT query template with table name placeholder.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Templates.SqlTemplates.UseSunamoCz">
+            <summary>
+            USE database command for sunamo.cz database.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.TFCsFormat">
+            <summary>
+            Writes C# files with proper formatting: file-scoped namespace, sorted usings, and trimmed whitespace.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.TFCsFormat.WriteAllTextSync(System.String,System.String)">
+            <summary>
+            Synchronously writes text to a C# file with proper formatting.
+            </summary>
+            <param name="filePath">Path to the file.</param>
+            <param name="content">Text content to write.</param>
+        </member>
+        <member name="M:SunamoDevCode.TFCsFormat.WriteAllLinesSync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Synchronously writes lines to a C# file with proper formatting.
+            </summary>
+            <param name="filePath">Path to the file.</param>
+            <param name="lines">Lines to write.</param>
+        </member>
+        <member name="M:SunamoDevCode.TFCsFormat.WriteAllText(System.String,System.String)">
+            <summary>
+            Asynchronously writes text to a C# file with proper formatting (file-scoped namespace, sorted usings).
+            </summary>
+            <param name="filePath">Path to the file.</param>
+            <param name="content">Text content to write.</param>
+        </member>
+        <member name="M:SunamoDevCode.TFCsFormat.WriteAllLines(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Asynchronously writes lines to a C# file with proper formatting (file-scoped namespace, sorted usings).
+            </summary>
+            <param name="filePath">Path to the file.</param>
+            <param name="lines">Lines to write.</param>
+        </member>
+        <member name="M:SunamoDevCode.TFCsFormat.TrimWhiteSpaceRowFromEnd(System.Collections.Generic.List{System.String})">
+            <summary>
+            Removes trailing whitespace-only lines from the end of the list.
+            </summary>
+            <param name="lines">List of lines to trim.</param>
+        </member>
+        <member name="T:SunamoDevCode.TrimerTags">
+            <summary>
+            Utility for trimming wrapping HTML tags (b, i, u) from text content.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.TrimerTags.TrimWrappingTag(System.String,System.Text.StringBuilder,System.Text.StringBuilder)">
+            <summary>
+            Trims the outermost wrapping HTML tag from the given HTML string, recording removed tags.
+            </summary>
+            <param name="html">HTML text to trim.</param>
+            <param name="fromStart">StringBuilder to record the opening tag removed from the start.</param>
+            <param name="fromEnd">StringBuilder to record the closing tag removed from the end.</param>
+            <returns>HTML with the outermost wrapping tag removed.</returns>
+        </member>
+        <member name="M:SunamoDevCode.TrimerTags.InitTagsWrapping">
+            <summary>
+            Initializes the wrapping tag lists with common formatting tags (i, b, u) in both cases.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Unindexable">
+            <summary>
+            Holds collections of unindexable path patterns loaded from configuration files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Unindexable.UnindexableFileNames">
+            <summary>
+            Collection of file name patterns that should not be indexed (partial match).
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Unindexable.UnindexableFileNamesExactly">
+            <summary>
+            Collection of exact file names that should not be indexed.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Unindexable.UnindexablePathEnds">
+            <summary>
+            Collection of path ending patterns that should not be indexed.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Unindexable.UnindexablePathParts">
+            <summary>
+            Collection of path substring patterns that should not be indexed.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Unindexable.UnindexablePathStarts">
+            <summary>
+            Collection of path prefix patterns that should not be indexed.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.UnindexableFilesNames">
+            <summary>
+            Contains the file names for unindexable path configuration files.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesNames.Instance">
+            <summary>
+            Singleton instance providing access to unindexable file name constants.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesNames.FileUnindexableFileNames">
+            <summary>
+            File name for the list of unindexable file names (partial match).
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesNames.FileUnindexableFileNamesExactly">
+            <summary>
+            File name for the list of exact unindexable file names.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesNames.FileUnindexablePathEnds">
+            <summary>
+            File name for the list of unindexable path endings.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesNames.FileUnindexablePathParts">
+            <summary>
+            File name for the list of unindexable path parts (substrings).
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesNames.FileUnindexablePathStarts">
+            <summary>
+            File name for the list of unindexable path starts (prefixes).
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.UnindexableFilesPaths">
+            <summary>
+            Holds full paths to the unindexable files configuration files, resolved from a base path.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesPaths.FileUnindexableFileNames">
+            <summary>
+            Full path to the file listing unindexable file names.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesPaths.FileUnindexableFileNamesExactly">
+            <summary>
+            Full path to the file listing exact unindexable file names.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesPaths.FileUnindexablePathEnds">
+            <summary>
+            Full path to the file listing unindexable path endings.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesPaths.FileUnindexablePathParts">
+            <summary>
+            Full path to the file listing unindexable path parts.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableFilesPaths.FileUnindexablePathStarts">
+            <summary>
+            Full path to the file listing unindexable path starts.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.UnindexableFilesPaths.#ctor(System.String)">
+            <summary>
+            Initializes paths by combining the base path with unindexable file name constants.
+            </summary>
+            <param name="basePath">Base directory path for the configuration files.</param>
+        </member>
+        <member name="T:SunamoDevCode.UnindexableHelper">
+            <summary>
+            Helper class for managing Unindexable paths and files configuration.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.UnindexableHelper.Unindexable">
+            <summary>
+            Gets or sets the Unindexable configuration.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableHelper.UnindexablePathParts">
+            <summary>
+            Gets the Unindexable path parts configuration.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableHelper.UnindexableFileNames">
+            <summary>
+            Gets the Unindexable file names configuration.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableHelper.UnindexablePathEnds">
+            <summary>
+            Gets the Unindexable path ends configuration.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.UnindexableHelper.UnindexablePathStarts">
+            <summary>
+            Gets the Unindexable path starts configuration.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.UnindexableHelper.Load(SunamoDevCode.UnindexableFilesPaths)">
+            <summary>
+                Into A1 insert SearchCodeElementsUC .ufp
+            </summary>
+            <param name="filePaths">Unindexable file paths configuration</param>
+        </member>
+        <member name="M:SunamoDevCode.UnindexableHelper.IsToIndexedFolder(System.String)">
+            <summary>
+            Determines whether the specified path should be indexed based on folder rules.
+            </summary>
+            <param name="path">The path to check.</param>
+            <returns>True if the folder should be indexed, false otherwise.</returns>
+        </member>
+        <member name="M:SunamoDevCode.UnindexableHelper.IsToIndexed(System.String,System.String,System.Func{System.String,System.Boolean})">
+            <summary>
+            Determines whether the specified file should be indexed based on path and file name rules.
+            </summary>
+            <param name="path">The file path to check.</param>
+            <param name="fileName">The file name to check.</param>
+            <param name="sci_IsIndexed">Optional additional indexing check function.</param>
+            <returns>True if the file should be indexed, false otherwise.</returns>
+        </member>
+        <member name="T:SunamoDevCode.VueConsts">
+            <summary>
+            Constants and keyword lists for Vue.js source code parsing and generation.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.Cl">
+            <summary>
+            Class keyword with trailing space.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.Constructor">
+            <summary>
+            Constructor keyword.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.Import">
+            <summary>
+            Import keyword.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.Export">
+            <summary>
+            Export keyword.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.MethodsRcub">
+            <summary>
+            Methods section opening with curly brace.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.PropsRcub">
+            <summary>
+            Props section opening with curly brace.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.SStartWith">
+            <summary>
+            Vue component options that should be matched by StartsWith.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.DontAddRcub">
+            <summary>
+            Sections where right curly brace should not be added automatically.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.ContainsList">
+            <summary>
+            Keywords to match using Contains check.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.StartWithList">
+            <summary>
+            Keywords to match using StartsWith check.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.VueConsts.Equal">
+            <summary>
+            Characters treated as assignment operators.
+            </summary>
+        </member>
+    </members>
+</doc>

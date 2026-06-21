@@ -1,0 +1,1958 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SunamoAps</name>
+    </assembly>
+    <members>
+        <member name="T:SunamoDevCode.Aps.Algorithms.DeleteTemporaryFilesFromSolution">
+            <summary>
+            EN: Deletes temporary files from Visual Studio solutions
+            CZ: Maže dočasné soubory z Visual Studio solutions
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Algorithms.DeleteTemporaryFilesFromSolution.DeleteFolderWithTemporaryMovedFiles(System.String)">
+            <summary>
+            EN: Deletes folder containing temporary moved files and recreates it empty
+            CZ: Smaže složku obsahující dočasně přesunuté soubory a vytvoří ji znovu prázdnou
+            </summary>
+            <param name="folderWithTemporaryMovedContentWithoutBackslash">Path to folder with temporary moved content (without trailing backslash)</param>
+            <returns>True if operation succeeded, false if folder cannot be removed</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Algorithms.DeleteTemporaryFilesFromSolution.ClearSolution(Microsoft.Extensions.Logging.ILogger,System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            EN: Clears solution folder from temporary files
+            CZ: Vyčistí složku solution od dočasných souborů
+            </summary>
+            <param name="logger">Logger instance for logging operations</param>
+            <param name="solutionFolder">Path to solution folder to clear</param>
+            <param name="delete">Whether to delete files or just list them</param>
+            <param name="folderWithTemporaryMovedContentWithoutBackslash">Folder for storing temporarily moved content</param>
+            <param name="keepPackageJson">Whether to keep package.json files (default: false)</param>
+            <returns>List of files found during the operation</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Algorithms.DeleteTemporaryFilesFromSolution.ClearProject(Microsoft.Extensions.Logging.ILogger,System.String,System.Boolean,System.String)">
+            <summary>
+            EN: Clears a project of temporary files
+            CZ: Vyčistí projekt od dočasných souborů
+            </summary>
+            <param name="logger">Logger instance</param>
+            <param name="project">Project path</param>
+            <param name="delete">Whether to delete files</param>
+            <param name="folderWithTemporaryMovedContentWithoutBackslash">Folder for temporary moved content</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Algorithms.DeleteTemporaryFilesFromSolution.DeleteTemporaryFiles(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean,System.String)">
+            <summary>
+            EN: Deletes temporary files from project folder
+            CZ: Smaže dočasné soubory ze složky projektu
+            </summary>
+            <param name="logger">Logger instance</param>
+            <param name="folderWithProjectsFolders">Folder containing projects (can be null for no delete)</param>
+            <param name="project">Project path</param>
+            <param name="foundFiles">List to track found files</param>
+            <param name="delete">Whether to delete files</param>
+            <param name="folderWithTemporaryMovedContentWithoutBackslash">Folder for temporary moved content</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Algorithms.DeleteTemporaryFilesFromSolution.DeleteFilesIn(System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean,System.String)">
+            <summary>
+            EN: Deletes or tracks files within a folder
+            CZ: Smaže nebo sleduje soubory ve složce
+            </summary>
+            <param name="parentPath">Parent folder path</param>
+            <param name="fileOrFolderName">Name of file or folder to process</param>
+            <param name="folderWithProjectsFolders">Folder containing projects (can be null for no delete)</param>
+            <param name="foundFiles">List to track found files</param>
+            <param name="delete">Whether to delete files</param>
+            <param name="folderWithTemporaryMovedContentWithoutBackslash">Folder for temporary moved content</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Algorithms.DeleteTemporaryFilesFromSolution.DeleteFolderIn(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean,System.String)">
+            <summary>
+            EN: Deletes or tracks folders within a parent folder
+            CZ: Smaže nebo sleduje složky v nadřazené složce
+            </summary>
+            <param name="logger">Logger instance</param>
+            <param name="parentPath">Parent folder path</param>
+            <param name="folderName">Name of folder to process</param>
+            <param name="folderWithProjectsFolders">Folder containing projects (can be null for no delete)</param>
+            <param name="foundFiles">List to track found files</param>
+            <param name="delete">Whether to delete files</param>
+            <param name="folderWithTemporaryMovedContentWithoutBackslash">Folder for temporary moved content</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.AllProjectsSearchThrow">
+            <summary>
+            EN: Provides exception throwing methods for AllProjectsSearch operations
+            CZ: Poskytuje metody pro vyhazování výjimek pro operace AllProjectsSearch
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchThrow.IsNotValidProjectFile(System.String)">
+            <summary>
+            EN: Throws exception when project file is not valid
+            CZ: Vyhodí výjimku když soubor projektu není platný
+            </summary>
+            <param name="filePath">Path to the invalid project file</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.AllProjectsSearchConsts">
+            <summary>
+            EN: Constants for AllProjectsSearch functionality
+            CZ: Konstanty pro funkcionalitu AllProjectsSearch
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.AllProjectsSearchConsts.FnLatestClearTempFiles">
+            <summary>
+            EN: Filename for latest clear temp files operation
+            CZ: Název souboru pro poslední operaci čištění dočasných souborů
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.AllProjectsSearchConsts.foldersIgnore">
+            <summary>
+            EN: List of folders to ignore during search
+            CZ: Seznam složek které se mají ignorovat při vyhledávání
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.AllProjectsSearchConsts.ExtCodeElements">
+            <summary>
+            EN: File extensions for code elements
+            CZ: Přípony souborů pro kódové elementy
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.AllProjectsSearchConsts.ExtFiles2">
+            <summary>
+            EN: Additional file extensions
+            CZ: Další přípony souborů
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.AllProjectsSearchConsts.ForApsPlugins">
+            <summary>
+            EN: Number for APS plugins
+            CZ: Číslo pro APS pluginy
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.AllProjectsSearchSettings">
+            <summary>
+            EN: Settings for AllProjectsSearch with APS-specific functionality
+            CZ: Nastavení pro AllProjectsSearch s APS-specifickou funkcionalitou
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.AllProjectsSearchSettings.sectionSearchFolders">
+            <summary>
+            EN: Contains zero-indexed folders to search in, e.g. 1=D:\Documents\ but whether to search is in sectionSearchFoldersChecked
+            CZ: Obsahuje od nuly číslované složky ve kterých má vyhledávat, např. 1=D:\Documents\ ale to zda se má vyhledávat je v sectionSearchFoldersChecked
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.AllProjectsSearchSettings.sectionSearchFoldersChecked">
+            <summary>
+            EN: Contains zero-indexed bool values, index refers to folder in sectionSearchFolders and bool says whether to search in this folder
+            CZ: Obsahuje od nuly číslované bool hodnoty, index odkazuje na složku v sectionSearchFolders a bool říká zda v této složce se má vyhledávat
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchSettings.ExistsSearchFolderByPath(System.String)">
+            <summary>
+            EN: Returns whether the path exists in search paths
+            CZ: G zda cesta A1 je v cestách, ve kterých aplikace hledá
+            </summary>
+            <param name="path">Path to check</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchSettings.GetAllNormalizedSearchFolders">
+            <summary>
+            EN: Returns all paths in which to search
+            CZ: Vrátí všechny cesty ve kterých vyhledávat
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.AllProjectsSearchSettings.PathFileSettings">
+            <summary>
+            EN: Path to settings file
+            CZ: Cesta k souboru nastavení
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchSettings.IsFolderSearchChecked(System.String)">
+            <summary>
+            EN: Returns whether path at series index is checked
+            CZ: Vrací zda je cesta na indexu série zaškrtnutá
+            </summary>
+            <param name="seriesIndex">Series index to check</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchSettings.SetSearchFolderChecked(System.String,System.Boolean)">
+            <summary>
+            EN: Sets path at series index to checked state
+            CZ: Nastaví cestu na indexu série na zaškrtnutý stav
+            </summary>
+            <param name="seriesIndex">Series index to set</param>
+            <param name="isChecked">Whether the folder should be checked</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchSettings.ExistsFolderSearchBySerie(System.String)">
+            <summary>
+            EN: Returns whether any path exists under the series
+            CZ: Vrací zda existuje nějaká cesta pod sérií
+            </summary>
+            <param name="seriesIndex">Series index to check</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchSettings.GetSearchFolderNormalized(System.String)">
+            <summary>
+            EN: Returns normalized path under index
+            CZ: Vrací normalizovanou cestu pod indexem
+            </summary>
+            <param name="seriesIndex">Series index to get path for</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.AllProjectsSearchSettings.AddFolderSearch(System.String)">
+            <summary>
+            EN: Saves normalized path to first free series and returns that series index
+            CZ: Uloží normalizovanou cestu na první volnou sérii a vrátí index této série
+            </summary>
+            <param name="folderPath">Folder path to add</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.ApsHelper">
+            <summary>
+            EN: Helper class for APS (AllProjectsSearch) functionality
+            CZ: Pomocná třída pro APS (AllProjectsSearch) funkcionalitu
+            </summary>
+            <summary>
+            EN: Helper class for APS (AllProjectsSearch) functionality - part 3
+            CZ: Pomocná třída pro APS (AllProjectsSearch) funkcionalitu - část 3
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsHelper.Instance">
+            <summary>
+            EN: Singleton instance of ApsHelper
+            CZ: Singleton instance ApsHelper
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsHelper.pushSolutionsData">
+            <summary>
+            Never create new instance, just call method
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.WebAndNonWebProjects(Microsoft.Extensions.Logging.ILogger,System.Boolean)">
+            <summary>
+            Separates all projects into web and non-web categories. Do not use XmlDocumentsCache.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="withCsprojs">If true, returns full csproj paths; if false, returns directory paths.</param>
+            <returns>Tuple with web projects as Item1 and non-web projects as Item2.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.IsWeb(System.String)">
+            <summary>
+            EN: Determines whether the project is a web project
+            CZ: Určuje zda je projekt webový projekt
+            </summary>
+            <param name="projectPath">Path to the project</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.PushSolutionsContinuouslyWindow_ChangeDialogResult(System.Nullable{System.Boolean},System.Func{System.Collections.Generic.List{System.String},System.Threading.Tasks.Task{System.Collections.Generic.List{System.Collections.Generic.List{System.String}}}},System.String,System.String)">
+            <summary>
+            Handles the dialog result for continuous push solutions window, executing git operations on selected solutions.
+            </summary>
+            <param name="builder">Dialog result; true to proceed with push.</param>
+            <param name="psInvoke">Function to invoke PowerShell commands.</param>
+            <param name="eVs">Path to Visual Studio root folder.</param>
+            <param name="pathGetMessagesFromGitOutput">Path for storing git output messages.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.AllProjects(Microsoft.Extensions.Logging.ILogger,SunamoDevCode.Enums.RepositoryLocal,SunamoDevCode.Aps.Enums.WebNonWeb,System.Boolean)">
+            <summary>
+            Gets all projects filtered by web/non-web category.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="vs17">Repository location, must be Vs17.</param>
+            <param name="webNonWeb">Filter for web, non-web, or both project types.</param>
+            <param name="withCsprojs">If true, returns csproj paths; if false, returns directory paths.</param>
+            <returns>Filtered list of project paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.CheckForPushInThread(System.Object,System.Func{System.Collections.Generic.List{System.String},System.Threading.Tasks.Task{System.Collections.Generic.List{System.Collections.Generic.List{System.String}}}},System.String,System.String)">
+            <summary>
+            Pushes solutions to git in a thread, building bash commands and showing output window.
+            </summary>
+            <param name="asyncPushSolutionsObject">AsyncPushSolutions instance containing push configuration.</param>
+            <param name="psInvoke">PowerShell invoke function for executing git commands.</param>
+            <param name="eVs">Environment variable for the drive path.</param>
+            <param name="pathGetMessagesFromGitOutput">Path to file for storing git output messages.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.ShowWindowForEnterOutputOfPowershell(System.String,System.Nullable{System.Boolean},System.String,System.String)">
+            <summary>
+            Shows a window or CLI prompt for entering PowerShell/git output and processing the results.
+            </summary>
+            <param name="gitBashBuilder">Git bash commands string to copy to clipboard.</param>
+            <param name="push">Whether this is a push operation (true), pull (false), or null for general.</param>
+            <param name="eVs">Environment variable for the drive path.</param>
+            <param name="pathGetMessagesFromGitOutput">Path to file for storing git output messages.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetMessagesFromGitOutput(System.Collections.Generic.List{System.String})">
+            <summary>
+            Parses git output lines to identify failed restore sections and copies them to clipboard.
+            </summary>
+            <param name="lines">Lines of git output to parse.</param>
+            <returns>Always returns null after processing.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetMessagesFromGitOutput(System.Nullable{System.Boolean},System.String,System.String)">
+            <summary>
+            Return empty collection if shouldProcessMessages = false
+            </summary>
+            <param name = "shouldProcessMessages">Whether to process and filter messages from git output</param>
+            <param name = "pathGetMessagesFromGitOutput">Path to file containing git messages</param>
+            <param name = "eVs">Environment variable for drive</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetMessagesFromGitOutput(System.Nullable{System.Boolean},System.Collections.Generic.List{System.String}@,SunamoDevCode._public.SunamoEnums.Enums.GitTypesOfMessages,System.String)">
+            <summary>
+            Filters git output lines for fatal/error messages and returns the names of affected solutions.
+            </summary>
+            <param name="shouldProcessMessages">Whether to actually process messages or return empty.</param>
+            <param name="lines">Git output lines to process.</param>
+            <param name="gitMessageTypes">Types of git messages to check for (fatal, error).</param>
+            <param name="eVs">Environment variable for the drive path.</param>
+            <returns>List of solution names with matching error messages.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetNameSolution(System.Collections.Generic.List{System.String},System.Int32,System.String)">
+            <summary>
+            Will decrement A2
+            Return relative paths like Projects\_Uap\CreateW10AppGraphics
+            </summary>
+            <param name = "lines">Git output lines.</param>
+            <param name = "lineIndex">Current line index to start searching backwards from.</param>
+            <param name = "eVs">Drive path prefix.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.EnterOutputOfPowershellGit_ChangeDialogResult(System.Nullable{System.Boolean})">
+            <summary>
+            Handles the dialog result change event for the git output processing window.
+            </summary>
+            <param name="shouldProcessMessages">Whether to process messages from the output.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.EnterOutputOfPowershellGit_ChangeDialogResult(System.Nullable{System.Boolean},SunamoDevCode._public.SunamoGitBashBuilder.GitBashBuilder,System.String,System.String)">
+            <summary>
+            Processes git output messages and prepares the result for clipboard, adjusting paths for VPS if needed.
+            </summary>
+            <param name="shouldProcessMessages">Whether to process messages from git output.</param>
+            <param name="stringBuilder">Git bash builder containing the generated commands.</param>
+            <param name="eVs">Base path for Visual Studio projects.</param>
+            <param name="pathGetMessagesFromGitOutput">Path to the file with git output messages.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.SkipTheseGit">
+            <summary>
+            Returns a list of repository names to skip during git operations.
+            </summary>
+            <returns>List of repository names to exclude.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.AllSolutions(SunamoDevCode.Enums.RepositoryLocal)">
+            <summary>
+            Retrieves all solution folders across all registered FoldersWithSolutions instances for the specified repository.
+            </summary>
+            <param name="vs17">Repository type to filter solutions by.</param>
+            <returns>List of all solution folders found.</returns>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsHelper.repositoryUsedInApsH">
+            <summary>
+            Repository type currently used by this ApsHelper instance.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.IsWebProject(Microsoft.Extensions.Logging.ILogger,SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,SunamoDevCode._public.GetFileSettings)">
+            <summary>
+            Determines whether the given solution is a web project by matching against web project wildcards.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="sln">Solution folder to check.</param>
+            <param name="getFileSettings">Settings provider for configuration files.</param>
+            <returns>True if the solution matches a web project wildcard pattern.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.MainSln2(System.String)">
+            <summary>
+            Finds the main solution file in the specified folder by checking all known solution extensions.
+            </summary>
+            <param name="fullPathFolder">Full path to the folder to search in.</param>
+            <returns>Path to the solution file, or null if not found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.MainSln(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
+            <summary>
+            Finds the main solution file for the given SolutionFolder by checking all known solution extensions.
+            </summary>
+            <param name="sln">Solution folder to find the solution file for.</param>
+            <returns>Path to the solution file, or null if not found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.AbsolutePathOfProject(System.String,System.String,System.String)">
+            <summary>
+            Constructs the absolute path to a .csproj file within the VS projects structure.
+            </summary>
+            <param name="project">Project name.</param>
+            <param name="slnName">Solution folder name.</param>
+            <param name="eVsProjects">Base path to VS projects directory.</param>
+            <returns>Full path to the .csproj file.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.SlnFilePathFromFolder(System.String)">
+            <summary>
+            Returns the path to the solution file within the given folder, trying all known extensions before falling back to .sln.
+            </summary>
+            <param name="fullPathFolder">Full path to the solution folder.</param>
+            <returns>Path to an existing solution file, or a default .sln path if none found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetProjectFolderAndSlnPath(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String)">
+            <summary>
+            Save to A1 variables projectFolder and slnFullPath
+            A2 can be null, then will be detected automatically
+            </summary>
+            <param name = "sln"></param>
+            <param name = "documentsFolder"></param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetRelativePathFromSolution(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String)">
+             <summary>
+             Return without ../
+             Get relative path to A2 without solution base folder
+            
+             A1 = Scripts_Project
+             A2 = E:\vs\Projects\PlatformIndependentNuGetPackages\dll\HtmlAgilityPack.dll
+             Result = sunamo\dll\HtmlAgilityPack.dll
+             </summary>
+             <param name = "sln"></param>
+             <param name = "fullPathCsproj"></param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.AddProjectsToSln(System.Boolean,System.Collections.Generic.List{System.String},System.Object,System.Collections.Generic.Dictionary{System.String,System.Guid},System.Collections.Generic.Dictionary{System.String,System.Guid},System.String)">
+            <summary>
+            A2 - must be full paths to projects
+            </summary>
+            <param name = "addProjectReferencesWhenAlreadyIsInSln"></param>
+            <param name = "projectsToAdd"></param>
+            <param name = "slnFromWhichIsAdded"></param>
+            <param name = "projectTypes"></param>
+            <param name = "projectIds"></param>
+            <param name = "slnToWhichAdd"></param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetCsprojsOnlyTopDirectory(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Gets all .csproj files in the top level of the specified project directory.
+            </summary>
+            <param name="logger">Logger instance for diagnostics.</param>
+            <param name="projectPath">Path to the project directory.</param>
+            <returns>List of .csproj file paths found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetSlns(Microsoft.Extensions.Logging.ILogger,System.String,SunamoDevCode._public.GetFilesArgsDC)">
+            <summary>
+            Gets all solution files (.sln, .slnx, .slnj) in the specified directory. Always uses SearchOption.TopDirectoryOnly.
+            </summary>
+            <param name="logger">Logger instance for diagnostics.</param>
+            <param name="path">Path to the directory to search in.</param>
+            <param name="getFilesArgs">Optional file retrieval arguments.</param>
+            <returns>List of solution file paths found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.DetectDocumentsFolder(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
+            <summary>
+            Detects the documents folder that contains the given solution folder by searching all registered FoldersWithSolutions instances.
+            </summary>
+            <param name="sln">Solution folder to find the containing documents folder for.</param>
+            <returns>Path to the documents folder, or null if not found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetRelativePathToProject(System.String,System.String,System.Char)">
+            <summary>
+            Computes a relative path from a solution structure file to a project, prepending appropriate parent directory references.
+            </summary>
+            <param name="file">File path within the sunamo solution structure.</param>
+            <param name="slnFullPath">Solution folder path used to calculate depth for relative navigation.</param>
+            <param name="delimiter">Path separator character to use.</param>
+            <returns>Relative path with parent directory prefixes navigating to the project.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetFilesForGitExcludeTemporary(Microsoft.Extensions.Logging.ILogger,System.String,System.String)">
+            <summary>
+            EN: Gets files for git excluding temporary files
+            CZ: Získá soubory pro git s vyloučením dočasných souborů
+            </summary>
+            <param name="logger">Logger instance</param>
+            <param name="folder">Folder to search in</param>
+            <param name="typedExt">File extension to search for</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsHelper.FullPathsFromSolutionsNames(System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            EN: Converts solution names to full paths
+            CZ: Převede názvy solution na úplné cesty
+            </summary>
+            <param name="slnNames">List of solution names as key-value pairs</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.ApsMainWindow">
+            <summary>
+            EN: Main window class for APS (AllProjectsSearch) application
+            CZ: Třída hlavního okna pro APS (AllProjectsSearch) aplikaci
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsMainWindow.AbstractCatalogInstance">
+            <summary>
+            EN: Abstract catalog instance
+            CZ: Instance abstraktního katalogu
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.ApsMainWindow.ac">
+            <summary>
+            EN: Gets the abstract catalog
+            CZ: Získá abstraktní katalog
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsMainWindow.FoldersWithSolutionsInstance">
+            <summary>
+            EN: Folders with solutions instance
+            CZ: Instance složek se solutions
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.ApsMainWindow.Fwss">
+            <summary>
+            EN: Gets folders with solutions list
+            CZ: Získá seznam složek se solutions
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsMainWindow.Instance">
+            <summary>
+            EN: Singleton instance of ApsMainWindow
+            CZ: Singleton instance ApsMainWindow
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsMainWindow.#ctor">
+            <summary>
+            EN: Initializes a new instance of ApsMainWindow
+            CZ: Inicializuje novou instanci ApsMainWindow
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsMainWindow.MainWindowAps">
+            <summary>
+            EN: Main window APS interface
+            CZ: Rozhraní hlavního okna APS
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.ApsMainWindow.cmd">
+            <summary>
+            EN: Gets or sets whether running in command line mode
+            CZ: Získá nebo nastaví zda běží v režimu příkazové řádky
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsMainWindow.CsFileFilterInstance">
+            <summary>
+            EN: C# file filter instance
+            CZ: Instance filtru C# souborů
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.ApsMainWindow.CsFileFilter">
+            <summary>
+            EN: Gets or sets the C# file filter
+            CZ: Získá nebo nastaví filtr C# souborů
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.ApsPluginHelper">
+            <summary>
+            EN: Helper class for APS plugins
+            CZ: Pomocná třída pro APS pluginy
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginHelper.Instance">
+            <summary>
+            EN: Singleton instance of ApsPluginHelper
+            CZ: Singleton instance ApsPluginHelper
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.ApsPluginHelper.#ctor">
+            <summary>
+            EN: Private constructor for singleton pattern
+            CZ: Soukromý konstruktor pro singleton pattern
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.ApsPluginsAssemblies">
+            <summary>
+            EN: Container for APS plugin assemblies
+            CZ: Kontejner pro APS plugin assemblies
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.Other">
+            <summary>
+            EN: Other assembly (index 0 in ApsPlugins enum)
+            CZ: Other assembly (index 0 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.Compare">
+            <summary>
+            EN: Compare assembly (index 1 in ApsPlugins enum)
+            CZ: Compare assembly (index 1 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.NovaCodeDom">
+            <summary>
+            EN: NovaCodeDom assembly (index 2 in ApsPlugins enum)
+            CZ: NovaCodeDom assembly (index 2 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.Projs">
+            <summary>
+            EN: Projs assembly (index 3 in ApsPlugins enum)
+            CZ: Projs assembly (index 3 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.FubuProjs">
+            <summary>
+            EN: FubuProjs assembly
+            CZ: FubuProjs assembly
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.Restore">
+            <summary>
+            EN: Restore assembly (index 4 in ApsPlugins enum)
+            CZ: Restore assembly (index 4 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.Slns">
+            <summary>
+            EN: Slns assembly (index 6 in ApsPlugins enum)
+            CZ: Slns assembly (index 6 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.Statistic">
+            <summary>
+            EN: Statistic assembly (index 7 in ApsPlugins enum)
+            CZ: Statistic assembly (index 7 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.ApsPluginsAssemblies.Xlf">
+            <summary>
+            EN: Xlf assembly (index 8 in ApsPlugins enum)
+            CZ: Xlf assembly (index 8 v ApsPlugins enum)
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.ApsPluginStatic">
+            <summary>
+            EN: Static base class for APS plugins
+            CZ: Statická základní třída pro APS pluginy
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.ApsPluginStatic.Cmd">
+            <summary>
+            EN: Gets whether running in command line mode
+            CZ: Získá zda běží v režimu příkazové řádky
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.ApsPluginStatic.Fwss">
+            <summary>
+            EN: Gets folders with solutions list
+            CZ: Získá seznam složek se solutions
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.ApsPluginStatic.UsedRepository">
+            <summary>
+            EN: Gets or sets the used repository
+            CZ: Získá nebo nastaví používané repository
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Args.AskForProjectsOrSlnsArgs">
+            <summary>
+            EN: Arguments for asking user to select projects or solutions
+            CZ: Argumenty pro dotázání uživatele na výběr projektů nebo solutions
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Args.AskForProjectsOrSlnsArgs.Hint">
+            <summary>
+            EN: Hint text to display to user
+            CZ: Text nápovědy k zobrazení uživateli
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Args.AskForProjectsOrSlnsArgs.NameSlnFrom">
+            <summary>
+            EN: Name of solution to start from
+            CZ: Název solution ze kterého začít
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Args.AskForProjectsOrSlnsArgs.ChblTag">
+            <summary>
+            EN: Tag for checkbox list
+            CZ: Tag pro checkbox list
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Args.AskForProjectsOrSlnsArgs.Slns">
+            <summary>
+            EN: Whether to ask for solutions instead of projects
+            CZ: Zda se ptát na solutions místo projektů
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Args.AskForProjectsOrSlnsArgs.DialogForMakeSureAboutReplacedWithSessI18n">
+            <summary>
+            EN: Whether to show dialog to make sure about replaced with session i18n
+            CZ: Zda zobrazit dialog pro ujištění o nahrazení session i18n
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Data.AsyncPushSolutions">
+            <summary>
+            EN: Data for asynchronous push of solutions
+            CZ: Data pro asynchronní push solutions
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Data.AsyncPushSolutions.FoldersWithSolutions">
+            <summary>
+            EN: List of solution folders to push
+            CZ: Seznam solution složek k pushnutí
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Data.AsyncPushSolutions.Release">
+            <summary>
+            EN: Whether this is a release build
+            CZ: Zda se jedná o release build
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Data.AsyncPushSolutions.GitBashBuilder">
+            <summary>
+            EN: Git bash builder for git commands
+            CZ: Git bash builder pro git příkazy
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Data.AsyncPushSolutions.PushArgs">
+            <summary>
+            EN: Arguments for git push command
+            CZ: Argumenty pro git push příkaz
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Data.AsyncPushSolutions.CommitMessage">
+            <summary>
+            EN: Commit message
+            CZ: Commit zpráva
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Data.AsyncPushSolutions.PushSolutionsData">
+            <summary>
+            EN: Push solutions data
+            CZ: Data pro push solutions
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Data.AsyncPushSolutions.GitStatus">
+            <summary>
+            EN: Git status builder
+            CZ: Builder pro git status
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Data.SolutionFolderDetailedInfo">
+            <summary>
+            EN: Solution folder with detailed file count information
+            CZ: Solution složka s detailními informacemi o počtu souborů
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Data.SolutionFolderDetailedInfo.OverallFiles">
+            <summary>
+            EN: Overall count of files in the solution
+            CZ: Celkový počet souborů v solution
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Data.SolutionFolderDetailedInfo.#ctor(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
+            <summary>
+            EN: Initializes a new instance from a SolutionFolder
+            CZ: Inicializuje novou instanci ze SolutionFolder
+            </summary>
+            <param name="solutionFolder">Source solution folder</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Data.SolutionFolderDetailedInfoComparerBySourceFiles">
+            <summary>
+            EN: Comparer for sorting solution folders by source file count (descending)
+            CZ: Comparátor pro řazení solution složek podle počtu zdrojových souborů (sestupně)
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Data.SolutionFolderDetailedInfoComparerBySourceFiles.Compare(SunamoDevCode.Aps.Data.SolutionFolderDetailedInfo,SunamoDevCode.Aps.Data.SolutionFolderDetailedInfo)">
+            <summary>
+            EN: Compares two solution folders by overall file count in descending order
+            CZ: Porovná dvě solution složky podle celkového počtu souborů sestupně
+            </summary>
+            <param name="first">First solution folder to compare</param>
+            <param name="second">Second solution folder to compare</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.ApsPlugins">
+            <summary>
+            Other 0, otherwise serie as in projects in sln
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Other">
+            <summary>
+            0
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Compare">
+            <summary>
+            1
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.NovaCodeDom">
+            <summary>
+            2
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Projs">
+            <summary>
+            3
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Restore">
+            <summary>
+            4
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Sis">
+            <summary>
+            5
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Slns">
+            <summary>
+            6
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Statistic">
+            <summary>
+            7
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ApsPlugins.Xlf">
+            <summary>
+            8
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.AspxToEnFiles">
+            <summary>
+            Defines ASPX files that need translation to English.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.AspxToEnFiles.Home">
+            <summary>
+            Home page ASPX file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.AspxToEnFiles.ModernSwitch">
+            <summary>
+            ModernSwitch ASPX file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.AspxToEnFiles._AppsDivideHeader">
+            <summary>
+            Apps divide header pattern.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.AspxToEnFiles._DoubleColon">
+            <summary>
+            Double colon pattern.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.ClassCodeElements">
+            <summary>
+            Defines types of code elements within a class (reserved for future use).
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.CsToEnFiles">
+            <summary>
+            Defines C# files that need translation to English. Each member represents a specific source file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.CL">
+            <summary>
+            Command line helper file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.FS">
+            <summary>
+            File system operations file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.MailSender">
+            <summary>
+            Mail sender utility file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.PathSelector">
+            <summary>
+            Path selector utility file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.RoslynHelper">
+            <summary>
+            Roslyn code analysis helper file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.SqlServerHelper">
+            <summary>
+            SQL Server helper file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.SunamoStrings">
+            <summary>
+            Sunamo string constants file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.TextBoxBackend">
+            <summary>
+            Text box backend file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.TextBoxHelper">
+            <summary>
+            Text box helper file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.XamlDisplay">
+            <summary>
+            XAML display helper file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.HtmlGenerator2">
+            <summary>
+            HTML generator version 2 file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.PowershellBuilder">
+            <summary>
+            PowerShell command builder file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.JunctionPoint">
+            <summary>
+            Junction point filesystem operations file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.ColorPicker">
+            <summary>
+            Color picker utility file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.UH">
+            <summary>
+            URI helper file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.SHShared">
+            <summary>
+            String helper shared file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.HtmlHelperShared">
+            <summary>
+            HTML helper shared file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.MSStoredProceduresIBaseShared">
+            <summary>
+            MS stored procedures base shared file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.FSShared">
+            <summary>
+            File system shared operations file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.SH">
+            <summary>
+            String helper file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.ChartsCs">
+            <summary>
+            Charts C# generation file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.AppsHtmlGenerator">
+            <summary>
+            Apps HTML generator file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles._CodeFragment">
+            <summary>
+            multiline string without lateral
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles._Consts">
+            <summary>
+            Constants pattern file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles._NumberOnSides">
+            <summary>
+            Number on sides pattern file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles._StringInterpolation">
+            <summary>
+            var b = "{0}"; return $"c {b}";
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles._EncodedQuote">
+            <summary>
+            dont know purpose
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles._AlreadyTranslated">
+            <summary>
+            return sess.i18n(XlfKeys.HelloWorld);
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles._LeadingTrailing">
+            <summary>
+            Leading and trailing pattern file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.CsToEnFiles.End">
+            <summary>
+            Sentinel value marking the end of the enum.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.ItemGroups">
+            <summary>
+            Defines types of MSBuild item groups in a project file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ItemGroups.Content">
+            <summary>
+            Content item group for static files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ItemGroups.Compile">
+            <summary>
+            Compile item group for source code files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ItemGroups.Reference">
+            <summary>
+            Reference item group for assembly references.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ItemGroups.PackageReference">
+            <summary>
+            PackageReference item group for NuGet packages.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ItemGroups.ProjectReference">
+            <summary>
+            ProjectReference item group for project-to-project references.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ItemGroups.None">
+            <summary>
+            No item group specified.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.ProjectsOnWhichDependentMode">
+            <summary>
+            EN: All operations defined here are performed in a single method
+            CZ: Všechny operace co jsou zde se dělají v jediné metodě
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ProjectsOnWhichDependentMode.UsedKeysInFolder">
+            <summary>
+            Get used XLF keys from folder.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ProjectsOnWhichDependentMode.Files">
+            <summary>
+            Get all files from all projects include dependant to check state of translation
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.ProjectsOnWhichDependentMode.ReplaceStringKeysWithXlfKeys">
+            <summary>
+            Replace string keys with XLF keys in dependent projects.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.RepairWrongCharsInSourceCodeMode">
+            <summary>
+            Defines modes for repairing wrong characters in source code.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.RepairWrongCharsInSourceCodeMode.RepairLetters">
+            <summary>
+            Repair incorrect letters by replacing them with correct ones.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.RepairWrongCharsInSourceCodeMode.CheckWrongChars">
+            <summary>
+            Only check for wrong characters without repairing.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.SavedStrings">
+            <summary>
+            Defines the state of saved strings based on how they were confirmed.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SavedStrings.AutoYes">
+            <summary>
+            Automatically confirmed as yes.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SavedStrings.ManuallyYes">
+            <summary>
+            Manually confirmed as yes by user.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SavedStrings.ManuallyNo">
+            <summary>
+            Manually rejected by user.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SavedStrings.AutoNo">
+            <summary>
+            Automatically rejected.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.SolutionNameMustContains">
+            <summary>
+            Defines filtering criteria for solution names during search operations.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SolutionNameMustContains.Text">
+            <summary>
+            Solution name must contain specific text.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SolutionNameMustContains.SameNameWithDiacritic">
+            <summary>
+            Solution name must have same name with diacritics variation.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SolutionNameMustContains.Serie">
+            <summary>
+            FS.GetNameWithoutSeries
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SolutionNameMustContains.NumberAtEnd">
+            <summary>
+            SH.EndsWithNumber, SHTrim.TrimTrailingNumbersAtEnd
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SolutionNameMustContains.None">
+            <summary>
+            No filtering applied, all solutions are included.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.SortByProjectsNames">
+            <summary>
+            Defines sorting modes for projects based on their names.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SortByProjectsNames.WithSameAndOtherProjectsNames">
+            <summary>
+            Include projects with both same and other project names.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SortByProjectsNames.OnlyWithSameProjectName">
+            <summary>
+            Include only projects with the same project name.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SortByProjectsNames.OnlyWithOtherProjectsNames">
+            <summary>
+            Include only projects with other (different) project names.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.SortByProjectsNames.WithNoProjectsNames">
+            <summary>
+            Include only projects with no project names.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Enums.WebNonWeb">
+            <summary>
+            Defines filtering options for web and non-web project types.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.WebNonWeb.Web">
+            <summary>
+            Web projects only.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.WebNonWeb.WebCsproj">
+            <summary>
+            Web project .csproj files only.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.WebNonWeb.NonWeb">
+            <summary>
+            Non-web projects only.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.WebNonWeb.NonWebCsproj">
+            <summary>
+            Non-web project .csproj files only.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.WebNonWeb.Five">
+            <summary>
+            .NET 5+ projects.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.WebNonWeb.FiveCsproj">
+            <summary>
+            .NET 5+ project .csproj files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Enums.WebNonWeb.Both">
+            <summary>
+            Both web and non-web projects.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Helpers.SunamoWebHelper">
+            <summary>
+            Provides helper methods for working with Sunamo web projects.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Helpers.SunamoWebHelper.ListOfSunamoWebProjects(Microsoft.Extensions.Logging.ILogger,SunamoDevCode._public.GetFileSettings)">
+            <summary>
+            Gets a list of all Sunamo web project csproj paths from the solution folders.
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <param name="getFileSettings">Settings for file retrieval.</param>
+            <returns>List of csproj file paths that are web projects.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Helpers.VersionHelper">
+            <summary>
+            Provides helper methods for version string formatting.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Helpers.VersionHelper.RemovePartsWhichIsZero(System.Version)">
+            <summary>
+            Removes trailing ".0" parts from a version string representation.
+            </summary>
+            <param name="version">Version to format.</param>
+            <returns>Version string with trailing zero parts removed.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Interfaces.IMainWindowAps">
+            <summary>
+            Interface for the main APS application window.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Interfaces.IMainWindowAps.Cmd">
+            <summary>
+            Gets or sets whether the application is running in command-line mode.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Interfaces.ISearchInSolutions">
+            <summary>
+            Interface for searching across Visual Studio solutions.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Interfaces.ISearchInSolutions.AddToLatest(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolderSerialize)">
+            <summary>
+            Adds the specified solution folder to the latest search results.
+            </summary>
+            <param name="solutionFolderSerialize">Solution folder to add.</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.ApsProjsHelper">
+            <summary>
+            Helper class for working with All Projects Search (APS) project files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.ApsProjsHelper.Type">
+            <summary>
+            Type of the ApsProjsHelper class for reflection purposes.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.ReplacePathWithCsproj(Microsoft.Extensions.Logging.ILogger,System.Collections.Generic.List{System.String})">
+            <summary>
+            Replaces folder paths with their corresponding .csproj file paths.
+            </summary>
+            <param name="logger">Logger for error/info messages.</param>
+            <param name="projectsToAdd">List of project paths to replace.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.AbsoluteToRelativeCsProj(System.String,System.String)">
+            <summary>
+            Converts absolute project reference paths to relative paths in a .csproj file.
+            </summary>
+            <param name="csprojPath">Path to the .csproj file.</param>
+            <param name="basePath">Base path to use for path calculations.</param>
+            <returns>The modified XML document, or null if the file doesn't exist or has errors.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.SaveEmptyTestProject(System.String)">
+            <summary>
+            Creates an empty SDK-style test project file.
+            </summary>
+            <param name="csprojPath">Path where the .csproj file will be created.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.SaveEmptyFullNetProject(System.String,System.String,System.String)">
+            <summary>
+            Creates an empty Full .NET Framework project file from a template.
+            </summary>
+            <param name="csprojPath">Path where the .csproj file will be created.</param>
+            <param name="projectName">Name of the project.</param>
+            <param name="projectsBasePath">Base path to the projects directory containing templates.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.RemoveSchema(System.String)">
+            <summary>
+            Removes XML schema from content.
+            </summary>
+            <param name="content">The XML content to process.</param>
+            <returns>The content with schema removed.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.ChangeUapFramework(Microsoft.Extensions.Logging.ILogger,SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String,System.String)">
+            <summary>
+            Changes the UAP (Universal Application Platform) framework version for all projects in a solution.
+            </summary>
+            <param name="logger">Logger for error/info messages.</param>
+            <param name="solutionFolder">The solution folder containing projects to update.</param>
+            <param name="targetFramework">The target framework version.</param>
+            <param name="minFramework">The minimum framework version.</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.CompileItemGroup">
+            <summary>
+            Represents a Compile item group element in a Visual Studio project file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Data.ItemGroup.CompileItemGroup.Link">
+            <summary>
+            Link attribute for the compile item
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Data.ItemGroup.CompileItemGroup.FullPathFile">
+            <summary>
+            Full path to the file - use in checking whether exists already, not for simple adding
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.CompileItemGroup.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of CompileItemGroup
+            A1 - To csproj. Must exists. From it and relative structure is filled other properties
+            </summary>
+            <param name="fullPath">Full path to the file</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.CompileItemGroup.ToXml(System.Xml.XmlDocument)">
+            <summary>
+            Converts the compile item group to XML node
+            </summary>
+            <param name="xmlDocument">XML document to create the node in</param>
+            <returns>XML node representing this compile item</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ContentItemGroup">
+            <summary>
+            Represents a content item group in a Visual Studio project file.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ContentItemGroup.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ContentItemGroup"/> class.
+            </summary>
+            <param name="fullPath">Full path to the csproj file.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ContentItemGroup.ToXml(System.Xml.XmlDocument)">
+            <summary>
+            Converts the content item group to an XML node.
+            </summary>
+            <param name="xmlDocument">The XML document to use for creating the node.</param>
+            <returns>The XML node representing the content item group, or null if not implemented.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.IncludedInVsProjectFile">
+            <summary>
+            Represents items included in a Visual Studio project file.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.IncludedInVsProjectFile.Compile">
+            <summary>
+            Gets or sets the list of compile item groups.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ItemGroupElement">
+            <summary>
+            Base class for item group elements in a Visual Studio project file.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ItemGroupElement.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ItemGroupElement"/> class.
+            </summary>
+            <param name="fullPath">Full path to the csproj file.</param>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.ItemGroupElement.FullPath">
+            <summary>
+            Gets or sets the full path to the csproj file.
+            Must exist. From it and relative structure, other properties are filled.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.ItemGroupElement.Include">
+            <summary>
+            Gets or sets the Include attribute value.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ItemGroupElement.ToXml(System.Xml.XmlDocument)">
+            <summary>
+            Converts the item group element to an XML node.
+            </summary>
+            <param name="xmlDocument">The XML document to use for creating the node.</param>
+            <returns>The XML node representing the item group element.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.NoneItemGroup">
+            <summary>
+            Represents a None item group in a Visual Studio project file.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.NoneItemGroup.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.NoneItemGroup"/> class.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.NoneItemGroup.ToXml(System.Xml.XmlDocument)">
+            <summary>
+            Converts the None item group to an XML node.
+            </summary>
+            <param name="xmlDocument">The XML document to use for creating the node.</param>
+            <returns>The XML node representing the None item group.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup">
+            <summary>
+            Represents a package reference item group (NuGet) in .NET Core and .NET Framework projects.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup.Version">
+            <summary>
+            Gets or sets the version of the package reference.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup.Type">
+            <summary>
+            Type information for runtime type checking.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup"/> class.
+            </summary>
+            <param name="fullCsprojPath">Full path to the csproj file.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup.#ctor(System.String,System.Xml.XmlNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup"/> class from an XML node.
+            </summary>
+            <param name="fullCsprojPath">Full path to the csproj file.</param>
+            <param name="xmlElement">XML element containing the package reference data.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.PackageReferenceItemGroup.ToXml(System.Xml.XmlDocument)">
+            <summary>
+            Converts the package reference item group to an XML node.
+            </summary>
+            <param name="xmlDocument">The XML document to use for creating the node.</param>
+            <returns>The XML node representing the package reference item group, or null if not implemented.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ProjectReferenceItemGroup">
+            <summary>
+            Represents a project reference item group in a Visual Studio project file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Data.ItemGroup.ProjectReferenceItemGroup.Type">
+            <summary>
+            Type information for runtime type checking.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.ProjectReferenceItemGroup.Project">
+            <summary>
+            Gets or sets the project GUID.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.ProjectReferenceItemGroup.Name">
+            <summary>
+            Gets or sets the project name.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ProjectReferenceItemGroup.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ProjectReferenceItemGroup"/> class.
+            </summary>
+            <param name="fullPath">Full path to the csproj file.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ProjectReferenceItemGroup.ToXml(System.Xml.XmlDocument)">
+            <summary>
+            Converts the project reference item group to an XML node.
+            </summary>
+            <param name="xmlDocument">The XML document to use for creating the node.</param>
+            <returns>The XML node representing the project reference item group.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup">
+            <summary>
+            Represents a reference item group (assembly reference) in a Visual Studio project file.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.Type">
+            <summary>
+            Type information for runtime type checking in ItemGroup processing.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.IncludeParts">
+            <summary>
+            Dictionary of parsed Include attribute parts (e.g., Version, Culture, PublicKeyToken).
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.relativePathDllToProjectFolderHintPath">
+            <summary>
+            Relative path from project folder to DLL used as HintPath.
+            Used later in AddItemGroup2 as HintPath.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup"/> class.
+            </summary>
+            <param name="fullPathDllInclude">Full path to the DLL for the Include attribute.</param>
+            <param name="fullPathCsproj">Full path to the csproj file.</param>
+            <param name="relativePathDllToProjectFolderHintPath">Relative path from project folder to DLL for HintPath.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.#ctor(System.String,System.Xml.XmlNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup"/> class from an XML node.
+            </summary>
+            <param name="fullPathCsproj">Full path to the csproj file.</param>
+            <param name="xmlElement">XML element containing the reference data.</param>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.Version">
+            <summary>
+            Gets the version from the parsed Include attribute parts.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.FromInclude(System.String)">
+            <summary>
+            Gets a value from the parsed Include attribute parts by key.
+            </summary>
+            <param name="key">The key to look up in the Include parts dictionary.</param>
+            <returns>The value if found, otherwise an empty string.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.Data.ItemGroup.ReferenceItemGroup.ToXml(System.Xml.XmlDocument)">
+            <summary>
+            Converts the reference item group to an XML node.
+            </summary>
+            <param name="xmlDocument">The XML document to use for creating the node.</param>
+            <returns>The XML node representing the reference item group.</returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Data.ProjectReferences">
+            <summary>
+            Contains project references with their XML nodes
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ProjectReferences.Projects">
+            <summary>
+            List of project names or paths
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Data.ProjectReferences.Nodes">
+            <summary>
+            XML nodes representing the project references
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Enums.SupportedNetFw">
+            <summary>
+            Defines supported .NET framework versions for project detection.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Enums.SupportedNetFw.None">
+            <summary>
+            No framework detected.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Enums.SupportedNetFw.net48">
+            <summary>
+            .NET Framework 4.8.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Enums.SupportedNetFw.net60">
+            <summary>
+            .NET 6.0.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Enums.SupportedNetFw.netstandard20">
+            <summary>
+            .NET Standard 2.0.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.Enums.SupportedNetFw.BadXml">
+            <summary>
+            Invalid or malformed XML in project file.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Results.FindProjectsWhichIsSdkStyleResult">
+            <summary>
+            Result of finding projects that use SDK-style csproj format.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Results.FindProjectsWhichIsSdkStyleResult.CsprojSdkStyleList">
+            <summary>
+            Gets or sets the list of SDK-style csproj projects.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Results.FindProjectsWhichIsSdkStyleResult.NetstandardList">
+            <summary>
+            Gets or sets the list of .NET Standard projects.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Results.FindProjectsWhichIsSdkStyleResult.NonCsprojSdkStyleList">
+            <summary>
+            Gets or sets the list of non-SDK-style csproj projects.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.Results.IsProjectCsprojSdkStyleResult">
+            <summary>
+            Result of checking if a project uses SDK-style csproj format.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Results.IsProjectCsprojSdkStyleResult.IsProjectCsprojSdkStyleIsCore">
+            <summary>
+            Gets or sets a value indicating whether the project is SDK-style and .NET Core.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Results.IsProjectCsprojSdkStyleResult.Content">
+            <summary>
+            Gets or sets the content of the csproj file.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.Results.IsProjectCsprojSdkStyleResult.IsNetstandard">
+            <summary>
+            Gets or sets a value indicating whether the project targets .NET Standard.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.SunamoCsprojHelper">
+            <summary>
+            Provides helper methods for analyzing and manipulating .csproj files.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.IsProjectCsprojSdkStyleIsCore(System.String,System.Boolean)">
+            <summary>
+            Determines whether the csproj content is an SDK-style .NET Core project.
+            Must have postfix 2 because IsProjectCsprojSdkStyleIsCore has also a same-argument method.
+            </summary>
+            <param name="fileOrContent">File path or content string of the csproj.</param>
+            <param name="onlyContentIsPassed">Whether the string is pure content rather than a file path.</param>
+            <returns>True if the project is SDK-style .NET Core.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.IsProjectCsprojSdkStyleIsCore(System.String)">
+            <summary>
+            Checks whether a csproj is SDK-style and also determines if it targets netstandard.
+            </summary>
+            <param name="fileOrContent">File path or content string of the csproj.</param>
+            <returns>Result containing the content, SDK-style status, and netstandard status, or null for invalid XML.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.DetectNetVersion(System.String)">
+            <summary>
+            Whether is old .net fw, version
+            </summary>
+            <param name="path">Path to the csproj file.</param>
+            <returns>Tuple of (isNewSdkStyle, versionString), or null if XML is invalid.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.DetectNetVersion2(System.String)">
+            <summary>
+            Detects the .NET framework version and returns it as a SupportedNetFw enum value.
+            </summary>
+            <param name="path">Path to the csproj file.</param>
+            <returns>The detected .NET framework enum value.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.BuildProjectsDependencyTreeList(System.String,System.Collections.Generic.Dictionary{System.String,System.Xml.XmlDocument})">
+            <summary>
+            Builds a list of project dependency tree paths for the given .csproj file.
+            </summary>
+            <param name="csprojPath">Path to the .csproj file to analyze.</param>
+            <param name="dictToAvoidCollectionWasChanged">Dictionary to avoid collection modification during iteration.</param>
+            <returns>List of project dependency paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.BuildProjectsDependencyTree2(System.String,System.Collections.Generic.Dictionary{System.String,System.Xml.XmlDocument})">
+            <summary>
+            Builds a collection of project dependency tree paths for the given .csproj file.
+            </summary>
+            <param name="csprojPath">Path to the .csproj file to analyze.</param>
+            <param name="dictToAvoidCollectionWasChanged">Dictionary to avoid collection modification during iteration.</param>
+            <returns>Collection of unique project dependency paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.BuildProjectsDependencyTree(SunamoDevCode._public.SunamoCollectionWithoutDuplicates.CollectionWithoutDuplicatesDC{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Xml.XmlDocument})">
+            <summary>
+            Recursively builds the project dependency tree.
+            </summary>
+            <param name="paths">Collection to store discovered project paths.</param>
+            <param name="csprojPath">Path to the .csproj file to analyze.</param>
+            <param name="dictToAvoidCollectionWasChanged">Dictionary to avoid collection modification during iteration.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.AddMissingProjects(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.Boolean)">
+            <summary>
+            Adds missing projects to a solution.
+            </summary>
+            <param name="solutionFolder">The solution folder to add projects to.</param>
+            <param name="isAddingDependencies">Whether to also add project dependencies.</param>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.type">
+            <summary>
+            Type information for the SunamoCsprojHelper class.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.AddMissingProjectsAlsoString(System.Object,System.Boolean)">
+            <summary>
+            Must be async
+            </summary>
+            <param name = "text">Solution path or SolutionFolder object</param>
+            <param name = "addAlsoDepedencies">Whether to add also dependencies</param>
+            <returns></returns>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.VsProjectFile">
+            <summary>
+            In case when ProjectCollection wont work (like actually dont return any Compile elements)
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.VsProjectFile.file">
+            <summary>
+            Path to the project file.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.VsProjectFile.IsCore">
+            <summary>
+            Whether this is a .NET Core SDK-style project.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.VsProjectFile.Name">
+            <summary>
+            Gets the project name (filename without extension).
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectFile.Load(System.String,System.Collections.Generic.Dictionary{System.String,System.Xml.XmlDocument})">
+            <summary>
+            Loads the XML document for the project file, using a cache dictionary if provided.
+            </summary>
+            <param name="file">Path to the project file.</param>
+            <param name="dictToAvoidCollectionWasChanged">Optional dictionary cache to avoid collection-was-changed exceptions.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectFile.#ctor">
+            <summary>
+            Default constructor for VsProjectFile.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectFile.#ctor(System.String)">
+            <summary>
+            Before calling must check whether file is exists
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Projs.VsProjectFile.IsValidXml">
+            <summary>
+            Whether the project XML was loaded successfully.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectFile.GetElementOfName(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets the first child element with the specified name from an XML node.
+            </summary>
+            <param name="element">Parent XML node to search.</param>
+            <param name="name">Name of the child element to find.</param>
+            <returns>First matching child node.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectFile.ReturnAllItemGroup(SunamoDevCode.Aps.Enums.ItemGroups)">
+            <summary>
+            Returns all XML nodes matching the specified item group type from the project.
+            </summary>
+            <param name="ig">Item group type to search for (e.g. Compile, Reference).</param>
+            <returns>List of matching XML nodes.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectFile.Delete(System.Collections.Generic.List{System.Xml.XmlElement})">
+            <summary>
+            Deletes the specified XML elements from their parent nodes.
+            </summary>
+            <param name="compile">List of XML elements to remove.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectFile.Save">
+            <summary>
+            Saves the XML document back to the project file.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.VsProjectKeys">
+            <summary>
+            Contains constant keys for Visual Studio project XML elements.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.VsProjectKeys.CodeAnalysisRuleSet">
+            <summary>
+            Property name for the code analysis rule set in csproj files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.VsProjectKeys.RunCodeAnalysis">
+            <summary>
+            Property name for enabling code analysis in csproj files.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Projs.VsProjectsFileHelper">
+            <summary>
+            Use VsProjectFile, 
+            </summary>
+            <summary>
+            EN: Methods that were moved to SunamoMicrosoftBuild.
+            They could not remain here due to transitive dependencies.
+            CZ: Metody které se přesunuly do SunamoMicrosoftBuild.
+            Zde nemohly zůstat kvůli transitive deps.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.DuplicatedCsproj(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Return paths of all csprojs
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <param name="path">Root path to search for csproj files.</param>
+            <returns>List of all csproj file paths found.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.GetTokens(System.String)">
+            <summary>
+            Splits a relative path into tokens using detected delimiter (backslash, forward slash, or quotes).
+            </summary>
+            <param name="relativePath">Relative path to tokenize.</param>
+            <returns>List of path tokens.</returns>
+        </member>
+        <member name="F:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.cacheProjectReferences">
+            <summary>
+            Cache of project references indexed by csproj path.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.GetProjectReferences(System.String,System.Collections.Generic.Dictionary{System.String,System.Xml.XmlDocument},System.UriKind)">
+            <summary>
+            Gets project references from a csproj file. Works for .NET Core and Framework.
+            Requires Microsoft.Build. For full dependency tree, use BuildProjectsDependencyTree.
+            </summary>
+            <param name="csprojPath">Path to the csproj file.</param>
+            <param name="dictToAvoidCollectionWasChanged">Dictionary cache for XML documents to avoid collection-changed exceptions.</param>
+            <param name="uriKind">Whether to return absolute or relative paths.</param>
+            <returns>Project references found in the csproj.</returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.AddFilesToCsproj(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds missing files to a csproj as Compile items by comparing with already included files.
+            </summary>
+            <param name="sln">Solution folder containing the project.</param>
+            <param name="csprojpath">Path to the csproj file.</param>
+            <param name="files">List of absolute file paths to add.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.AddItemGroupSdkStyle(System.String,SunamoDevCode.Aps.Enums.ItemGroups,SunamoDevCode.Aps.Projs.Data.ItemGroup.ItemGroupElement,System.Boolean)">
+            <summary>
+            Adds an ItemGroup element to an SDK-style .csproj file.
+            Used in: MoveClassElementIntoSharedFileUC, AddFilesToCsproj.
+            Works with pure XML classes, primarily for Compile tags.
+            </summary>
+            <param name="csprojPath">Path to the .csproj file.</param>
+            <param name="itemGroups">The type of ItemGroup to add (Compile, Reference, etc.).</param>
+            <param name="itemGroupElement">The ItemGroup element to add to the project.</param>
+            <param name="isWritingToStorage">Whether to write changes to storage immediately.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.XmlClassLibraryFromTemplate(System.String)">
+            <summary>
+            Vytvoří mi nový vsproj z templaty VS2019
+            </summary>
+            <param name="safeProjectName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.LoadXml(SunamoDevCode.Aps.Enums.ItemGroups,System.Xml.XmlDocument,System.String,System.Xml.XmlNamespaceManager@,System.Xml.XmlNode@,System.Xml.XmlNode@,System.Xml.XmlNode@)">
+            <summary>
+            Loads XML content into an XmlDocument and initializes namespace manager and key nodes.
+            </summary>
+            <param name="itemGroups">The type of ItemGroup to work with.</param>
+            <param name="xmlDocument">The XmlDocument to load content into.</param>
+            <param name="content">The XML content string to parse.</param>
+            <param name="namespaceManager">Output: XML namespace manager for XPath queries.</param>
+            <param name="itemGroup">Output: The first ItemGroup node found in the project.</param>
+            <param name="parent">Output: Parent node (initialized as null).</param>
+            <param name="project">Output: The root Project node.</param>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.AddNewItemGroup(System.String,System.Xml.XmlDocument,System.Xml.XmlNamespaceManager,System.Xml.XmlNode,System.Xml.XmlNode)">
+            <summary>
+            Adds a new ItemGroup to the project XML.
+            This method has been moved to SunamoMicrosoftBuild.
+            </summary>
+            <param name="csprojPath">Path to the .csproj file.</param>
+            <param name="xmlDocument">XML document representing the project.</param>
+            <param name="namespaceManager">XML namespace manager for XPath queries.</param>
+            <param name="itemGroup">The ItemGroup XML node.</param>
+            <param name="project">The Project XML node.</param>
+            <returns>The newly added ItemGroup node.</returns>
+            <exception cref="T:System.NotImplementedException">This method has been moved to another assembly.</exception>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.ReplaceProjectTemplateParameter(System.String@,SunamoDevCode.Enums.VsProjectTemplateParameters,System.Object)">
+            <summary>
+            Replaces project template parameters in the content.
+            This method has been moved to SunamoMicrosoftBuild.
+            </summary>
+            <param name="content">The content string to modify.</param>
+            <param name="templateParameter">The template parameter type.</param>
+            <param name="value">The value to replace with.</param>
+            <exception cref="T:System.NotImplementedException">This method has been moved to another assembly.</exception>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.SetTargetFrameworksUap(System.String,System.String,System.String)">
+            <summary>
+            Sets the target frameworks for UAP (Universal Application Platform) projects.
+            This method has been moved to SunamoMicrosoftBuild.
+            </summary>
+            <param name="csprojPath">Path to the .csproj file.</param>
+            <param name="targetFramework">The target framework version.</param>
+            <param name="minFramework">The minimum framework version.</param>
+            <exception cref="T:System.NotImplementedException">This method has been moved to another assembly.</exception>
+        </member>
+        <member name="T:SunamoDevCode.Aps.SellingUCAps">
+            <summary>
+            Manages the selling use case for APS, loading and maintaining the list of items to sell.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.SellingUCAps.Init(Microsoft.Extensions.Logging.ILogger,SunamoDevCode._public.GetFileSettings)">
+            <summary>
+            Initializes the selling collection by loading it from the ToSelling.txt file.
+            </summary>
+            <param name="logger">Logger instance for logging operations.</param>
+            <param name="getFileSettings">Function to resolve file paths by name.</param>
+        </member>
+        <member name="T:SunamoDevCode.Aps.Values.MoveToShared">
+            <summary>
+            Implementation of move to shared folder operations
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Values.MoveToShared.Folder">
+            <summary>
+            Base folder path
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Values.MoveToShared.FolderSunamo">
+            <summary>
+            Sunamo folder path
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Values.MoveToShared.FolderSunamoWeb">
+            <summary>
+            Sunamo web folder path
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Values.MoveToShared.Postfix">
+            <summary>
+            Postfix for folder name (e.g., web, task)
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.Aps.Values.MoveToShared.SlnFrom">
+            <summary>
+            Source solution name
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.Aps.Values.MoveToShared.#ctor(System.String)">
+            <summary>
+            Constructor that initializes folder paths
+            </summary>
+            <param name="baseFolder">Base folder path</param>
+        </member>
+        <member name="T:TsToEnFiles">
+            <summary>
+            Defines TypeScript files that need translation to English.
+            </summary>
+        </member>
+        <member name="F:TsToEnFiles.Lyr_Song">
+            <summary>
+            Lyrics song TypeScript file.
+            </summary>
+        </member>
+        <member name="T:IMainWindowCsFileFilter">
+            <summary>
+            Interface for the main window providing access to a C# file filter.
+            </summary>
+        </member>
+        <member name="P:IMainWindowCsFileFilter.CsFileFilter">
+            <summary>
+            Gets or sets the C# file filter used for filtering source files.
+            </summary>
+        </member>
+        <member name="T:IMoveToShared">
+            <summary>
+            Interface for move to shared folder operations.
+            </summary>
+        </member>
+        <member name="P:IMoveToShared.Folder">
+            <summary>
+            Gets the base folder path.
+            </summary>
+        </member>
+        <member name="P:IMoveToShared.FolderSunamo">
+            <summary>
+            Gets the Sunamo folder path.
+            </summary>
+        </member>
+        <member name="P:IMoveToShared.FolderSunamoWeb">
+            <summary>
+            Gets the Sunamo web folder path.
+            </summary>
+        </member>
+        <member name="P:IMoveToShared.Postfix">
+            <summary>
+            Gets the postfix for folder name.
+            </summary>
+        </member>
+        <member name="P:IMoveToShared.SlnFrom">
+            <summary>
+            Gets the source solution name.
+            </summary>
+        </member>
+    </members>
+</doc>

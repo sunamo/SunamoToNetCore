@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SunamoToNetCore</name>
+    </assembly>
+    <members>
+        <member name="T:SunamoDevCode.ToNetCore.Consts.ElementsItemGroup">
+            <summary>
+            Constants for ItemGroup elements in project files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.Consts.ElementsItemGroup.ProjectReference">
+            <summary>
+            Project reference element name.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.Consts.ElementsItemGroup.Reference">
+            <summary>
+            Reference element name.
+            </summary>
+        </member>
+        <member name="T:SunamoDevCode.ToNetCore.research.ChangeProjects">
+            <summary>
+            Provides methods for changing target framework monikers in .csproj project files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.start">
+            <summary>
+            Opening XML tag for TargetFramework element in csproj files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.end">
+            <summary>
+            Closing XML tag for TargetFramework element in csproj files.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.netstandard20">
+            <summary>
+            Target framework moniker for .NET Standard 2.0.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.net48">
+            <summary>
+            Target framework moniker for .NET Framework 4.8.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.net60">
+            <summary>
+            Target framework moniker for .NET 6.0.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.net70Windows">
+            <summary>
+            Na mém PC bude mít vše net7.0-windows
+            Bylo by to velmi náročné dělat průběžné změny mezi net7.0 argument net7.0-windows
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.netstandard21">
+            <summary>
+            Target framework moniker for .NET Standard 2.1.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.net5Uap">
+            <summary>
+            Target framework moniker for .NET 5.0 UWP/UAP Windows platform.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.netcoreapp">
+            <summary>
+            Target framework moniker for .NET Core App 1.1.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.net472">
+            <summary>
+            Target framework moniker for .NET Framework 4.7.2.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.ChangeProjects.net7Windows">
+            <summary>
+            Target framework moniker for .NET 7.0 Windows platform.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.ChangeProjects.Test">
+            <summary>
+            Tests the IsNetCore5UpMoniker method with various target framework monikers.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.ChangeProjects.IsNetCore5UpMoniker(System.String)">
+            <summary>
+            Parses a target framework moniker to determine if it is a .NET 5+ style moniker (e.g., net5.0, net7.0-windows).
+            </summary>
+            <param name="moniker">Target framework moniker string to parse.</param>
+            <returns>Parsed result with framework version and platform TFM, or null if not a .NET 5+ moniker.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.ChangeProjects.ChangeProjectsTo(System.String,System.Collections.Generic.List{SunamoDevCode._public.TWithStringDC{System.String}})">
+            <summary>
+            Changes target framework in all project files from the list to the specified framework moniker.
+            </summary>
+            <param name="to2">Target framework moniker to change to.</param>
+            <param name="l">List of project items containing content and path.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.ChangeProjects.ChangeProjectTo(System.String,System.String,SunamoDevCode.ToNetCore.Results.IsNetCore5UpMonikerResult,System.String)">
+            <summary>
+            Replace only between TargetFramework
+            </summary>
+            <param name="to2">Target framework moniker to change to.</param>
+            <param name="path">Path to the csproj file.</param>
+            <param name="parsedMonikerTo">Parsed target moniker result.</param>
+            <param name="dontChangeIfSourceIs">If the current framework matches this value, skip the change.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.ChangeProjects.ChangeProjectsTo(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Changes target framework in all project files at the specified paths to the given framework moniker.
+            </summary>
+            <param name="to2">Target framework moniker to change to.</param>
+            <param name="vs">List of csproj file paths to update.</param>
+        </member>
+        <member name="T:SunamoDevCode.ToNetCore.research.MoveToNet5">
+            <summary>
+            Provides methods for migrating .NET Framework projects to .NET 5+ including reference replacement, platform target changes, and cleanup operations.
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.ToNetCore.research.MoveToNet5.Instance">
+            <summary>
+            Singleton instance of MoveToNet5.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ChangeConvertNonWebPlatformTargetTo(Microsoft.Extensions.Logging.ILogger,System.String)">
+             <summary>
+             Pravděpodobně to kurví csproj
+             A1 can be
+            
+             Tohle asi nemělo příliš smysl. Když jsem to změnil celé v jakémkoliv řešení z AnyCPU na x86 tak jsem měl u plno projektů modrou ikonku.
+             Navíc s tímto nastavením když jsem spustil EveryLine a ač sln bylo nastavené AnyCPu, hned po spuštení že nemůže načíst EveryLine. Když jsem jeho csproj změnil na AnyCPU, chybu začalo hlásit zase u desktop.
+            
+             A1 can be x86,x64.AnyCPU
+             </summary>
+        </member>
+        <member name="P:SunamoDevCode.ToNetCore.research.MoveToNet5.TypeInfo">
+            <summary>
+            Type information for the MoveToNet5 class.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ClearUnnecessaryFromNonWeb(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Vyčistí od dočasných souborů z NonWeb
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="folderWithTemporaryMovedContentWithoutBackslash">Folder path for temporary content (without trailing backslash).</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ReplaceUnneedUsings(System.String)">
+            <summary>
+            Zakomentuje importy se kterými nemůže být převedeno na .net 5
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ReplaceUnneedReferencesInCsprojs(System.String)">
+            <summary>
+            odstraní reference z c# které
+            </summary>
+            <param name="csprojPath">Path to the csproj file to process.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ReplaceOrRemoveFile(System.Func{System.String,System.String},System.String,System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            EN: Replaces or removes XML elements (like PackageReference, Reference) in a .csproj file
+            CZ: Nahrazuje nebo odstraňuje XML elementy (jako PackageReference, Reference) v .csproj souboru
+            </summary>
+            <param name="additionalReplacements">
+            EN: Optional function to perform additional string replacements on the XML content after the main operation
+            CZ: Volitelná funkce pro provedení dalších textových nahrazení v XML obsahu po hlavní operaci
+            </param>
+            <param name="xmlElementName">
+            EN: Name of the XML element to modify (e.g., "Reference", "PackageReference", "ProjectReference")
+            CZ: Název XML elementu k úpravě (např. "Reference", "PackageReference", "ProjectReference")
+            </param>
+            <param name="referencesToModify">
+            EN: List of reference Include values to replace or remove (e.g., package names, DLL names)
+            CZ: Seznam hodnot atributu Include k nahrazení nebo odstranění (např. názvy balíčků, DLL)
+            </param>
+            <param name="csprojFilePath">
+            EN: Full path to the .csproj file to modify
+            CZ: Úplná cesta k .csproj souboru k úpravě
+            </param>
+            <param name="replacementReference">
+            EN: New reference value to replace with (null = remove, non-null = replace). Must be the Include value only.
+            CZ: Nová hodnota reference pro nahrazení (null = odstranit, nenulová = nahradit). Musí být pouze hodnota Include.
+            </param>
+            <example>
+            EN: Example - Replace old package with new one:
+                ReplaceOrRemoveFile(null, "PackageReference", new List&lt;string&gt; { "OldPackage" }, @"C:\Project.csproj", "NewPackage")
+            CZ: Příklad - Nahradit starý balíček novým:
+                ReplaceOrRemoveFile(null, "PackageReference", new List&lt;string&gt; { "OldPackage" }, @"C:\Project.csproj", "NewPackage")
+            </example>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.CommentAssemblyInfoCsFiles(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Don't run, wait whether will be really needed to run
+            it could do more harm than good
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.PlatformTargetToWeb(Microsoft.Extensions.Logging.ILogger,System.String)">
+             <summary>
+             Pravděpodobně to kurví csproj
+             A1 can be
+            
+             Tohle asi nemělo příliš smysl. Když jsem to změnil celé v jakémkoliv řešení z AnyCPU na x86 tak jsem měl u plno projektů modrou ikonku.
+             Navíc text tímto nastavením když jsem spustil EveryLine a ač sln bylo nastavené AnyCPu, hned po spuštení že nemůže načíst EveryLine. Když jsem jeho csproj změnil na AnyCPU, chybu začalo hlásit zase u desktop.
+            
+             A1 can be x86,x64.AnyCPU
+             </summary>
+             <summary>
+             Changes the PlatformTarget for all web projects.
+             </summary>
+             <param name="logger">Logger instance.</param>
+             <param name="replaceFor">Target platform value to set (x86, x64, AnyCPU).</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.AddEssentialWebReferencesToAllWebProjects(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Adds essential web references (System.Web, etc.) to all web projects that are missing them.
+            </summary>
+            <param name="logger">Logger instance.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ChangeProjectsToNetStandard(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Changes all SDK-style web projects to target netstandard2.0.
+            </summary>
+            <param name="logger">Logger instance.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.WebProjectsWhichIsNotSdkStyleFindTheirBackup(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Finds backup files for web projects that are not SDK-style and categorizes them.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <returns>Report of backup status for each project.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.DetectFrameworkForWebProjectsOnlySupported(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Detects the .NET framework version for all web projects and groups them by version.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <returns>Report grouped by framework version.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ConvertAlLWebNetStandardProjectsToNet48(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Converts all web projects targeting netstandard2.0 to target net4.8.
+            </summary>
+            <param name="logger">Logger instance.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.WebProjectsWhichNotEndWithDotEnd(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Lists web projects whose csproj files do not end with .web.csproj.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <returns>List of non-standard web project paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.DetectFrameworkForWebProjects(Microsoft.Extensions.Logging.ILogger,System.Boolean)">
+            <summary>
+            1 = sdk style, not netstandard2.0
+            2 = sdk style, netstandard2.0
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="appendHeader">Whether to append a header line to the output.</param>
+            <returns>Tuple of (SDK-style web projects, netstandard web projects) with version info.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.FindProjectsWhichIsSdkStyleList(Microsoft.Extensions.Logging.ILogger,System.Boolean,System.Boolean)">
+            <summary>
+            Finds all SDK-style projects and returns a formatted list report.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="appendHeaderForWeb">Whether to append a header for web projects.</param>
+            <param name="web">Whether to include web projects.</param>
+            <returns>Formatted text report of SDK-style projects.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.FindProjectsWhichIsSdkStyle(Microsoft.Extensions.Logging.ILogger,System.Boolean,System.Boolean)">
+            <summary>
+            Categorizes projects into SDK style, netstandard, and non-SDK style groups.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="appendHeaderForWeb">If true, adds a header label for web SDK style projects.</param>
+            <param name="isWeb">If true, processes web projects; otherwise processes non-web projects.</param>
+            <returns>Result containing three categorized lists of project paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.WebProjectsWhichIsNotSdkStyle(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Gets a newline-separated list of web projects that are not SDK style.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <returns>Newline-separated list of non-SDK style web project paths.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ReplaceProjectReferenceForWeb(Microsoft.Extensions.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Replaces project references in web projects to point to the web-specific version.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="projectName">Name of the project to replace references for.</param>
+            <param name="projectNamespace">Namespace of the project.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.TableWebAndNonWeb(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Compares web and non-web projects to find which ones exist in both categories.
+            Projects used in both need to stay on netstandard.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <returns>Always returns false (incomplete implementation).</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.RestoreFromBackup(System.Collections.Generic.List{System.String})">
+            <summary>
+            Restores files from their .old backup copies.
+            </summary>
+            <param name="filePaths">List of file paths to restore from backup.</param>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ListOfAllWebAndNonWeb(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Gets a formatted list of all web and non-web projects.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <returns>Text output with web and non-web project lists.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.ReplaceUnneedReferencesInCsprojsNotSdKStyle(Microsoft.Extensions.Logging.ILogger,System.Boolean)">
+            <summary>
+            Replaces unnecessary references in csproj files that are not SDK style and generates try-convert commands.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="isWeb">If true, processes web projects; otherwise non-web projects.</param>
+            <returns>Generated try-convert commands for each processed project.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.GenerateTryConvert(System.String)">
+            <summary>
+            Generates a try-convert CLI command for converting a csproj to .NET 5.
+            </summary>
+            <param name="csprojPath">Path to the csproj file to convert.</param>
+            <returns>try-convert command string.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.GetAllTargetFrameworks(Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Gets all unique TargetFramework values across non-web projects and lists projects with multiple TargetFramework elements.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <returns>Text output with target frameworks grouped by value and list of multi-framework projects.</returns>
+        </member>
+        <member name="P:SunamoDevCode.ToNetCore.research.MoveToNet5.Fwss">
+            <summary>
+            Gets the list of all FoldersWithSolutions instances from the static collection.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.MoveToNet5.linesFromDontReplaceReferencesIn">
+            <summary>
+            Cached lines from the "don't replace references in" configuration file.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.WebAndNonWebProjects(Microsoft.Extensions.Logging.ILogger,System.Boolean)">
+            <summary>
+            Dont use XmlDocumentsCache 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.MoveToNet5.WebAndNonWebSlns">
+            <summary>
+            Gets web and non-web solution paths separated into two lists.
+            </summary>
+            <returns>Tuple where Item1 is web solution paths and Item2 is non-web solution paths.</returns>
+        </member>
+        <member name="T:SunamoDevCode.ToNetCore.research.Shared">
+            <summary>
+            Shared utilities for .NET Core migration.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.Shared.Type">
+            <summary>
+            Type of the Shared class for reflection purposes.
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.ToNetCore.research.Shared.ExtractArchive">
+            <summary>
+            Action to extract archives during migration.
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.Shared.PlaformTargetTo(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.Boolean)">
+            <summary>
+            Changes the PlatformTarget in all csproj files within the given folder.
+            </summary>
+            <param name="logger">Logger instance.</param>
+            <param name="replaceFor">Target platform value to set.</param>
+            <param name="folderNonRec">Folder to search for csproj files (non-recursive).</param>
+            <param name="throwEx">Whether to throw exceptions on errors.</param>
+            <returns>Report of files that had issues, or null.</returns>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.research.Shared.PlatformTargetTo(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+             <summary>
+             Vyu��v� se v ChangeConvertNonWebPlatformTargetTo(), PlatformTargetTo a PlatformTargetToWeb()
+            
+             </summary>
+             <param name="replaceFor">Target platform value to set (prefix with ! to remove).</param>
+             <param name="tt">List of csproj file paths to process.</param>
+             <param name="throwEx">Whether to throw exceptions on errors.</param>
+             <returns>Report of files that had issues, or null.</returns>
+        </member>
+        <member name="T:SunamoDevCode.ToNetCore.Results.IsNetCore5UpMonikerResult">
+            <summary>
+            Result class for .NET Core 5+ target framework moniker parsing.
+            Reference: https://learn.microsoft.com/en-us/dotnet/standard/frameworks
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.ToNetCore.Results.IsNetCore5UpMonikerResult.TargetFramework">
+            <summary>
+            Gets or sets the target framework (e.g., "net5.0", "net6.0", "net7.0").
+            </summary>
+        </member>
+        <member name="P:SunamoDevCode.ToNetCore.Results.IsNetCore5UpMonikerResult.PlatformTfm">
+            <summary>
+            Gets or sets the platform-specific target framework moniker (e.g., "-windows", "-android").
+            </summary>
+        </member>
+        <member name="M:SunamoDevCode.ToNetCore.Results.IsNetCore5UpMonikerResult.ToString">
+            <summary>
+            Returns the combined target framework and platform TFM as a string.
+            </summary>
+            <returns>Combined target framework moniker string.</returns>
+        </member>
+    </members>
+</doc>
