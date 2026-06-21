@@ -339,7 +339,7 @@
             Repository type currently used by this ApsHelper instance.
             </summary>
         </member>
-        <member name="M:SunamoDevCode.Aps.ApsHelper.IsWebProject(Microsoft.Extensions.Logging.ILogger,SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,SunamoDevCode._public.GetFileSettings)">
+        <member name="M:SunamoDevCode.Aps.ApsHelper.IsWebProject(Microsoft.Extensions.Logging.ILogger,SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,SunamoDevCode._public.GetFileSettings)">
             <summary>
             Determines whether the given solution is a web project by matching against web project wildcards.
             </summary>
@@ -355,7 +355,7 @@
             <param name="fullPathFolder">Full path to the folder to search in.</param>
             <returns>Path to the solution file, or null if not found.</returns>
         </member>
-        <member name="M:SunamoDevCode.Aps.ApsHelper.MainSln(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
+        <member name="M:SunamoDevCode.Aps.ApsHelper.MainSln(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
             <summary>
             Finds the main solution file for the given SolutionFolder by checking all known solution extensions.
             </summary>
@@ -378,7 +378,7 @@
             <param name="fullPathFolder">Full path to the solution folder.</param>
             <returns>Path to an existing solution file, or a default .sln path if none found.</returns>
         </member>
-        <member name="M:SunamoDevCode.Aps.ApsHelper.GetProjectFolderAndSlnPath(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String)">
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetProjectFolderAndSlnPath(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String)">
             <summary>
             Save to A1 variables projectFolder and slnFullPath
             A2 can be null, then will be detected automatically
@@ -386,7 +386,7 @@
             <param name = "sln"></param>
             <param name = "documentsFolder"></param>
         </member>
-        <member name="M:SunamoDevCode.Aps.ApsHelper.GetRelativePathFromSolution(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String)">
+        <member name="M:SunamoDevCode.Aps.ApsHelper.GetRelativePathFromSolution(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String)">
              <summary>
              Return without ../
              Get relative path to A2 without solution base folder
@@ -426,7 +426,7 @@
             <param name="getFilesArgs">Optional file retrieval arguments.</param>
             <returns>List of solution file paths found.</returns>
         </member>
-        <member name="M:SunamoDevCode.Aps.ApsHelper.DetectDocumentsFolder(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
+        <member name="M:SunamoDevCode.Aps.ApsHelper.DetectDocumentsFolder(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
             <summary>
             Detects the documents folder that contains the given solution folder by searching all registered FoldersWithSolutions instances.
             </summary>
@@ -722,7 +722,7 @@
             CZ: Celkový počet souborů v solution
             </summary>
         </member>
-        <member name="M:SunamoDevCode.Aps.Data.SolutionFolderDetailedInfo.#ctor(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
+        <member name="M:SunamoDevCode.Aps.Data.SolutionFolderDetailedInfo.#ctor(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder)">
             <summary>
             EN: Initializes a new instance from a SolutionFolder
             CZ: Inicializuje novou instanci ze SolutionFolder
@@ -1209,7 +1209,7 @@
             Interface for searching across Visual Studio solutions.
             </summary>
         </member>
-        <member name="M:SunamoDevCode.Aps.Interfaces.ISearchInSolutions.AddToLatest(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolderSerialize)">
+        <member name="M:SunamoDevCode.Aps.Interfaces.ISearchInSolutions.AddToLatest(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolderSerialize)">
             <summary>
             Adds the specified solution folder to the latest search results.
             </summary>
@@ -1261,7 +1261,7 @@
             <param name="content">The XML content to process.</param>
             <returns>The content with schema removed.</returns>
         </member>
-        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.ChangeUapFramework(Microsoft.Extensions.Logging.ILogger,SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String,System.String)">
+        <member name="M:SunamoDevCode.Aps.Projs.ApsProjsHelper.ChangeUapFramework(Microsoft.Extensions.Logging.ILogger,SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String,System.String)">
             <summary>
             Changes the UAP (Universal Application Platform) framework version for all projects in a solution.
             </summary>
@@ -1640,7 +1640,7 @@
             <param name="csprojPath">Path to the .csproj file to analyze.</param>
             <param name="dictToAvoidCollectionWasChanged">Dictionary to avoid collection modification during iteration.</param>
         </member>
-        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.AddMissingProjects(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.Boolean)">
+        <member name="M:SunamoDevCode.Aps.Projs.SunamoCsprojHelper.AddMissingProjects(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.Boolean)">
             <summary>
             Adds missing projects to a solution.
             </summary>
@@ -1785,7 +1785,7 @@
             <param name="uriKind">Whether to return absolute or relative paths.</param>
             <returns>Project references found in the csproj.</returns>
         </member>
-        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.AddFilesToCsproj(SunamoDevCode.SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String,System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoDevCode.Aps.Projs.VsProjectsFileHelper.AddFilesToCsproj(SunamoSolutionsIndexer.Data.SolutionFolderNs.SolutionFolder,System.String,System.Collections.Generic.List{System.String})">
             <summary>
             Adds missing files to a csproj as Compile items by comparing with already included files.
             </summary>
