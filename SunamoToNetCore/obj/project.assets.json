@@ -290,13 +290,13 @@
           }
         }
       },
-      "SunamoAps/26.5.18.8": {
+      "SunamoAps/26.6.21.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "SunamoDevCodeBase": "26.5.18.8",
-          "SunamoDevCodeCore": "26.5.18.8",
+          "SunamoDevCodeCore": "26.6.21.1",
           "SunamoMsBuild": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8",
           "TextCopy": "6.2.1"
@@ -308,7 +308,7 @@
           "bin/placeholder/SunamoAps.dll": {}
         }
       },
-      "SunamoCSharp/26.5.18.8": {
+      "SunamoCSharp/26.6.21.9": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -339,12 +339,12 @@
           "bin/placeholder/SunamoDevCodeBase.dll": {}
         }
       },
-      "SunamoDevCodeCore/26.5.18.8": {
+      "SunamoDevCodeCore/26.6.21.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "SunamoCSharp": "26.5.18.8",
+          "SunamoCSharp": "26.6.21.9",
           "SunamoDevCodeBase": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8"
         },
@@ -525,12 +525,12 @@
           }
         }
       },
-      "SunamoAps/26.5.18.8": {
+      "SunamoAps/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "SunamoDevCodeBase": "26.5.18.8",
-          "SunamoDevCodeCore": "26.5.18.8",
+          "SunamoDevCodeCore": "26.6.21.1",
           "SunamoMsBuild": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8",
           "TextCopy": "6.2.1"
@@ -542,7 +542,7 @@
           "bin/placeholder/SunamoAps.dll": {}
         }
       },
-      "SunamoCSharp/26.5.18.8": {
+      "SunamoCSharp/26.6.21.9": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
@@ -571,11 +571,11 @@
           "bin/placeholder/SunamoDevCodeBase.dll": {}
         }
       },
-      "SunamoDevCodeCore/26.5.18.8": {
+      "SunamoDevCodeCore/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
-          "SunamoCSharp": "26.5.18.8",
+          "SunamoCSharp": "26.6.21.9",
           "SunamoDevCodeBase": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8"
         },
@@ -769,12 +769,12 @@
           }
         }
       },
-      "SunamoAps/26.5.18.8": {
+      "SunamoAps/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "SunamoDevCodeBase": "26.5.18.8",
-          "SunamoDevCodeCore": "26.5.18.8",
+          "SunamoDevCodeCore": "26.6.21.1",
           "SunamoMsBuild": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8",
           "TextCopy": "6.2.1"
@@ -786,7 +786,7 @@
           "bin/placeholder/SunamoAps.dll": {}
         }
       },
-      "SunamoCSharp/26.5.18.8": {
+      "SunamoCSharp/26.6.21.9": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -815,11 +815,11 @@
           "bin/placeholder/SunamoDevCodeBase.dll": {}
         }
       },
-      "SunamoDevCodeCore/26.5.18.8": {
+      "SunamoDevCodeCore/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "SunamoCSharp": "26.5.18.8",
+          "SunamoCSharp": "26.6.21.9",
           "SunamoDevCodeBase": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8"
         },
@@ -1013,12 +1013,12 @@
           }
         }
       },
-      "SunamoAps/26.5.18.8": {
+      "SunamoAps/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "SunamoDevCodeBase": "26.5.18.8",
-          "SunamoDevCodeCore": "26.5.18.8",
+          "SunamoDevCodeCore": "26.6.21.1",
           "SunamoMsBuild": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8",
           "TextCopy": "6.2.1"
@@ -1030,7 +1030,7 @@
           "bin/placeholder/SunamoAps.dll": {}
         }
       },
-      "SunamoCSharp/26.5.18.8": {
+      "SunamoCSharp/26.6.21.9": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
@@ -1059,11 +1059,11 @@
           "bin/placeholder/SunamoDevCodeBase.dll": {}
         }
       },
-      "SunamoDevCodeCore/26.5.18.8": {
+      "SunamoDevCodeCore/26.6.21.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "SunamoCSharp": "26.5.18.8",
+          "SunamoCSharp": "26.6.21.9",
           "SunamoDevCodeBase": "26.5.18.8",
           "SunamoSolutionsIndexer": "26.5.18.8"
         },
@@ -1873,12 +1873,12 @@
         "textcopy.nuspec"
       ]
     },
-    "SunamoAps/26.5.18.8": {
+    "SunamoAps/26.6.21.1": {
       "type": "project",
       "path": "../../SunamoAps/SunamoAps/SunamoAps.csproj",
       "msbuildProject": "../../SunamoAps/SunamoAps/SunamoAps.csproj"
     },
-    "SunamoCSharp/26.5.18.8": {
+    "SunamoCSharp/26.6.21.9": {
       "type": "project",
       "path": "../../SunamoCSharp/SunamoCSharp/SunamoCSharp.csproj",
       "msbuildProject": "../../SunamoCSharp/SunamoCSharp/SunamoCSharp.csproj"
@@ -1888,7 +1888,7 @@
       "path": "../../SunamoDevCodeBase/SunamoDevCodeBase/SunamoDevCodeBase.csproj",
       "msbuildProject": "../../SunamoDevCodeBase/SunamoDevCodeBase/SunamoDevCodeBase.csproj"
     },
-    "SunamoDevCodeCore/26.5.18.8": {
+    "SunamoDevCodeCore/26.6.21.1": {
       "type": "project",
       "path": "../../SunamoDevCodeCore/SunamoDevCodeCore/SunamoDevCodeCore.csproj",
       "msbuildProject": "../../SunamoDevCodeCore/SunamoDevCodeCore/SunamoDevCodeCore.csproj"
@@ -1908,21 +1908,21 @@
     "net10.0": [
       "Microsoft.SourceLink.GitHub >= 10.0.102",
       "PolySharp >= 1.15.0",
-      "SunamoAps >= 26.5.18.8",
+      "SunamoAps >= 26.6.21.1",
       "SunamoDevCodeBase >= 26.5.18.8",
       "SunamoSolutionsIndexer >= 26.5.18.8"
     ],
     "net8.0": [
       "Microsoft.SourceLink.GitHub >= 10.0.102",
       "PolySharp >= 1.15.0",
-      "SunamoAps >= 26.5.18.8",
+      "SunamoAps >= 26.6.21.1",
       "SunamoDevCodeBase >= 26.5.18.8",
       "SunamoSolutionsIndexer >= 26.5.18.8"
     ],
     "net9.0": [
       "Microsoft.SourceLink.GitHub >= 10.0.102",
       "PolySharp >= 1.15.0",
-      "SunamoAps >= 26.5.18.8",
+      "SunamoAps >= 26.6.21.1",
       "SunamoDevCodeBase >= 26.5.18.8",
       "SunamoSolutionsIndexer >= 26.5.18.8"
     ],
@@ -1931,7 +1931,7 @@
       "Microsoft.SourceLink.GitHub >= 10.0.102",
       "NETStandard.Library >= 2.0.3",
       "PolySharp >= 1.15.0",
-      "SunamoAps >= 26.5.18.8",
+      "SunamoAps >= 26.6.21.1",
       "SunamoDevCodeBase >= 26.5.18.8",
       "SunamoSolutionsIndexer >= 26.5.18.8"
     ]
@@ -1941,7 +1941,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "26.5.18.8",
+    "version": "26.6.21.1",
     "restore": {
       "projectUniqueName": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoToNetCore\\SunamoToNetCore\\SunamoToNetCore.csproj",
       "projectName": "SunamoToNetCore",

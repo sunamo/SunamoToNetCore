@@ -245,7 +245,7 @@
             <param name="attributeName">Name of the attribute</param>
             <param name="attributeParameters">Content inside parentheses (can be null)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.List(System.Int32,System.String,System.String,System.Collections.Generic.List{System.String},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.List(System.Int32,System.String,System.String,System.Collections.Generic.List{System.String},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a list initialization with specified generic type. Default: adds quotes to string values.
             CZ: Generuje inicializaci seznamu se zadaným generickým typem. Výchozí: přidává uvozovky k řetězcovým hodnotám.
@@ -264,7 +264,7 @@
             <param name="tabCount">Number of tabs for indentation</param>
             <param name="memberName">Name of the member to reference</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.NewVariable(System.Int32,SunamoDevCode.Enums.AccessModifiers,System.String,System.String,SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.NewVariable(System.Int32,SunamoDevCode.Enums.AccessModifiers,System.String,System.String,SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Creates a new variable declaration. Args.CreateInstance determines whether to instantiate the object.
             CZ: Vytvoří deklaraci nové proměnné. Args.CreateInstance určuje, zda instancovat objekt.
@@ -293,7 +293,7 @@
             <param name="enumName">Name of the enum</param>
             <param name="enumItems">List of enum items with their properties</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.AssignValue(System.Int32,System.String,System.String,System.String,SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.AssignValue(System.Int32,System.String,System.String,System.String,SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates an assignment statement (objectName.variable = value). Args.AddHyphens determines whether to wrap value in quotes.
             CZ: Generuje přiřazovací příkaz (objectName.variable = value). Args.AddHyphens určuje, zda obalit hodnotu do uvozovek.
@@ -304,7 +304,7 @@
             <param name="value">Value to assign</param>
             <param name="args">Generator arguments (AddHyphens, etc.)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.AddValuesViaAddRange(System.Int32,System.String,System.String,System.String,System.Collections.Generic.List{System.String},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.AddValuesViaAddRange(System.Int32,System.String,System.String,System.String,System.Collections.Generic.List{System.String},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates code to add multiple values to a collection via AddRange. Args.AddHyphens determines whether to wrap values in quotes.
             CZ: Generuje kód pro přidání více hodnot do kolekce pomocí AddRange. Args.AddHyphens určuje, zda obalit hodnoty do uvozovek.
@@ -316,7 +316,7 @@
             <param name="values">Values to add to the collection</param>
             <param name="args">Generator arguments (AddHyphens, etc.)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.AddValuesViaAddRange(System.Int32,System.String,System.String,System.Type,System.Collections.Generic.List{System.String},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.AddValuesViaAddRange(System.Int32,System.String,System.String,System.Type,System.Collections.Generic.List{System.String},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates code to add multiple values to a collection via AddRange (Type overload). If you don't want to use object identifier (e.g., for static classes), pass null for objectName.
             CZ: Generuje kód pro přidání více hodnot do kolekce pomocí AddRange (Type přetížení). Pokud nechcete použít identifikátor objektu (např. u statické třídy), předejte null pro objectName.
@@ -328,7 +328,7 @@
             <param name="values">Values to add to the collection</param>
             <param name="args">Generator arguments (AddHyphens, etc.)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryNumberNumber``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryNumberNumber``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary with numeric key-value pairs. Args.AddingValue = true as default.
             CZ: Generuje Dictionary s číselnými páry klíč-hodnota. Args.AddingValue = true jako výchozí.
@@ -340,7 +340,7 @@
             <param name="dictionary">Dictionary with key-value pairs</param>
             <param name="args">Generator arguments (AddingValue = true as default)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryStringString(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.String},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryStringString(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.String},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary&lt;string, string&gt;. Args.AddingValue = true as default.
             CZ: Generuje Dictionary&lt;string, string&gt;. Args.AddingValue = true jako výchozí.
@@ -350,7 +350,7 @@
             <param name="dictionary">Dictionary with string key-value pairs</param>
             <param name="args">Generator arguments (AddingValue = true as default)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryStringListString(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryStringListString(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary&lt;string, List&lt;string&gt;&gt;. Args.CreateInstance = true as default.
             CZ: Generuje Dictionary&lt;string, List&lt;string&gt;&gt;. Args.CreateInstance = true jako výchozí.
@@ -360,7 +360,7 @@
             <param name="dictionary">Dictionary with string keys and string list values</param>
             <param name="args">Generator arguments (CreateInstance = true as default)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromRandomValue``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Func{``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromRandomValue``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Func{``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary with keys and random values. Args.AddingValue = true as default.
             CZ: Generuje Dictionary s klíči a náhodnými hodnotami. Args.AddingValue = true jako výchozí.
@@ -373,7 +373,7 @@
             <param name="randomValueGenerator">Function to generate random values</param>
             <param name="args">Generator arguments (AddingValue = true as default)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromTwoList``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromTwoList``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary from two lists (keys and values). Args.AddingValue = true was default.
             CZ: Generuje Dictionary ze dvou seznamů (klíče a hodnoty). Args.AddingValue = true byl výchozí.
@@ -386,7 +386,7 @@
             <param name="values">List of values</param>
             <param name="args">Generator arguments</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromDictionary``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromDictionary``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary from another dictionary. Args.AddingValue = true.
             CZ: Generuje Dictionary z jiného dictionary. Args.AddingValue = true.
@@ -398,7 +398,7 @@
             <param name="dictionary">Source dictionary</param>
             <param name="args">Generator arguments (AddingValue = true)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromDictionaryInnerList``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryFromDictionaryInnerList``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary with List values from another dictionary. Default: addingValue = true.
             CZ: Generuje Dictionary s hodnotami List z jiného dictionary. Výchozí: addingValue = true.
@@ -422,7 +422,7 @@
             <param name="keys">List of keys</param>
             <param name="randomValueGenerator">Function to generate random values</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.GetDictionaryValuesFromTwoList``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.GetDictionaryValuesFromTwoList``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates dictionary value assignments from two lists. Args.SplitKeyWith allows splitting keys.
             CZ: Generuje přiřazení hodnot do dictionary ze dvou seznamů. Args.SplitKeyWith umožňuje rozdělení klíčů.
@@ -435,7 +435,7 @@
             <param name="values">List of values</param>
             <param name="args">Generator arguments (SplitKeyWith, etc.)</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.GetDictionaryValuesFromDictionaryInnerList``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,System.Collections.Generic.List{``1}},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.GetDictionaryValuesFromDictionaryInnerList``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,System.Collections.Generic.List{``1}},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates dictionary value assignments from a dictionary with List values
             CZ: Generuje přiřazení hodnot do dictionary ze slovníku s hodnotami List
@@ -470,7 +470,7 @@
             <param name="dictionaryName">Name of the dictionary variable</param>
             <param name="dictionary">Source dictionary</param>
         </member>
-        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryStringObject``1(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,``0},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoDevCode.CSharpGenerator.DictionaryStringObject``1(System.Int32,System.String,System.Collections.Generic.Dictionary{System.String,``0},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             EN: Generates a Dictionary&lt;string, object&gt; with values. Args.AddingValue = true as default.
             CZ: Generuje Dictionary&lt;string, object&gt; s hodnotami. Args.AddingValue = true jako výchozí.
@@ -481,62 +481,72 @@
             <param name="dictionary">Source dictionary</param>
             <param name="args">Generator arguments (AddingValue = true as default)</param>
         </member>
-        <member name="T:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs">
+        <member name="T:SunamoDevCode.SunamoCSharp.Values.CSharpConsts">
+            <summary>
+            Constants for C# code syntax elements
+            </summary>
+        </member>
+        <member name="F:SunamoDevCode.SunamoCSharp.Values.CSharpConsts.LineComment">
+            <summary>
+            Line comment delimiter (//)
+            </summary>
+        </member>
+        <member name="T:SunamoCSharp.Args.CSharpGeneratorArgs">
             <summary>
             Arguments for C# code generator
             </summary>
         </member>
-        <member name="P:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs.AddHyphens">
+        <member name="P:SunamoCSharp.Args.CSharpGeneratorArgs.AddHyphens">
             <summary>
             Whether to add quotes/hyphens around string values
             </summary>
         </member>
-        <member name="P:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs.CreateInstance">
+        <member name="P:SunamoCSharp.Args.CSharpGeneratorArgs.CreateInstance">
             <summary>
             Whether to create an instance of the generated type
             </summary>
         </member>
-        <member name="P:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs.AlsoField">
+        <member name="P:SunamoCSharp.Args.CSharpGeneratorArgs.AlsoField">
             <summary>
             Whether to also generate a field
             </summary>
         </member>
-        <member name="P:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs.AddingValue">
+        <member name="P:SunamoCSharp.Args.CSharpGeneratorArgs.AddingValue">
             <summary>
             Whether to add value to the generated code
             </summary>
         </member>
-        <member name="P:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs.UseCA">
+        <member name="P:SunamoCSharp.Args.CSharpGeneratorArgs.UseCA">
             <summary>
             Whether to use CA (Collection Add) helper
             </summary>
         </member>
-        <member name="P:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs.SplitKeyWith">
+        <member name="P:SunamoCSharp.Args.CSharpGeneratorArgs.SplitKeyWith">
             <summary>
             Delimiter to split keys with (must be char or string)
             </summary>
         </member>
-        <member name="P:SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs.CheckForNull">
+        <member name="P:SunamoCSharp.Args.CSharpGeneratorArgs.CheckForNull">
             <summary>
             Whether to check for null before operations
             </summary>
         </member>
-        <member name="T:SunamoDevCode.SunamoCSharp.CSharpHelper">
+        <member name="T:SunamoCSharp.CSharpHelper">
             <summary>
             Provides static helper methods for C# code analysis, generation, and manipulation.
             </summary>
         </member>
-        <member name="F:SunamoDevCode.SunamoCSharp.CSharpHelper.Using">
+        <member name="F:SunamoCSharp.CSharpHelper.Using">
             <summary>
             C# using keyword prefix.
             </summary>
         </member>
-        <member name="F:SunamoDevCode.SunamoCSharp.CSharpHelper.Import">
+        <member name="F:SunamoCSharp.CSharpHelper.Import">
             <summary>
             JavaScript/TypeScript import keyword prefix.
             </summary>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveUsing(System.String,SunamoDevCode._public.SunamoCollectionWithoutDuplicates.CollectionWithoutDuplicatesDC{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveUsing(System.String,SunamoDevCode._public.SunamoCollectionWithoutDuplicates.CollectionWithoutDuplicatesDC{System.String})">
             <summary>
             Removes specified using directives from the source text.
             </summary>
@@ -544,44 +554,44 @@
             <param name="removedUsings">Collection of namespace names to remove.</param>
             <returns>Text with the specified using directives removed.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.AddTypeToEveryFile(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.AddTypeToEveryFile(System.String)">
             <summary>
             Adds a static Type field (for ThrowEx) to every C# file that uses ThrowEx but lacks the type definition.
             </summary>
             <param name="BasePathsHelperVs">Base path to the Visual Studio projects folder.</param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveNamespace(System.Collections.Generic.List{System.String},SunamoDevCode._public.SunamoCollectionWithoutDuplicates.CollectionWithoutDuplicatesDC{System.String},System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveNamespace(System.Collections.Generic.List{System.String},SunamoDevCode._public.SunamoCollectionWithoutDuplicates.CollectionWithoutDuplicatesDC{System.String},System.Boolean)">
             <param name="lines">Source code lines to modify in-place.</param>
             <param name="removed">Collection to store removed namespace names (can be null).</param>
             <param name="removeRegions">Whether to also remove region directives.</param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveNamespace(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveNamespace(System.String)">
             <summary>
             Return written content to drive
             </summary>
             <param name = "item"></param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.SetValuesAsNamesToConsts(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.SetValuesAsNamesToConsts(System.Collections.Generic.List{System.String})">
             <summary>
             Converts static readonly string fields without values to const fields using their names as values.
             </summary>
             <param name="text">Source code lines to modify in-place.</param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.IsFieldVariableConst(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.IsFieldVariableConst(System.String)">
             <summary>
             Determines whether a line contains a string field/variable/const declaration and extracts its name.
             </summary>
             <param name="line">Source code line to analyze.</param>
             <returns>Tuple of (isConstField, fieldName). fieldName is null if not a const field.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetInnerContentOfCodeElementClass(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetInnerContentOfCodeElementClass(System.Collections.Generic.List{System.String})">
             <summary>
             Extracts the inner content of a class code element by removing the outer braces.
             </summary>
             <param name="lines">Lines of source code containing the class definition.</param>
             <returns>The inner content between the first opening and last closing brace, or empty string if the code is empty or commented.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.IsEmptyCommentedOrOnlyWithNamespace(System.String,System.Collections.Generic.List{System.String},System.Action{System.Collections.Generic.List{System.String}},System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.IsEmptyCommentedOrOnlyWithNamespace(System.String,System.Collections.Generic.List{System.String},System.Action{System.Collections.Generic.List{System.String}},System.Collections.Generic.List{System.String})">
             <summary>
             Vrátí true i když obsahuje kód bez středníku (např. prázdnou třídu)
             </summary>
@@ -591,21 +601,21 @@
             <param name="csWithSharpIf">List of filenames that contain #if directives and should not be considered empty.</param>
             <returns>True if the file contains only namespace declarations, usings, comments, or is empty.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.IsEmptyOrCommented(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.IsEmptyOrCommented(System.Collections.Generic.List{System.String})">
             <summary>
             Determines whether all lines are either empty or commented out.
             </summary>
             <param name="lines">Lines of source code to check.</param>
             <returns>True if all non-empty lines start with a comment marker.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveImportsUsings(System.Collections.Generic.List{System.String},System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveImportsUsings(System.Collections.Generic.List{System.String},System.Boolean)">
             <summary>
             Removes import/using statements and leading empty lines from the source code lines. Edits the list directly.
             </summary>
             <param name="l2">Lines of source code to process.</param>
             <param name="imports">If true, removes import statements; otherwise removes using statements.</param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.Usings(System.Collections.Generic.List{System.String},System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.Usings(System.Collections.Generic.List{System.String},System.Boolean)">
             <summary>
             Extracts all using statements from source code lines, optionally removing them.
             </summary>
@@ -613,7 +623,7 @@
             <param name="remove">If true, removes the using lines from the source.</param>
             <returns>Collection of unique using statements found.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.Imports(System.Collections.Generic.List{System.String},System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.Imports(System.Collections.Generic.List{System.String},System.Boolean)">
             <summary>
             Extracts all import statements from source code lines, optionally removing them.
             </summary>
@@ -621,7 +631,7 @@
             <param name="remove">If true, removes the import lines from the source.</param>
             <returns>Collection of unique import statements found.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.Usings(System.Collections.Generic.List{System.String},System.String,System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.Usings(System.Collections.Generic.List{System.String},System.String,System.Boolean)">
             <summary>
             Extracts all statements matching the given keyword from source code lines, optionally removing them.
             </summary>
@@ -630,7 +640,7 @@
             <param name="remove">If true, removes matching lines from the source.</param>
             <returns>Collection of unique statements found.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.Usings(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{System.Int32}@,System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.Usings(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.List{System.Int32}@,System.Boolean)">
             <summary>
             Extracts all statements matching the given keyword, outputting line indices and optionally removing them.
             </summary>
@@ -640,7 +650,7 @@
             <param name="remove">If true, removes matching lines from the source.</param>
             <returns>Collection of unique statements found.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetDictionaryValuesFromTwoList(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetDictionaryValuesFromTwoList(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
             <summary>
             Generates C# dictionary initialization code from two parallel lists of names and values.
             </summary>
@@ -648,35 +658,35 @@
             <param name="chars">List of dictionary values corresponding to each key.</param>
             <returns>Generated C# code string for dictionary initialization.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetDictionaryValuesFromDictionary(System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetDictionaryValuesFromDictionary(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
             Generates C# dictionary initialization code from a string-to-string dictionary.
             </summary>
             <param name="data">Source dictionary to generate code from.</param>
             <returns>Generated C# code string for dictionary initialization.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetSummaryXmlDocumentation(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetSummaryXmlDocumentation(System.Collections.Generic.List{System.String})">
             <summary>
             Extracts the summary section from XML documentation comments in C# source code lines.
             </summary>
             <param name="cs">Lines of source code containing XML documentation comments.</param>
             <returns>The extracted summary text.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.CreateConstsForSearchUris(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.CreateConstsForSearchUris(System.Collections.Generic.List{System.String})">
             <summary>
             Generates C# const field declarations and a list for a collection of search URIs.
             </summary>
             <param name="uris">List of URI strings to generate constants from.</param>
             <returns>Generated C# code with const declarations and an aggregated list.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.CreateConsts(System.Collections.Generic.Dictionary{System.String,System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.CreateConsts(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
             Generates C# const field declarations from a dictionary of name-value pairs.
             </summary>
             <param name="dict">Dictionary where keys are constant names and values are constant values.</param>
             <returns>Generated C# code with const declarations.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.DictionaryWithClass``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Func{``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoCSharp.CSharpHelper.DictionaryWithClass``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Func{``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             Generates a C# class containing a dictionary initialized with random values for each key.
             </summary>
@@ -689,7 +699,7 @@
             <param name="argument">Optional code generation arguments.</param>
             <returns>Generated C# code for the class with dictionary initialization.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.DictionaryWithClass``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoCSharp.CSharpHelper.DictionaryWithClass``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             Generates a C# class containing a dictionary initialized from an existing dictionary. AddingValue defaults to false.
             </summary>
@@ -701,7 +711,7 @@
             <param name="argument">Optional code generation arguments.</param>
             <returns>Generated C# code for the class with dictionary initialization.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetDictionaryValuesFromDictionary``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetDictionaryValuesFromDictionary``2(System.Int32,System.String,System.Collections.Generic.Dictionary{``0,``1})">
             <summary>
             Generates C# code for dictionary value assignments from a source dictionary.
             </summary>
@@ -712,7 +722,7 @@
             <param name="dict">Source dictionary to generate assignment code from.</param>
             <returns>Generated C# code for dictionary value assignments.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetDictionaryValuesFromTwoList``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoCSharp.CSharpHelper.GetDictionaryValuesFromTwoList``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Collections.Generic.List{``1},SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             Generates C# code for populating a dictionary from two parallel lists of keys and values.
             </summary>
@@ -725,7 +735,7 @@
             <param name = "argument">Arguments controlling code generation behavior (e.g., splitKeyWith).</param>
             <returns>Generated C# code string.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetDictionaryValuesFromRandomValue``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Func{``1})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetDictionaryValuesFromRandomValue``2(System.Int32,System.String,System.Collections.Generic.List{``0},System.Func{``1})">
             <summary>
             Generates C# code for dictionary value assignments using random values from a factory function.
             </summary>
@@ -737,7 +747,7 @@
             <param name="randomValue">Factory function that produces random values.</param>
             <returns>Generated C# code string.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveXmlDocCommentsExceptSummary(System.Collections.Generic.List{System.String},System.Boolean@)">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveXmlDocCommentsExceptSummary(System.Collections.Generic.List{System.String},System.Boolean@)">
             <summary>
             Removes empty XML doc comment tags (like empty returns) except summary blocks.
             </summary>
@@ -745,14 +755,14 @@
             <param name="removedAnything">Output flag indicating whether anything was removed.</param>
             <returns>Joined string of the modified lines.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveXmlDocComments(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveXmlDocComments(System.Collections.Generic.List{System.String})">
             <summary>
             Removes all XML documentation comments from the source code lines.
             </summary>
             <param name="list">Source code lines to process.</param>
             <returns>Cleaned source code with comments removed.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveComments(System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveComments(System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Removes line and/or block comments from source code text.
             </summary>
@@ -762,7 +772,7 @@
             <param name="keepLinesNumbers">Whether to preserve line numbers by keeping newlines.</param>
             <returns>Source code with comments removed.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveComments(System.Collections.Generic.List{System.String},System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveComments(System.Collections.Generic.List{System.String},System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Removes C# line comments and/or block comments from the given source code lines.
             </summary>
@@ -772,21 +782,21 @@
             <param name = "keepLinesNumbers">Whether to keep original line numbers (replace comments with empty lines instead of removing).</param>
             <returns>Processed source code lines with comments removed.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveLineComments(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveLineComments(System.Collections.Generic.List{System.String})">
             <summary>
             Direct edit
             </summary>
             <param name = "list"></param>
             <returns></returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveBlockComments(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveBlockComments(System.String)">
             <summary>
             Removes block comments (/* ... */) and line comments (//) from source code using regex.
             </summary>
             <param name="str">Source code text to process.</param>
             <returns>Text with block and line comments removed.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetDictionaryStringObject``1(System.Int32,System.Collections.Generic.List{System.String},System.Collections.Generic.List{``0},System.String,SunamoDevCode.SunamoCSharp.Args.CSharpGeneratorArgs)">
+        <member name="M:SunamoCSharp.CSharpHelper.GetDictionaryStringObject``1(System.Int32,System.Collections.Generic.List{System.String},System.Collections.Generic.List{``0},System.String,SunamoCSharp.Args.CSharpGeneratorArgs)">
             <summary>
             Generates C# code for creating and populating a Dictionary with string keys and typed values.
             </summary>
@@ -798,14 +808,14 @@
             <param name="argument">Code generation arguments.</param>
             <returns>Generated C# code string.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.DefaultValueForTypeSqLite(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.DefaultValueForTypeSqLite(System.String)">
             <summary>
             Returns the default value string for a SQLite data type.
             </summary>
             <param name="type">SQLite type name (TEXT, INTEGER, REAL, DATETIME, BLOB).</param>
             <returns>Default value string for the given type.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetCtorInner(System.Int32,System.Collections.IList)">
+        <member name="M:SunamoCSharp.CSharpHelper.GetCtorInner(System.Int32,System.Collections.IList)">
             <summary>
             Generates constructor body assignments in the form "this.field = field;" for each value.
             </summary>
@@ -813,14 +823,14 @@
             <param name="values">List of field names to assign.</param>
             <returns>Formatted constructor inner body string.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetArray(System.Collections.Generic.List{System.String},System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.GetArray(System.Collections.Generic.List{System.String},System.String)">
             <summary>
             Return also List because Array isn't use
             </summary>
             <param name = "input"></param>
             <param name = "arrayName"></param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetList(System.Collections.Generic.List{System.String},System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.GetList(System.Collections.Generic.List{System.String},System.String)">
             <summary>
             Generates a C# list declaration with the given name and values.
             </summary>
@@ -828,20 +838,20 @@
             <param name="listName">Variable name for the generated list.</param>
             <returns>Generated C# list declaration code.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.RemoveRegions(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.RemoveRegions(System.Collections.Generic.List{System.String})">
             <summary>
             Removes all #region and #endregion directives from the lines.
             </summary>
             <param name="lines">Source code lines to process.</param>
             <returns>Lines with region directives removed.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.ReplaceForConsts(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.ReplaceForConsts(System.String)">
             <summary>
             Replaces static readonly field declarations with const declarations in the given file.
             </summary>
             <param name="pathXlfKeys">Path to the file to process.</param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetConsts(System.Collections.Generic.List{System.String},System.Nullable{System.Boolean})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetConsts(System.Collections.Generic.List{System.String},System.Nullable{System.Boolean})">
             <summary>
             Generates static readonly string constants from the list with optional camel case convention.
             </summary>
@@ -849,7 +859,7 @@
             <param name="toCamelConvention">Whether to apply camel case convention.</param>
             <returns>Generated constant declarations.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetConsts(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Nullable{System.Boolean})">
+        <member name="M:SunamoCSharp.CSharpHelper.GetConsts(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Nullable{System.Boolean})">
             <summary>
             Generates C# static readonly string constant declarations from the given names and values.
             </summary>
@@ -858,7 +868,7 @@
             <param name="toCamelConventionFirstCharLower">Whether to apply camelCase convention to constant names (null = no conversion).</param>
             <returns>Generated C# code with constant declarations.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GetConsts(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Nullable{System.Boolean},System.Type)">
+        <member name="M:SunamoCSharp.CSharpHelper.GetConsts(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Nullable{System.Boolean},System.Type)">
              <summary>
              A1 can be null
             
@@ -873,7 +883,7 @@
              <param name="type">Type of the constants (e.g. string, int).</param>
              <returns>Generated constant declarations.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GenerateConstants(System.Int32,System.Func{System.String,System.String},System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.GenerateConstants(System.Int32,System.Func{System.String,System.String},System.Collections.Generic.List{System.String})">
             <summary>
             GenerateConstants - const without value
             GetConsts - static readonly with value
@@ -883,7 +893,7 @@
             <param name = "input"></param>
             <returns></returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.TrimEnd(System.Collections.Generic.List{System.String},System.Char[])">
+        <member name="M:SunamoCSharp.CSharpHelper.TrimEnd(System.Collections.Generic.List{System.String},System.Char[])">
             <summary>
             Trims specified characters from the end of each string in the list.
             </summary>
@@ -891,7 +901,7 @@
             <param name="toTrim">Characters to trim from the end.</param>
             <returns>The modified list with trimmed strings.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.ParseFields(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.CSharpHelper.ParseFields(System.Collections.Generic.List{System.String})">
             <summary>
             value - data type
             key - name
@@ -899,7 +909,7 @@
             <param name="lines">Lines containing field declarations to parse.</param>
             <returns>Dictionary mapping field names (camelCase) to their data types.</returns>
         </member>
-        <member name="F:SunamoDevCode.SunamoCSharp.CSharpHelper.tProperty">
+        <member name="F:SunamoCSharp.CSharpHelper.tProperty">
             <summary>
             0 - item.Value
             1 - CSharpHelperSunamo.DefaultValueForType(item.Value)
@@ -907,14 +917,14 @@
             3 - SH.FirstCharUpper(item.Key)
             </summary>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.GenerateProperties(SunamoDevCode.Args.GeneratePropertiesArgs)">
+        <member name="M:SunamoCSharp.CSharpHelper.GenerateProperties(SunamoDevCode.Args.GeneratePropertiesArgs)">
             <summary>
             Generates C# property declarations with backing fields from the given arguments.
             </summary>
             <param name="argument">Arguments specifying input lines and generation options.</param>
             <returns>Generated property code.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.LineWithClass(System.Collections.Generic.List{System.String},System.Boolean)">
+        <member name="M:SunamoCSharp.CSharpHelper.LineWithClass(System.Collections.Generic.List{System.String},System.Boolean)">
             <summary>
             Finds the line containing a class declaration. If mustDerive is true, only returns classes that inherit from another.
             </summary>
@@ -922,14 +932,14 @@
             <param name="mustDerive">Whether the class must derive from another class.</param>
             <returns>The line containing the class declaration, or null if not found.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.DefaultValueForTypeObject(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.DefaultValueForTypeObject(System.String)">
             <summary>
             Returns the default value for a C# type as an object.
             </summary>
             <param name="type">C# type name or full name to get the default for.</param>
             <returns>Default value for the given type.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.WrapWithRegion(System.String,System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.WrapWithRegion(System.String,System.String)">
             <summary>
             Wraps the given text in a C# region directive.
             </summary>
@@ -937,14 +947,14 @@
             <param name="regionName">Name for the region.</param>
             <returns>Text wrapped in region and endregion directives.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.IsKeyword(System.String)">
+        <member name="M:SunamoCSharp.CSharpHelper.IsKeyword(System.String)">
             <summary>
             Determines whether the given string is a C# keyword. Call CsKeywords.Init before use.
             </summary>
             <param name="con">String to check against keyword lists.</param>
             <returns>True if the string is a C# keyword.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.WrapWithQuoteList(System.Type,System.Collections.IList)">
+        <member name="M:SunamoCSharp.CSharpHelper.WrapWithQuoteList(System.Type,System.Collections.IList)">
             <summary>
             Wraps each item in the list with appropriate quotes based on the value type and joins them with commas.
             </summary>
@@ -952,24 +962,24 @@
             <param name="valueS">List of values to wrap and join.</param>
             <returns>Comma-separated string of quoted values.</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.CSharpHelper.WrapWithQuote(System.Type,System.String@)">
+        <member name="M:SunamoCSharp.CSharpHelper.WrapWithQuote(System.Type,System.String@)">
             <summary>
             Wraps the string value with quotes appropriate for the given type (double quotes for string, single for char).
             </summary>
             <param name="tKey">Type to determine the quote character.</param>
             <param name="keyS">String value to wrap with quotes, modified in place.</param>
         </member>
-        <member name="T:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo">
+        <member name="T:SunamoCSharp.Helpers.CSharpHelperSunamo">
             <summary>
             Helper class for C# code processing and generation
             </summary>
         </member>
-        <member name="F:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.Type">
+        <member name="F:SunamoCSharp.Helpers.CSharpHelperSunamo.Type">
             <summary>
             Type information for runtime type checking
             </summary>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.IsAllCsprojAndSlnRightInHiearchy(System.String,SunamoDevCode.TextOutputGeneratorDC)">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.IsAllCsprojAndSlnRightInHiearchy(System.String,SunamoDevCode.TextOutputGeneratorDC)">
             <summary>
             Checks if all csproj and sln files are in correct hierarchy
             </summary>
@@ -977,48 +987,48 @@
             <param name="textOutputGenerator">Text output generator for results</param>
             <returns>String containing report of incorrectly placed files</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.IsOnlyInSpecialOrProjectFolders(System.String)">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.IsOnlyInSpecialOrProjectFolders(System.String)">
             <summary>
             Checks if file is only in special folders (starting with _) or Projects folders
             </summary>
             <param name="filePath">Path to file to check</param>
             <returns>True if file is in valid folder structure</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.DetectFromToString(System.String)">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.DetectFromToString(System.String)">
             <summary>
             Detects string literal ranges in text by finding quote pairs
             </summary>
             <param name="text">Text to analyze</param>
             <returns>List of from-to ranges for string literals</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.IndentAsPreviousLine(System.Collections.Generic.List{System.String})">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.IndentAsPreviousLine(System.Collections.Generic.List{System.String})">
             <summary>
             Indents lines to match the indentation of the previous line
             </summary>
             <param name="lines">Lines to process</param>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.IsInterface(System.String)">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.IsInterface(System.String)">
             <summary>
             Checks if type name follows interface naming convention (starts with 'I' followed by uppercase letter)
             </summary>
             <param name="text">Type name to check</param>
             <returns>True if name follows interface convention</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.ReplaceNulled(System.String)">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.ReplaceNulled(System.String)">
             <summary>
             Removes "(null)" text from string
             </summary>
             <param name="text">Text to process</param>
             <returns>Text with "(null)" removed and trimmed</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.ShortcutForControl(System.String)">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.ShortcutForControl(System.String)">
             <summary>
             Creates shortcut from control name by extracting uppercase letters
             </summary>
             <param name="text">Control name</param>
             <returns>Shortcut created from uppercase letters</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.DefaultValueForTypeT``1(``0,System.Func{System.String,System.String})">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.DefaultValueForTypeT``1(``0,System.Func{System.String,System.String})">
             <summary>
             Gets default value for type T. Not compatible with default operator - must cast manually
             https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/default-values
@@ -1028,7 +1038,7 @@
             <param name="convertTypeShortcutFullNameToShortcut">Function to convert full type name to shortcut</param>
             <returns>Default value for the type</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.DefaultValueForType(System.String,System.Func{System.String,System.String})">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.DefaultValueForType(System.String,System.Func{System.String,System.String})">
             <summary>
             Gets default value for type as string representation
             </summary>
@@ -1036,22 +1046,12 @@
             <param name="convertTypeShortcutFullNameToShortcut">Function to convert full type name to shortcut</param>
             <returns>String representation of default value</returns>
         </member>
-        <member name="M:SunamoDevCode.SunamoCSharp.Helpers.CSharpHelperSunamo.ReplaceReadonlyToConst(System.String)">
+        <member name="M:SunamoCSharp.Helpers.CSharpHelperSunamo.ReplaceReadonlyToConst(System.String)">
             <summary>
             Replaces 'readonly' and 'static readonly' keywords with 'const' keyword
             </summary>
             <param name="text">Text to process</param>
             <returns>Text with readonly keywords replaced by const</returns>
-        </member>
-        <member name="T:SunamoDevCode.SunamoCSharp.Values.CSharpConsts">
-            <summary>
-            Constants for C# code syntax elements
-            </summary>
-        </member>
-        <member name="F:SunamoDevCode.SunamoCSharp.Values.CSharpConsts.LineComment">
-            <summary>
-            Line comment delimiter (//)
-            </summary>
         </member>
     </members>
 </doc>

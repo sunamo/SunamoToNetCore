@@ -5,7 +5,7 @@
   },
   "projects": {
     "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoAps\\SunamoAps\\SunamoAps.csproj": {
-      "version": "26.5.18.8",
+      "version": "26.6.21.1",
       "restore": {
         "projectUniqueName": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoAps\\SunamoAps\\SunamoAps.csproj",
         "projectName": "SunamoAps",
@@ -1238,7 +1238,7 @@
       }
     },
     "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoCSharp\\SunamoCSharp\\SunamoCSharp.csproj": {
-      "version": "26.5.18.8",
+      "version": "26.6.21.9",
       "restore": {
         "projectUniqueName": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoCSharp\\SunamoCSharp\\SunamoCSharp.csproj",
         "projectName": "SunamoCSharp",
@@ -3648,7 +3648,7 @@
       }
     },
     "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoDevCodeCore\\SunamoDevCodeCore\\SunamoDevCodeCore.csproj": {
-      "version": "26.5.18.8",
+      "version": "26.6.21.1",
       "restore": {
         "projectUniqueName": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoDevCodeCore\\SunamoDevCodeCore\\SunamoDevCodeCore.csproj",
         "projectName": "SunamoDevCodeCore",
@@ -7199,7 +7199,7 @@
       }
     },
     "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoToNetCore\\SunamoToNetCore\\SunamoToNetCore.csproj": {
-      "version": "26.5.18.8",
+      "version": "26.6.21.1",
       "restore": {
         "projectUniqueName": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoToNetCore\\SunamoToNetCore\\SunamoToNetCore.csproj",
         "projectName": "SunamoToNetCore",

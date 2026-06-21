@@ -3,11 +3,12 @@
     <TargetFrameworks>net10.0;net9.0;net8.0;netstandard2.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Platforms>AnyCPU;x86</Platforms>
-    <Version>26.5.18.8</Version>
+    <Version>26.6.21.1</Version>
     <Description>ToNetCore migration utilities extracted from SunamoDevCode.</Description>
     <PackageReleaseNotes>y</PackageReleaseNotes>
     <Authors>www.sunamo.cz</Authors>
     <Copyright>www.sunamo.cz</Copyright>
+    <PackageProjectUrl>https://sunamo.github.io/PlatformIndependentNuGetPackages/SunamoToNetCore/</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Nullable>enable</Nullable>
@@ -17,6 +18,12 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <EmbedAllSources>true</EmbedAllSources>
     <Optimize>false</Optimize>
+    <DebugType>portable</DebugType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <RepositoryUrl>https://github.com/sunamo/SunamoToNetCore.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SunamoDevCodeBase\SunamoDevCodeBase\SunamoDevCodeBase.csproj" />
