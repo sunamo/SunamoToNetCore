@@ -1,4 +1,4 @@
-namespace SunamoDevCode.ToNetCore.research;
+namespace SunamoToNetCore;
 
 public partial class MoveToNet5 //: ProgramShared
 {
@@ -20,7 +20,6 @@ public partial class MoveToNet5 //: ProgramShared
         tog.List(temp.Item2, "Not web projects");
         var output = tog.ToString();
 
-        //#if DEBUG
         //        ProgramShared.Output = output;
         //        ProgramShared.OutputOpen();
         //#elif !DEBUG

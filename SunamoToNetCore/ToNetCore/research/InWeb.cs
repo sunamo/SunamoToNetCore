@@ -1,37 +1,19 @@
-namespace SunamoDevCode.ToNetCore.research;
+namespace SunamoToNetCore;
 
 // EN: Variable names have been checked and replaced with self-descriptive names
 // CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
 public partial class MoveToNet5
 {
-    /// <summary>
-    /// Pravděpodobně to kurví csproj
-    /// A1 can be
-    ///
-    /// Tohle asi nemělo příliš smysl. Když jsem to změnil celé v jakémkoliv řešení z AnyCPU na x86 tak jsem měl u plno projektů modrou ikonku.
-    /// Navíc text tímto nastavením když jsem spustil EveryLine a ač sln bylo nastavené AnyCPu, hned po spuštení že nemůže načíst EveryLine. Když jsem jeho csproj změnil na AnyCPU, chybu začalo hlásit zase u desktop.
-    ///
-    /// A1 can be x86,x64.AnyCPU
-    /// </summary>
-    /// <summary>
-    /// Changes the PlatformTarget for all web projects.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
-    /// <param name="replaceFor">Target platform value to set (x86, x64, AnyCPU).</param>
+    // Pravděpodobně to kurví csproj
+    // A1 can be x86,x64.AnyCPU
     public
-#if ASYNC
     async Task
-#else
-    void
-#endif
     PlatformTargetToWeb(ILogger logger, string replaceFor)
     {
         var temp = WebAndNonWebProjects(logger);
         var tt = temp.Item1;
         replaceFor = 
-#if ASYNC
     await
-#endif
         Shared.PlatformTargetTo(replaceFor, tt);
     }
 
@@ -40,25 +22,15 @@ public partial class MoveToNet5
     // System.Web.Services
     // System.Data";
     const string neededWebReferences = "";
-    /// <summary>
-    /// Adds essential web references (System.Web, etc.) to all web projects that are missing them.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
     public
-#if ASYNC
     async Task
-#else
-    void
-#endif
     AddEssentialWebReferencesToAllWebProjects(ILogger logger)
     {
-        var list = SHGetLines.GetLines(neededWebReferences);
+        _ = SHGetLines.GetLines(neededWebReferences);
         var temp = 
-#if ASYNC
     await
-#endif
         FindProjectsWhichIsSdkStyle(logger, false);
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         if (temp.NetstandardList.Count > 0)
         {
             stringBuilder.AppendLine("Web projects which is in web standard");
@@ -87,57 +59,31 @@ public partial class MoveToNet5
         {
             foreach (var item2 in l2)
             {
-#if DEBUG
-                if (item.Contains("dart.sunamo.cz") && item2.Contains("System.Web"))
-                {
-                }
-#endif
                 var rig = new ReferenceItemGroup(item2, item, null!);
                 await VsProjectsFileHelper.AddItemGroupSdkStyle(item, ItemGroups.Reference, rig, true);
             }
         }
     }
 
-    /// <summary>
-    /// Changes all SDK-style web projects to target netstandard2.0.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
     public
-#if ASYNC
     async Task
-#else
-    void
-#endif
     ChangeProjectsToNetStandard(ILogger logger)
     {
         var list = 
-#if ASYNC
     await
-#endif
         FindProjectsWhichIsSdkStyle(logger, false);
         await ChangeProjects.ChangeProjectsTo(ChangeProjects.netstandard20, list.CsprojSdkStyleList);
     }
 
-    /// <summary>
-    /// Finds backup files for web projects that are not SDK-style and categorizes them.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
-    /// <returns>Report of backup status for each project.</returns>
     public
-#if ASYNC
     async Task<string>
-#else
-    void
-#endif
     WebProjectsWhichIsNotSdkStyleFindTheirBackup(ILogger logger)
     {
-        List<string> haveBackupSdkStyle = new List<string>();
-        List<string> dontHaveBackupSdkStyle = new List<string>();
-        List<string> dontHaveBackup = new List<string>();
+        List<string> haveBackupSdkStyle = new();
+        List<string> dontHaveBackupSdkStyle = new();
+        List<string> dontHaveBackup = new();
         var list = 
-#if ASYNC
     await
-#endif
         FindProjectsWhichIsSdkStyle(logger, false);
         foreach (var item in list.CsprojSdkStyleList)
         {
@@ -167,28 +113,17 @@ public partial class MoveToNet5
         return tog.ToString();
     }
 
-    /// <summary>
-    /// Detects the .NET framework version for all web projects and groups them by version.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
-    /// <returns>Report grouped by framework version.</returns>
     public
-#if ASYNC
     async Task<string>
-#else
-    void
-#endif
     DetectFrameworkForWebProjectsOnlySupported(ILogger logger)
     {
-        TextOutputGenerator tog = new TextOutputGenerator();
-        Dictionary<SupportedNetFw, StringBuilder> stringBuilder = new Dictionary<SupportedNetFw, StringBuilder>();
+        TextOutputGenerator tog = new();
+        Dictionary<SupportedNetFw, StringBuilder> stringBuilder = new();
         var temp = WebAndNonWebProjects(logger);
         foreach (var item in temp.Item1)
         {
             var name = 
-#if ASYNC
                 await
-#endif
             SunamoCsprojHelper.DetectNetVersion2(item);
             // Inlined from DictionaryHelper.AppendLineOrCreate - přidává řádek do StringBuilderu nebo vytváří nový
             if (stringBuilder.ContainsKey(name))
@@ -213,10 +148,6 @@ public partial class MoveToNet5
         return tog.ToString();
     }
 
-    /// <summary>
-    /// Converts all web projects targeting netstandard2.0 to target net4.8.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
     public async Task ConvertAlLWebNetStandardProjectsToNet48(ILogger logger)
     {
         var temp = WebAndNonWebProjects(logger);
@@ -226,15 +157,10 @@ public partial class MoveToNet5
         }
     }
 
-    /// <summary>
-    /// Lists web projects whose csproj files do not end with .web.csproj.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
-    /// <returns>List of non-standard web project paths.</returns>
     public string WebProjectsWhichNotEndWithDotEnd(ILogger logger)
     {
         var temp = WebAndNonWebProjects(logger, true);
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         foreach (var item in temp.Item1)
         {
             // Vše zde musí být bez koncového lomítka abych podchytil i .Tests postfix
@@ -247,23 +173,14 @@ public partial class MoveToNet5
         return stringBuilder.ToString();
     }
 
-    /// <summary>
-    /// 1 = sdk style, not netstandard2.0
-    /// 2 = sdk style, netstandard2.0
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
-    /// <param name="appendHeader">Whether to append a header line to the output.</param>
-    /// <returns>Tuple of (SDK-style web projects, netstandard web projects) with version info.</returns>
-    public 
-#if ASYNC
+    // 1 = sdk style, not netstandard2.0
+    // 2 = sdk style, netstandard2.0
+    public
     async Task<Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>>>
-#else
-    Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>> 
-#endif
     DetectFrameworkForWebProjects(ILogger logger, bool appendHeader)
     {
-        List<TWithStringDC<string>> list = new List<TWithStringDC<string>>();
-        List<TWithStringDC<string>> l2 = new List<TWithStringDC<string>>();
+        List<TWithStringDC<string>> list = new();
+        List<TWithStringDC<string>> l2 = new();
         if (appendHeader)
         {
             list.Add(new TWithStringDC<string>("", "Web but in SDK style:"));
@@ -275,9 +192,7 @@ public partial class MoveToNet5
         foreach (var item2 in temp.Item1)
         {
             t3 = 
-#if ASYNC
     await
-#endif
             SunamoCsprojHelper.DetectNetVersion(item2);
             if (t3 != null)
             {
@@ -298,25 +213,12 @@ public partial class MoveToNet5
         return new Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>>(list, l2);
     }
 
-    /// <summary>
-    /// Finds all SDK-style projects and returns a formatted list report.
-    /// </summary>
-    /// <param name="logger">Logger instance.</param>
-    /// <param name="appendHeaderForWeb">Whether to append a header for web projects.</param>
-    /// <param name="web">Whether to include web projects.</param>
-    /// <returns>Formatted text report of SDK-style projects.</returns>
     public
-#if ASYNC
     async Task<string>
-#else
-    void
-#endif
     FindProjectsWhichIsSdkStyleList(ILogger logger, bool appendHeaderForWeb, bool web = true)
     {
         var result = 
-#if ASYNC
     await
-#endif
         FindProjectsWhichIsSdkStyle(logger, appendHeaderForWeb, web);
         TextOutputGenerator tog = new TextOutputGenerator();
         tog.List(result.CsprojSdkStyleList, nameof(result.CsprojSdkStyleList));
