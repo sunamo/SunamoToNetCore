@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jKgs24sL1Jk=",
+  "dgSpecHash": "lHqL7vyLrRY=",
   "success": true,
   "projectFilePath": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoToNetCore\\SunamoToNetCore\\SunamoToNetCore.csproj",
   "expectedPackageFiles": [
@@ -27,10 +27,7 @@
     "C:\\Users\\aktiv\\.nuget\\packages\\textcopy\\6.2.1\\textcopy.6.2.1.nupkg.sha512",
     "C:\\Users\\aktiv\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.17\\microsoft.netcore.app.ref.9.0.17.nupkg.sha512",
     "C:\\Users\\aktiv\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.17\\microsoft.windowsdesktop.app.ref.9.0.17.nupkg.sha512",
-    "C:\\Users\\aktiv\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.17\\microsoft.aspnetcore.app.ref.9.0.17.nupkg.sha512",
-    "C:\\Users\\aktiv\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.28\\microsoft.netcore.app.ref.8.0.28.nupkg.sha512",
-    "C:\\Users\\aktiv\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.28\\microsoft.windowsdesktop.app.ref.8.0.28.nupkg.sha512",
-    "C:\\Users\\aktiv\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.28\\microsoft.aspnetcore.app.ref.8.0.28.nupkg.sha512"
+    "C:\\Users\\aktiv\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.17\\microsoft.aspnetcore.app.ref.9.0.17.nupkg.sha512"
   ],
   "logs": []
 }

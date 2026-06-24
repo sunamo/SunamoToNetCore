@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("www.sunamo.cz")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("ToNetCore migration utilities extracted from SunamoDevCode.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("26.6.21.1")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("26.6.21.1+1fa4cd1c19c6a5a7c05b52720354998c6c8aa522")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("26.6.21.1+88e0c8c65e80784cbfe184630dcbca9cc8634ef8")]
 [assembly: System.Reflection.AssemblyProductAttribute("SunamoToNetCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SunamoToNetCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("26.6.21.1")]
