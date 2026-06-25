@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="RunnerSunamoToNetCore\\RunnerSunamoToNetCore.csproj" />
+  <Project Path="SunamoToNetCore\\SunamoToNetCore.csproj" />
+  <Project Path="SunamoToNetCore.Tests\\SunamoToNetCore.Tests.csproj" />
+</Solution>
