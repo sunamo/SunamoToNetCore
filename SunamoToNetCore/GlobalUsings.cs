@@ -78,3 +78,4 @@ global using SunamoDevCode;
 global using SunamoSolutionsIndexer;
 global using SunamoAps;
 global using SunamoToNetCore;
+global using SunamoToNetCore.ToNetCore.Results;
