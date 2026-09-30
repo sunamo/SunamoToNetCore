@@ -1,4 +1,4 @@
-namespace SunamoToNetCore;
+namespace SunamoToNetCore.ToNetCore.Results;
 
 // Reference: https://learn.microsoft.com/en-us/dotnet/standard/frameworks
 public class IsNetCore5UpMonikerResult

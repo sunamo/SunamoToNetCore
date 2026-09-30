@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoSolutionsIndexer;
+namespace SunamoToNetCore._sunamo.SunamoSolutionsIndexer.SunamoSolutionsIndexer.Enums;
 
 public enum ProjectsTypes
 {

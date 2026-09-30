@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoAps;
+namespace SunamoToNetCore._sunamo.SunamoAps.Aps.Projs.Enums;
 
 internal enum SupportedNetFw
 {

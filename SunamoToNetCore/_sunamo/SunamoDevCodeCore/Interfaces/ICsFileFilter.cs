@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoDevCodeCore;
+namespace SunamoToNetCore._sunamo.SunamoDevCodeCore.Interfaces;
 
 internal interface ICsFileFilter
 {
