@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoDevCodeBase;
+namespace SunamoToNetCore._sunamo.SunamoDevCodeBase._sunamo.SunamoTwoWayDictionary;
 
 internal class TwoWayDictionary<T, U> where T : notnull where U : notnull
 {

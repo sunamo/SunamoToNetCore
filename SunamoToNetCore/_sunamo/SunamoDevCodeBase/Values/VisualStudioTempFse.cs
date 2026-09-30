@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoDevCodeBase;
+namespace SunamoToNetCore._sunamo.SunamoDevCodeBase.Values;
 
 internal class VisualStudioTempFse
 {

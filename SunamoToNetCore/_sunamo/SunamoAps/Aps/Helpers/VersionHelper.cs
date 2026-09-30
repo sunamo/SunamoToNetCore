@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoAps;
+namespace SunamoToNetCore._sunamo.SunamoAps.Aps.Helpers;
 
 internal class VersionHelper
 {

@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoSolutionsIndexer;
+namespace SunamoToNetCore._sunamo.SunamoSolutionsIndexer.SunamoSolutionsIndexer;
 
 // EN: Variable names have been checked and replaced with self-descriptive names
 // CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy

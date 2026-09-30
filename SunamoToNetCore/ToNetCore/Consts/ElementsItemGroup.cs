@@ -1,4 +1,4 @@
-namespace SunamoToNetCore;
+namespace SunamoToNetCore.ToNetCore.Consts;
 
 public class ElementsItemGroup
 {

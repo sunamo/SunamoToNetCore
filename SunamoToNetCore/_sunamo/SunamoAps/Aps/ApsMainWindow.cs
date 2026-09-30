@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoAps;
+namespace SunamoToNetCore._sunamo.SunamoAps.Aps;
 
 internal class ApsMainWindow : IMainWindowCsFileFilter, IAbstractCatalog<string, string>
 {

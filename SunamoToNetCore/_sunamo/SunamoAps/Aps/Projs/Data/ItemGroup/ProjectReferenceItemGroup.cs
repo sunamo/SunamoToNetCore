@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoAps;
+namespace SunamoToNetCore._sunamo.SunamoAps.Aps.Projs.Data.ItemGroup;
 
 internal class ProjectReferenceItemGroup : ItemGroupElement
 {

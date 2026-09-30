@@ -1,4 +1,4 @@
-namespace SunamoToNetCore.ToNetCore.research;
+namespace SunamoToNetCore.research;
 
 public class Shared
 {

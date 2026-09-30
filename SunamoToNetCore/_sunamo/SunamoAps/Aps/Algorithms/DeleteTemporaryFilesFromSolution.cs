@@ -1,4 +1,4 @@
-﻿namespace SunamoToNetCore._sunamo.SunamoAps;
+namespace SunamoToNetCore._sunamo.SunamoAps.Aps.Algorithms;
 
 internal class DeleteTemporaryFilesFromSolution
 {
