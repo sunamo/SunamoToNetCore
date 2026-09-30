@@ -26,12 +26,12 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SunamoDevCodeBase\SunamoDevCodeBase\SunamoDevCodeBase.csproj" />
-    <ProjectReference Include="..\..\SunamoSolutionsIndexer\SunamoSolutionsIndexer\SunamoSolutionsIndexer.csproj" />
-    <ProjectReference Include="..\..\SunamoAps\SunamoAps\SunamoAps.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.102" PrivateAssets="all" />
+    <PackageReference Include="CaseDotNet.Extensions" Version="0.2.46" />
+    <PackageReference Include="Diacritics" Version="4.1.4" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.2" />
+    <PackageReference Include="TextCopy" Version="6.2.1" />
     <PackageReference Include="PolySharp" Version="1.15.0" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
