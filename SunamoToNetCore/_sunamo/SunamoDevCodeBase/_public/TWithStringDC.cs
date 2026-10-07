@@ -15,9 +15,9 @@ public class TWithStringDC<T>
     /// <summary>
     /// Initializes a new instance of TWithStringDC.
     /// </summary>
-    public TWithStringDC(T t, string path)
+    public TWithStringDC(T item, string path)
     {
-        this.t = t;
+        this.t = item;
         this.path = path;
     }
 

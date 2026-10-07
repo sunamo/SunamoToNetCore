@@ -25,12 +25,12 @@ internal partial class CA
     /// </summary>
     internal static List<string> EnsureBackslash(List<string> paths)
     {
-        for (int i = 0; i < paths.Count; i++)
+        for (int index = 0; index < paths.Count; index++)
         {
-            string path = paths[i];
+            string path = paths[index];
             if (path[path.Length - 1] != '\\')
             {
-                paths[i] = path + "\\";
+                paths[index] = path + "\\";
             }
         }
 
@@ -64,11 +64,11 @@ internal partial class CA
     internal static void RemoveWildcard(List<string> list, string mask)
     {
         //https://stackoverflow.com/a/15275806
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            if (SH.MatchWildcard(list[i], mask))
+            if (SH.MatchWildcard(list[index], mask))
             {
-                list.RemoveAt(i);
+                list.RemoveAt(index);
             }
         }
     }
@@ -78,11 +78,11 @@ internal partial class CA
     /// </summary>
     internal static List<string> Prepend(string prefix, List<string> list)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            if (!list[i].StartsWith(prefix))
+            if (!list[index].StartsWith(prefix))
             {
-                list[i] = prefix + list[i];
+                list[index] = prefix + list[index];
             }
         }
 

@@ -71,14 +71,14 @@ public partial class MoveToNet5
     await
                 TF.ReadAllText(csFilePath);
                 string modifiedFileContent = originalFileContent!;
-                for (int i = 0; i < linesToComment.Count; i++)
+                for (int index = 0; index < linesToComment.Count; index++)
                 {
-                    modifiedFileContent = modifiedFileContent!.Replace(linesToComment[i], singleCommentedLines[i]);
+                    modifiedFileContent = modifiedFileContent!.Replace(linesToComment[index], singleCommentedLines[index]);
                 }
 
-                for (int i = 0; i < linesToComment.Count; i++)
+                for (int commentIndex = 0; commentIndex < linesToComment.Count; commentIndex++)
                 {
-                    modifiedFileContent = modifiedFileContent!.Replace(doubleCommentedLines[i], singleCommentedLines[i]);
+                    modifiedFileContent = modifiedFileContent!.Replace(doubleCommentedLines[commentIndex], singleCommentedLines[commentIndex]);
                 }
 
                 if (modifiedFileContent != originalFileContent)

@@ -104,9 +104,9 @@ internal partial class FS
     internal static List<string> OnlyNamesNoDirectEdit(List<string> filePaths)
     {
         var fileNames = new List<string>(filePaths.Count);
-        for (int i = 0; i < filePaths.Count; i++)
+        for (int index = 0; index < filePaths.Count; index++)
         {
-            fileNames.Add(Path.GetFileName(filePaths[i]));
+            fileNames.Add(Path.GetFileName(filePaths[index]));
         }
 
         return fileNames;

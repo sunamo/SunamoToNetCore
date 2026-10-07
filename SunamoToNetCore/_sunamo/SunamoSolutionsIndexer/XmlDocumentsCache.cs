@@ -143,11 +143,11 @@ internal class XmlDocumentsCache
         async Task
         Set(string path, string xmlContent, bool saveToFile = false)
     {
-        var xd = new XmlDocument();
-        xd.PreserveWhitespace = true;
-        xd.LoadXml(xmlContent);
+        var documentResult = new XmlDocument();
+        documentResult.PreserveWhitespace = true;
+        documentResult.LoadXml(xmlContent);
         await
-            Set(path, xd, saveToFile);
+            Set(path, documentResult, saveToFile);
     }
 
     /// <summary>

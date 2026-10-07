@@ -86,17 +86,17 @@ public partial class FoldersWithSolutions
         List<string> solutionFolders = ReturnAllProjectFolders(documentsFolder /*, Path.Combine(documentsFolder, SolutionsIndexerStrings.GitHubMy)*/);
         // EN: Remove trailing backslashes before extracting names
         // CZ: Odstraň trailing backslashe před extrakcí názvů
-        var solutionFoldersWithoutTrailingSlash = solutionFolders.Select(f => f.TrimEnd('\\')).ToArray();
+        var solutionFoldersWithoutTrailingSlash = solutionFolders.Select(folder => folder.TrimEnd('\\')).ToArray();
         List<string> projOnlyNames = new List<string>(solutionFolders.Count);
-        var on = FS.OnlyNamesNoDirectEdit(solutionFoldersWithoutTrailingSlash);
-        projOnlyNames.AddRange(on);
+        var onlyNames = FS.OnlyNamesNoDirectEdit(solutionFoldersWithoutTrailingSlash);
+        projOnlyNames.AddRange(onlyNames);
         // Initialize global variable solutions
         Solutions = new List<SolutionFolder>(solutionFolders.Count);
-        for (int i = 0; i < solutionFolders.Count; i++)
+        for (int index = 0; index < solutionFolders.Count; index++)
         {
-            var solutionFolder = solutionFolders[i];
-            SolutionFolder sf = CreateSolutionFolder(logger, documentsFolder, solutionFolder, toSelling, projOnlyNames[i]);
-            Solutions.Add(sf);
+            var solutionFolder = solutionFolders[index];
+            SolutionFolder createdSolutionFolder = CreateSolutionFolder(logger, documentsFolder, solutionFolder, toSelling, projOnlyNames[index]);
+            Solutions.Add(createdSolutionFolder);
         }
 
         return Solutions;
@@ -113,22 +113,22 @@ public partial class FoldersWithSolutions
             return;
         }
 
-        var p2 = documentsFolder;
+        var basePath = documentsFolder;
         //var p2 = BasePathsHelper.bp;
         //if (!Directory.Exists(p2))
         //{
         //    return;
         //}
-        var folders = Directory.GetDirectories(p2, "*", SearchOption.TopDirectoryOnly);
+        var folders = Directory.GetDirectories(basePath, "*", SearchOption.TopDirectoryOnly);
         foreach (var item in folders)
         {
-            var fn = Path.GetFileName(item);
-            if (fn.EndsWith(SolutionsIndexerStrings.ProjectPostfix))
+            var fileName = Path.GetFileName(item);
+            if (fileName.EndsWith(SolutionsIndexerStrings.ProjectPostfix))
             {
                 ProjectsTypes parameter = ProjectsTypes.None;
-                var list = fn.Replace(SolutionsIndexerStrings.ProjectPostfix, string.Empty);
-                var l2 = list.Replace("_", string.Empty).Trim();
-                switch (l2)
+                var list = fileName.Replace(SolutionsIndexerStrings.ProjectPostfix, string.Empty);
+                var normalizedName = list.Replace("_", string.Empty).Trim();
+                switch (normalizedName)
                 {
                     case "C++":
                         parameter = ProjectsTypes.Cpp;
@@ -137,7 +137,7 @@ public partial class FoldersWithSolutions
                     //    parameter = ProjectsTypes.Cs;
                     //    break;
                     default:
-                        parameter = EnumHelper.Parse(l2, ProjectsTypes.None);
+                        parameter = EnumHelper.Parse(normalizedName, ProjectsTypes.None);
                         break;
                 }
 

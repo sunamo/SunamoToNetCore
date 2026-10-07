@@ -35,15 +35,15 @@ internal partial class SunamoCsprojHelper
         bool netstandard = false;
         if (!fileOrContent.StartsWith("<") && FS.ExistsFile(fileOrContent))
         {
-            var xd =
+            var documentResult =
             await
             XmlDocumentsCache.Get(fileOrContent);
-            if (xd.Data == null)
+            if (documentResult.Data == null)
             {
                 return null;
             }
 
-            fileOrContent = xd.Data.OuterXml;
+            fileOrContent = documentResult.Data.OuterXml;
         }
 
         if (fileOrContent.Contains("<TargetFramework>netstandard2.0</TargetFramework>"))

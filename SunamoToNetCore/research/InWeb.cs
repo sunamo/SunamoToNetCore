@@ -16,10 +16,10 @@ public partial class MoveToNet5
     PlatformTargetToWeb(ILogger logger, string replaceFor)
     {
         var temp = WebAndNonWebProjects(logger);
-        var tt = temp.Item1;
+        var webProjects = temp.Item1;
         replaceFor =
     await
-        Shared.PlatformTargetTo(replaceFor, tt);
+        Shared.PlatformTargetTo(replaceFor, webProjects);
     }
 
     // 25-9-2022 Protože mi opět něco smazalo assembly se *.sunamo.cz csproj - .Web.Services, Data, .Web => commented, dole náhrada.
@@ -46,11 +46,11 @@ public partial class MoveToNet5
             }
         }
 
-        var l2 = SHGetLines.GetLines(neededWebReferences);
+        var neededReferences = SHGetLines.GetLines(neededWebReferences);
         //CA.PostfixIfNotEnding(".dll", l2);
         foreach (var item in temp.CsprojSdkStyleList)
         {
-            foreach (var item2 in l2)
+            foreach (var item2 in neededReferences)
             {
                 var rig = new ReferenceItemGroup(item2, item, null!);
                 // Toto tu muselo být zřejmě kvůli užívání AddItemGroupNoSdkStyle. Teď mi to dělá problémy protože .dll tam nepatří
@@ -63,7 +63,7 @@ public partial class MoveToNet5
         // 3 = non sdk style
         foreach (var item in temp.NonCsprojSdkStyleList)
         {
-            foreach (var item2 in l2)
+            foreach (var item2 in neededReferences)
             {
                 var rig = new ReferenceItemGroup(item2, item, null!);
                 await VsProjectsFileHelper.AddItemGroupSdkStyle(item, ItemGroups.Reference, rig, true);
@@ -186,7 +186,7 @@ public partial class MoveToNet5
     DetectFrameworkForWebProjects(ILogger logger, bool appendHeader)
     {
         List<TWithStringDC<string>> list = new List<TWithStringDC<string>>();
-        List<TWithStringDC<string>> l2 = new List<TWithStringDC<string>>();
+        List<TWithStringDC<string>> netStandardList = new List<TWithStringDC<string>>();
         if (appendHeader)
         {
             list.Add(new TWithStringDC<string>("", "Web but in SDK style:"));
@@ -194,29 +194,29 @@ public partial class MoveToNet5
 
         bool netstandard = false;
         var temp = WebAndNonWebProjects(logger);
-        Tuple<bool, string>? t3 = null;
+        Tuple<bool, string>? netVersion = null;
         foreach (var item2 in temp.Item1)
         {
-            t3 =
+            netVersion =
     await
             SunamoCsprojHelper.DetectNetVersion(item2);
-            if (t3 != null)
+            if (netVersion != null)
             {
-                if (t3.Item1)
+                if (netVersion.Item1)
                 {
                     if (netstandard)
                     {
-                        l2.Add(new TWithStringDC<string>(item2, t3.Item2));
+                        netStandardList.Add(new TWithStringDC<string>(item2, netVersion.Item2));
                     }
                     else
                     {
-                        list.Add(new TWithStringDC<string>(item2, t3.Item2));
+                        list.Add(new TWithStringDC<string>(item2, netVersion.Item2));
                     }
                 }
             }
         }
 
-        return new Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>>(list, l2);
+        return new Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>>(list, netStandardList);
     }
 
     public

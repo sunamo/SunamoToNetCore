@@ -7,9 +7,9 @@ internal class ExtensionSortedCollection
     /// <summary>
     /// Initializes a new instance of ExtensionSortedCollection.
     /// </summary>
-    public ExtensionSortedCollection(params string[] d)
+    public ExtensionSortedCollection(params string[] extensions)
     {
-        d.ToList().ForEach(fileName => AddOnlyFileName(fileName));
+        extensions.ToList().ForEach(fileName => AddOnlyFileName(fileName));
     }
 
     /// <summary>
@@ -28,9 +28,9 @@ internal class ExtensionSortedCollection
         }
         else
         {
-            var ad = new List<string>();
-            ad.Add(value);
-            dictionary.Add(key, ad);
+            var values = new List<string>();
+            values.Add(value);
+            dictionary.Add(key, values);
         }
     }
 }
