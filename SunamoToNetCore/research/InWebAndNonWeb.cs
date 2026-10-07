@@ -99,7 +99,7 @@ public partial class MoveToNet5
     {
         List<string> hasMoreTargetFrameworkElements = new List<string>();
 
-        Dictionary<string, List<string>> ls = new Dictionary<string, List<string>>();
+        Dictionary<string, List<string>> targetFrameworksByProject = new Dictionary<string, List<string>>();
 
         var data = WebAndNonWebProjects(logger, true);
 
@@ -113,7 +113,7 @@ public partial class MoveToNet5
 
             if (text != null)
             {
-                DictionaryHelper.AddOrCreate(ls, text, item);
+                DictionaryHelper.AddOrCreate(targetFrameworksByProject, text, item);
             }
 
             if (SH.OccurencesOfStringIn(count!, ChangeProjects.start) > 1)
@@ -123,7 +123,7 @@ public partial class MoveToNet5
         }
 
         TextOutputGenerator tog = new TextOutputGenerator();
-        tog.Dictionary(ls);
+        tog.Dictionary(targetFrameworksByProject);
         tog.List(hasMoreTargetFrameworkElements, "hasMoreTargetFrameworkElements");
 
         return tog.ToString();

@@ -48,10 +48,10 @@ public class ChangeProjects
         return null;
     }
 
-    public static async Task ChangeProjectsTo(string to2, List<TWithStringDC<string>> l)
+    public static async Task ChangeProjectsTo(string to2, List<TWithStringDC<string>> projects)
     {
         var parsedMonikerTo = IsNetCore5UpMoniker(to2);
-        foreach (var item in l)
+        foreach (var item in projects)
         {
             var content = item.t;
             var path = item.path;
@@ -64,35 +64,35 @@ public class ChangeProjects
     async Task
  ChangeProjectTo(string to2, string path, IsNetCore5UpMonikerResult? parsedMonikerTo, string? dontChangeIfSourceIs = null)
     {
-        var xd =
+        var documentResult =
     await
  XmlDocumentsCache.Get(path);
-        if (MayExcHelper.MayExc(xd.Exc))
+        if (MayExcHelper.MayExc(documentResult.Exc))
         {
             return;
         }
-        var content = xd.Data.OuterXml;
-        var tf = SH.GetTextBetween(content, start, end, false);
-        if (tf == null)
+        var content = documentResult.Data.OuterXml;
+        var targetFramework = SH.GetTextBetween(content, start, end, false);
+        if (targetFramework == null)
         {
             // Může se stát když to není v non sdk style
             return;
         }
-        if (dontChangeIfSourceIs != null && dontChangeIfSourceIs == tf)
+        if (dontChangeIfSourceIs != null && dontChangeIfSourceIs == targetFramework)
         {
             return;
         }
-        var parsedMonikerFrom = IsNetCore5UpMoniker(tf);
+        var parsedMonikerFrom = IsNetCore5UpMoniker(targetFramework);
         // už nechci, nestačí aby byly stejné targetFramework, musí být stejné i TFM. Vše na mém kompu bude -windows
         //if (parsedMonikerFrom?.TargetFramework == parsedMonikerTo?.TargetFramework)
         //{
         //    return;
         //}
-        if (tf != to2)
+        if (targetFramework != to2)
         {
             string? from = null;
             string? to = null;
-            from = start + tf + end;
+            from = start + targetFramework + end;
             if (parsedMonikerFrom == null || parsedMonikerTo == null)
             {
                 // není to net core, můžu to nahradit za cokoliv
@@ -121,10 +121,10 @@ public class ChangeProjects
         }
     }
 
-    public static async Task ChangeProjectsTo(string to2, List<string> vs)
+    public static async Task ChangeProjectsTo(string to2, List<string> projectPaths)
     {
         var parsedMonikerTo = IsNetCore5UpMoniker(to2);
-        foreach (var item in vs)
+        foreach (var item in projectPaths)
         {
             await ChangeProjectTo(to2, item, parsedMonikerTo);
         }

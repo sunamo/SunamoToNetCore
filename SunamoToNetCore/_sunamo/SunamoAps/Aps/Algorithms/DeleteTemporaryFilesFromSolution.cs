@@ -140,9 +140,9 @@ internal class DeleteTemporaryFilesFromSolution
                         FS.CreateUpfoldersPsysicallyUnlessThere(destinationPath);
                         File.Move(filePath, destinationPath);
                     }
-                    catch (Exception ex)
+                    catch (Exception exception)
                     {
-                        CL.WriteLine(ex.Message);
+                        CL.WriteLine(exception.Message);
                     }
                 }
             }
@@ -181,9 +181,9 @@ internal class DeleteTemporaryFilesFromSolution
                     {
                         FS.MoveAllRecursivelyAndThenDirectory(logger, folderPath, FS.ReplaceDirectoryThrowExceptionIfFromDoesntExists(folderPath, folderWithProjectsFolders, folderWithTemporaryMovedContentWithoutBackslash), FileMoveCollisionOptionDC.Overwrite);
                     }
-                    catch (Exception ex)
+                    catch (Exception exception)
                     {
-                        ThisApp.Error("Can't delete folder: " + folderPath + " " + Exceptions.TextOfExceptions(ex));
+                        ThisApp.Error("Can't delete folder: " + folderPath + " " + Exceptions.TextOfExceptions(exception));
                     }
                 }
             }

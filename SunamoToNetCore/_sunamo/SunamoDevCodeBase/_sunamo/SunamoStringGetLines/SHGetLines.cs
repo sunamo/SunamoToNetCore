@@ -26,12 +26,12 @@ internal class SHGetLines
     /// </summary>
     private static void SplitBy(List<string> lines, string delimiter)
     {
-        for (int i = lines.Count - 1; i >= 0; i--)
+        for (int index = lines.Count - 1; index >= 0; index--)
         {
             if (delimiter == "\r")
             {
-                var windowsNewlineParts = lines[i].Split(new string[] { "\r\n" }, StringSplitOptions.None);
-                var reverseNewlineParts = lines[i].Split(new string[] { "\n\r" }, StringSplitOptions.None);
+                var windowsNewlineParts = lines[index].Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                var reverseNewlineParts = lines[index].Split(new string[] { "\n\r" }, StringSplitOptions.None);
 
                 if (windowsNewlineParts.Length > 1)
                 {
@@ -43,11 +43,11 @@ internal class SHGetLines
                 }
             }
 
-            var splitParts = lines[i].Split(new string[] { delimiter }, StringSplitOptions.None);
+            var splitParts = lines[index].Split(new string[] { delimiter }, StringSplitOptions.None);
 
             if (splitParts.Length > 1)
             {
-                InsertOnIndex(lines, splitParts.ToList(), i);
+                InsertOnIndex(lines, splitParts.ToList(), index);
             }
         }
     }

@@ -10,11 +10,11 @@ internal partial class FS
     internal static void DeleteFoldersWhichNotContains(string rootPath, string folderPattern, IList<string> mustContainPatterns)
     {
         var folders = Directory.GetDirectories(rootPath, folderPattern, SearchOption.AllDirectories).ToList();
-        for (int i = folders.Count - 1; i >= 0; i--)
+        for (int index = folders.Count - 1; index >= 0; index--)
         {
-            if (CA.ReturnWhichContainsIndexes(folders[i], mustContainPatterns).Count != 0)
+            if (CA.ReturnWhichContainsIndexes(folders[index], mustContainPatterns).Count != 0)
             {
-                folders.RemoveAt(i);
+                folders.RemoveAt(index);
             }
         }
 
@@ -29,8 +29,8 @@ internal partial class FS
     /// </summary>
     private static string CombineWorker(bool isFirstCharUpper, bool isFile, params string[] pathParts)
     {
-        for (var i = 0; i < pathParts.Length; i++)
-            pathParts[i] = pathParts[i].TrimStart('\\');
+        for (var index = 0; index < pathParts.Length; index++)
+            pathParts[index] = pathParts[index].TrimStart('\\');
         var result = Path.Combine(pathParts);
         if (result[2] != '\\')
             result = result.Insert(2, "\"");
@@ -58,8 +58,8 @@ internal partial class FS
     internal static List<string> OnlyNamesWithoutExtensionCopy(List<string> filePaths)
     {
         var result = new List<string>(filePaths.Count);
-        for (var i = 0; i < filePaths.Count; i++)
-            result.Add(Path.GetFileNameWithoutExtension(filePaths[i]));
+        for (var index = 0; index < filePaths.Count; index++)
+            result.Add(Path.GetFileNameWithoutExtension(filePaths[index]));
         return result;
     }
 

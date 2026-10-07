@@ -102,40 +102,40 @@ public class Shared
     {
         if (ExtractArchive != null)
         {
-            var zf = FS.Combine(folderNonRec, FS.GetFileName(folderNonRec) + AllExtensions.ZipExtension);
-            ExtractArchive(zf, true);
+            var zipFile = FS.Combine(folderNonRec, FS.GetFileName(folderNonRec) + AllExtensions.ZipExtension);
+            ExtractArchive(zipFile, true);
         }
 
-        var gf = FSGetFiles.GetFiles(logger, folderNonRec, "*.csproj", false);
+        var csprojFiles = FSGetFiles.GetFiles(logger, folderNonRec, "*.csproj", false);
         return
     await
- Shared.PlatformTargetTo(replaceFor, gf, throwEx);
+ Shared.PlatformTargetTo(replaceFor, csprojFiles, throwEx);
     }
 
     // Vyuziva se v ChangeConvertNonWebPlatformTargetTo(), PlatformTargetTo a PlatformTargetToWeb()
     public static
     async Task<string>
- PlatformTargetTo(string replaceFor, List<string> tt, bool throwEx = false)
+ PlatformTargetTo(string replaceFor, List<string> csprojPaths, bool throwEx = false)
     {
         const string PropertyGroup = "<PropertyGroup>";
         const string start = "<PlatformTarget>";
         const string end = "</PlatformTarget>";
 
-        StringBuilder f2 = new StringBuilder();
+        StringBuilder contentBuilder = new StringBuilder();
 
         if (replaceFor.StartsWith("!"))
         {
             replaceFor = replaceFor.Substring(1);
             string start2 = start + replaceFor + end;
-            foreach (var item in tt)
+            foreach (var item in csprojPaths)
             {
-                var f =
+                var fileContent =
     await
  TF.ReadAllText(item);
-                f2.Clear();
-                f2.Append(f!.Replace(start, string.Empty));
-                var f2s = f2.ToString();
-                if (f != f2s)
+                contentBuilder.Clear();
+                contentBuilder.Append(fileContent!.Replace(start, string.Empty));
+                var f2s = contentBuilder.ToString();
+                if (fileContent != f2s)
                 {
                     await TF.WriteAllText(item, f2s);
                 }
@@ -145,7 +145,7 @@ public class Shared
         {
             return
     await
- Shared.ReplaceTargetPlatform(replaceFor, PropertyGroup, start, end, tt, throwEx);
+ Shared.ReplaceTargetPlatform(replaceFor, PropertyGroup, start, end, csprojPaths, throwEx);
         }
 
         return null!;

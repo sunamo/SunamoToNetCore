@@ -15,11 +15,11 @@ internal class CAChangeContent
             }
             if (args.RemoveEmpty)
             {
-                for (int i = list.Count - 1; i >= 0; i--)
+                for (int index = list.Count - 1; index >= 0; index--)
                 {
-                    if (list[i].Trim() == string.Empty)
+                    if (list[index].Trim() == string.Empty)
                     {
-                        list.RemoveAt(i);
+                        list.RemoveAt(index);
                     }
                 }
             }
@@ -33,9 +33,9 @@ internal class CAChangeContent
     /// </summary>
     internal static List<string> ChangeContent0(ChangeContentArgsDC args, List<string> list, Func<string, string> func)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = func.Invoke(list[i]);
+            list[index] = func.Invoke(list[index]);
         }
         RemoveNullOrEmpty(args, list);
         return list;

@@ -119,14 +119,14 @@ public partial class FoldersWithSolutions
             dict.Add(item, new Wildcard(item));
         }
 
-        for (int i = result.Count - 1; i >= 0; i--)
+        for (int index = result.Count - 1; index >= 0; index--)
         {
-            var solution = result[i];
+            var solution = result[index];
             foreach (var wildcardEntry in dict)
             {
                 if (wildcardEntry.Value.IsMatch(solution.NameSolution))
                 {
-                    result.RemoveAt(i);
+                    result.RemoveAt(index);
                     break;
                 }
             }
