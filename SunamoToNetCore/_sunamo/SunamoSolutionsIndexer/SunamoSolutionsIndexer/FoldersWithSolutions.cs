@@ -1,11 +1,20 @@
 namespace SunamoToNetCore._sunamo.SunamoSolutionsIndexer.SunamoSolutionsIndexer;
 
+/// <summary>
+/// Represents the folders with solutions type.
+/// </summary>
 public partial class FoldersWithSolutions
 {
     // Was static on 3-10-23 but don't know why when solutions is instance field
+    /// <summary>
+    /// Gets or sets the solutions.
+    /// </summary>
     public List<SolutionFolder> Solutions { get; set; } = null!;
 
     // Path to documents folder, e.g., D:\Documents
+    /// <summary>
+    /// Gets or sets the documents folder.
+    /// </summary>
     public string DocumentsFolder { get; set; } = null!;
     /// <summary>
     /// Identify project type.
@@ -32,6 +41,9 @@ public partial class FoldersWithSolutions
     }
 
     // Folder where to search for Projects folder and Visual Studio folders. Added here when calling FoldersWithSolutions ctor. If no sln, call new FoldersWithSolutions(BasePathsHelper.Vs, null);
+    /// <summary>
+    /// Gets or sets the fwss.
+    /// </summary>
     public static FoldersWithSolutionsList Fwss { get; set; } = new FoldersWithSolutionsList();
 
     // This class should be instaniate only once and then call reload by needs
@@ -142,5 +154,8 @@ public partial class FoldersWithSolutions
         projectTypes.Add(ProjectsTypes.Cs, "Projects");
     }
 
+    /// <summary>
+    /// Gets or sets the only real loaded solutions folders.
+    /// </summary>
     public static List<string> OnlyRealLoadedSolutionsFolders { get; set; } = new List<string>();
 }

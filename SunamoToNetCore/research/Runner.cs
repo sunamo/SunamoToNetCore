@@ -2,6 +2,9 @@ namespace SunamoToNetCore.research;
 
 public partial class MoveToNet5 //: ProgramShared
 {
+    /// <summary>
+    /// Gets the fwss.
+    /// </summary>
     public List<FoldersWithSolutions> Fwss => FoldersWithSolutions.Fwss;
 
     #region Helper methods

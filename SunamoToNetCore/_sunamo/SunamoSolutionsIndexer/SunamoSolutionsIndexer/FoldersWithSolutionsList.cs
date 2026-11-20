@@ -1,5 +1,8 @@
 namespace SunamoToNetCore._sunamo.SunamoSolutionsIndexer.SunamoSolutionsIndexer;
 
+/// <summary>
+/// Represents the folders with solutions list type.
+/// </summary>
 public class FoldersWithSolutionsList : List<FoldersWithSolutions>
 {
     /// <summary>

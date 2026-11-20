@@ -1,9 +1,15 @@
 ﻿namespace SunamoToNetCore._sunamo.SunamoDevCodeBase;
 
+/// <summary>
+/// Represents the ppk on drive dev code base t type.
+/// </summary>
 public abstract class PpkOnDriveDevCodeBase<T> : List<T>
 {
     #region DPP
 
+    /// <summary>
+    /// The args.
+    /// </summary>
     protected PpkOnDriveDevCodeArgs args;
 
     #endregion

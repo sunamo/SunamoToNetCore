@@ -9,6 +9,11 @@ public partial class MoveToNet5
     // Moreover text with this setting, when I ran EveryLine and although the sln was set to AnyCPU, right at startup it said it could not load EveryLine. When I changed its csproj to AnyCPU, the error started to be reported again for desktop.
     //
     // A1 can be x86,x64.AnyCPU
+    /// <summary>
+    /// Platform target to web.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="replaceFor">The replace for.</param>
     public
     async Task
     PlatformTargetToWeb(ILogger logger, string replaceFor)
@@ -24,6 +29,10 @@ public partial class MoveToNet5
     // System.Web.Services
     const string neededWebReferences = "";
 
+    /// <summary>
+    /// Add essential web references to all web projects.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
     public
     async Task
     AddEssentialWebReferencesToAllWebProjects(ILogger logger)
@@ -63,6 +72,10 @@ public partial class MoveToNet5
         }
     }
 
+    /// <summary>
+    /// Change projects to net standard.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
     public
     async Task
     ChangeProjectsToNetStandard(ILogger logger)
@@ -73,6 +86,11 @@ public partial class MoveToNet5
         await ChangeProjects.ChangeProjectsTo(ChangeProjects.netstandard20, list.CsprojSdkStyleList);
     }
 
+    /// <summary>
+    /// Web projects which is not sdk style find their backup.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <returns>The web projects which is not sdk style find their backup result.</returns>
     public
     async Task<string>
     WebProjectsWhichIsNotSdkStyleFindTheirBackup(ILogger logger)
@@ -95,6 +113,11 @@ public partial class MoveToNet5
         return tog.ToString();
     }
 
+    /// <summary>
+    /// Detect framework for web projects only supported.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <returns>The detect framework for web projects only supported result.</returns>
     public
     async Task<string>
     DetectFrameworkForWebProjectsOnlySupported(ILogger logger)
@@ -128,6 +151,10 @@ public partial class MoveToNet5
         return tog.ToString();
     }
 
+    /// <summary>
+    /// Convert al l web net standard projects to net 48.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
     public async Task ConvertAlLWebNetStandardProjectsToNet48(ILogger logger)
     {
         var temp = WebAndNonWebProjects(logger);
@@ -137,6 +164,11 @@ public partial class MoveToNet5
         }
     }
 
+    /// <summary>
+    /// Web projects which not end with dot end.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <returns>The web projects which not end with dot end result.</returns>
     public string WebProjectsWhichNotEndWithDotEnd(ILogger logger)
     {
         var temp = WebAndNonWebProjects(logger, true);
@@ -153,6 +185,12 @@ public partial class MoveToNet5
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// Detect framework for web projects.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="appendHeader">The append header.</param>
+    /// <returns>The detect framework for web projects result.</returns>
     public
     async Task<Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>>>
     DetectFrameworkForWebProjects(ILogger logger, bool appendHeader)
@@ -191,6 +229,13 @@ public partial class MoveToNet5
         return new Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>>(list, netStandardList);
     }
 
+    /// <summary>
+    /// Find projects which is sdk style list.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="appendHeaderForWeb">The append header for web.</param>
+    /// <param name="web">The web.</param>
+    /// <returns>The find projects which is sdk style list result.</returns>
     public
     async Task<string>
     FindProjectsWhichIsSdkStyleList(ILogger logger, bool appendHeaderForWeb, bool web = true)

@@ -1,8 +1,17 @@
 namespace SunamoToNetCore._sunamo.SunamoDevCodeBase._public;
 
+/// <summary>
+/// Represents the t with string DC t type.
+/// </summary>
 public class TWithStringDC<T>
 {
+    /// <summary>
+    /// The path.
+    /// </summary>
     public string path = null!;
+    /// <summary>
+    /// The t.
+    /// </summary>
     public T t = default!;
 
     /// <summary>

@@ -1,8 +1,14 @@
 ﻿namespace SunamoToNetCore._sunamo.SunamoDevCodeBase;
 
 // Checking whether string is already contained.
+/// <summary>
+/// Represents the ppk on drive DC type.
+/// </summary>
 public class PpkOnDriveDC : PpkOnDriveDevCodeBase<string>
 {
+    /// <summary>
+    /// Gets or sets the remove duplicates.
+    /// </summary>
     public bool RemoveDuplicates { get; set; } = false;
 
     /// <summary>

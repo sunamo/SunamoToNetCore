@@ -1,7 +1,13 @@
 namespace SunamoToNetCore.research;
 
+/// <summary>
+/// Represents the move to net 5 type.
+/// </summary>
 public partial class MoveToNet5
 {
+    /// <summary>
+    /// Gets the instance.
+    /// </summary>
     public static MoveToNet5 Instance { get; } = new MoveToNet5();
     private MoveToNet5()
     {
@@ -14,6 +20,11 @@ public partial class MoveToNet5
     // Moreover, with this setting, when I ran EveryLine and although the sln was set to AnyCPU, right at startup it said it could not load EveryLine. When I changed its csproj to AnyCPU, the error started to be reported again for desktop.
     //
     // A1 can be x86,x64.AnyCPU
+    /// <summary>
+    /// Change convert non web platform target to.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="replacementPlatformTarget">The replacement platform target.</param>
     public
     async Task
     ChangeConvertNonWebPlatformTargetTo(ILogger logger, string replacementPlatformTarget)
@@ -25,9 +36,17 @@ public partial class MoveToNet5
         Shared.PlatformTargetTo(replacementPlatformTarget, nonWebProjects);
     }
 
+    /// <summary>
+    /// Gets the type info.
+    /// </summary>
     public static Type TypeInfo { get; } = typeof(MoveToNet5);
 
     // Cleans up temporary files from NonWeb
+    /// <summary>
+    /// Clear unnecessary from non web.
+    /// </summary>
+    /// <param name="MoveToNet5">The move to net 5.</param>
+    /// <returns>The clear unnecessary from non web result.</returns>
     public void ClearUnnecessaryFromNonWeb(ILogger logger, string folderWithTemporaryMovedContentWithoutBackslash)
     {
         Console.WriteLine("ClearUnnecessaryFromNonWeb");
@@ -114,6 +133,11 @@ public partial class MoveToNet5
 swf";
 
     // removes references from c# which
+    /// <summary>
+    /// Replace unneed references in csprojs.
+    /// </summary>
+    /// <param name="csprojPath">The csproj path.</param>
+    /// <returns>The replace unneed references in csprojs result.</returns>
     public async Task ReplaceUnneedReferencesInCsprojs(string csprojPath)
     {
         var referencesToRemove = SHGetLines.GetLines(refToRemove);

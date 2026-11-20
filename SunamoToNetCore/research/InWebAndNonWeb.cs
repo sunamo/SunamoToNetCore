@@ -4,6 +4,11 @@ public partial class MoveToNet5
 {
     // Compares web and non-web projects to find which ones exist in both categories.
     // Projects used in both need to stay on netstandard.
+    /// <summary>
+    /// Table web and non web.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <returns>The table web and non web result.</returns>
     public bool TableWebAndNonWeb(ILogger logger)
     {
         var value = WebAndNonWebProjects(logger);
@@ -36,6 +41,10 @@ public partial class MoveToNet5
         return false;
     }
 
+    /// <summary>
+    /// Restore from backup.
+    /// </summary>
+    /// <param name="filePaths">The file paths.</param>
     public
     async Task
  RestoreFromBackup(List<string> filePaths)
@@ -54,6 +63,11 @@ public partial class MoveToNet5
         }
     }
 
+    /// <summary>
+    /// List of all web and non web.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <returns>The list of all web and non web result.</returns>
     public string ListOfAllWebAndNonWeb(ILogger logger)
     {
         var projectsData = WebAndNonWebProjects(logger, false);
@@ -64,6 +78,12 @@ public partial class MoveToNet5
         return tog.ToString();
     }
 
+    /// <summary>
+    /// Replace unneed references in csprojs not sd k style.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="isWeb">The is web.</param>
+    /// <returns>The replace unneed references in csprojs not sd k style result.</returns>
     public
     async Task<string>
  ReplaceUnneedReferencesInCsprojsNotSdKStyle(ILogger logger, bool isWeb = true)
@@ -85,12 +105,22 @@ public partial class MoveToNet5
         return result;
     }
 
+    /// <summary>
+    /// Generate try convert.
+    /// </summary>
+    /// <param name="csprojPath">The csproj path.</param>
+    /// <returns>The generate try convert result.</returns>
     public string GenerateTryConvert(string csprojPath)
     {
         // the latest version of try-convert is 0.9.232202 and it works on .NET 5. That is why I have to add those 2 parameters
         return @"try-convert  --target-framework net5.0 -m 'C:\Program Files\dotnet\sdk\5.0.100\' -w '" + csprojPath + "'";
     }
 
+    /// <summary>
+    /// Get all target frameworks.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <returns>The get all target frameworks result.</returns>
     public
     async Task<string>
  GetAllTargetFrameworks(ILogger logger)

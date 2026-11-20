@@ -1,9 +1,18 @@
 namespace SunamoToNetCore.research;
 
+/// <summary>
+/// Represents the shared type.
+/// </summary>
 public class Shared
 {
+    /// <summary>
+    /// The type.
+    /// </summary>
     public static Type Type = typeof(Shared);
 
+    /// <summary>
+    /// The extract archive.
+    /// </summary>
     public static Action<string, bool> ExtractArchive = null!;
 
     static
@@ -96,6 +105,14 @@ public class Shared
 
     }
 
+    /// <summary>
+    /// Plaform target to.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="replaceFor">The replace for.</param>
+    /// <param name="folderNonRec">The folder non rec.</param>
+    /// <param name="throwEx">The throw ex.</param>
+    /// <returns>The plaform target to result.</returns>
     public static
     async Task<string?>
  PlaformTargetTo(ILogger logger, string replaceFor, string folderNonRec, bool throwEx = false)
@@ -113,6 +130,13 @@ public class Shared
     }
 
     // Used in ChangeConvertNonWebPlatformTargetTo(), PlatformTargetTo and PlatformTargetToWeb()
+    /// <summary>
+    /// Platform target to.
+    /// </summary>
+    /// <param name="replaceFor">The replace for.</param>
+    /// <param name="csprojPaths">The csproj paths.</param>
+    /// <param name="throwEx">The throw ex.</param>
+    /// <returns>The platform target to result.</returns>
     public static
     async Task<string>
  PlatformTargetTo(string replaceFor, List<string> csprojPaths, bool throwEx = false)

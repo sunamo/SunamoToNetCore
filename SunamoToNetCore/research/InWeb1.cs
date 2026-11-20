@@ -2,6 +2,13 @@ namespace SunamoToNetCore.research;
 
 public partial class MoveToNet5
 {
+    /// <summary>
+    /// Find projects which is sdk style.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="appendHeaderForWeb">The append header for web.</param>
+    /// <param name="isWeb">The is web.</param>
+    /// <returns>The find projects which is sdk style result.</returns>
     public
     async Task<FindProjectsWhichIsSdkStyleResult>
     FindProjectsWhichIsSdkStyle(ILogger logger, bool appendHeaderForWeb, bool isWeb = true)
@@ -60,6 +67,11 @@ public partial class MoveToNet5
         };
     }
 
+    /// <summary>
+    /// Web projects which is not sdk style.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <returns>The web projects which is not sdk style result.</returns>
     public
     async Task<string>
     WebProjectsWhichIsNotSdkStyle(ILogger logger)
@@ -72,6 +84,12 @@ public partial class MoveToNet5
 
     string? nameProject = null;
 
+    /// <summary>
+    /// Replace project reference for web.
+    /// </summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="projectName">The project name.</param>
+    /// <param name="projectNamespace">The project namespace.</param>
     public async void ReplaceProjectReferenceForWeb(ILogger logger, string projectName, string projectNamespace)
     {
         Console.WriteLine("Solution old & new must be in same root folder");
