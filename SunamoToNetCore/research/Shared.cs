@@ -112,7 +112,7 @@ public class Shared
  Shared.PlatformTargetTo(replaceFor, csprojFiles, throwEx);
     }
 
-    // Vyuziva se v ChangeConvertNonWebPlatformTargetTo(), PlatformTargetTo a PlatformTargetToWeb()
+    // Used in ChangeConvertNonWebPlatformTargetTo(), PlatformTargetTo and PlatformTargetToWeb()
     public static
     async Task<string>
  PlatformTargetTo(string replaceFor, List<string> csprojPaths, bool throwEx = false)
