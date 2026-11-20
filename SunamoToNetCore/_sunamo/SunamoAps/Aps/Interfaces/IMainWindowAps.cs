@@ -1,5 +1,4 @@
-﻿// variables names: ok
-namespace SunamoToNetCore._sunamo.SunamoAps.Aps.Interfaces;
+﻿namespace SunamoToNetCore._sunamo.SunamoAps.Aps.Interfaces;
 
 internal interface IMainWindowAps
 {

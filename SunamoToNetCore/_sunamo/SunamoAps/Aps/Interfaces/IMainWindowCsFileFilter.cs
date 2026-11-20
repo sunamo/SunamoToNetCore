@@ -1,5 +1,4 @@
-﻿// variables names: ok
-internal interface IMainWindowCsFileFilter
+﻿internal interface IMainWindowCsFileFilter
 {
     CsFileFilter CsFileFilter { get; set; }
 

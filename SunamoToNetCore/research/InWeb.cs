@@ -1,6 +1,5 @@
 namespace SunamoToNetCore.research;
 
-// Variable names have been checked and replaced with self-descriptive names
 public partial class MoveToNet5
 {
     // It probably breaks the csproj
