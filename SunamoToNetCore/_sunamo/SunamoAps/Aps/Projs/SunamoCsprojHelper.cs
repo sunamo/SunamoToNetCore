@@ -89,15 +89,9 @@ internal partial class SunamoCsprojHelper
         if (isNew)
         {
             //// Probably will be first because "You need to reference the Microsoft.Build.Engine assembly"
-            //Microsoft.Build.Evaluation.Project project = new Microsoft.Build.Evaluation.Project();
             ////Microsoft.CodeAnalysis.Project project = new Microsoft.CodeAnalysis.Project();
             ////Project project = new Project();
-            //project.Load(fullPathName);
-            //var embeddedResources =
-            //    from grp in project.ItemGroups.Cast<BuildItemGroup>()
             //    from item in grp.Cast<BuildItem>()
-            //    where item.Name == "EmbeddedResource"
-            //    select item;
             var list = SHGetLines.GetLines(csprojContent);
             // žádný https://www.nuget.org/packages?q=Sunamo+Metaproject není, proto není ani TargetFramework a ctor text 2Mi args
             var csp = CsprojFileParser.ParseCsproj( /*list,*/path);

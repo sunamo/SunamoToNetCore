@@ -25,22 +25,5 @@ var msb = new MSBuildProject();
         await msb.LoadAsync(path);
 but still no mention on the web.
 This just means it was garbage and nobody used it, since it wasn't used anywhere.");
-        //var group = project.PropertyGroups.FirstOrDefault(x =>
-        //    x.Properties.Any(p => p.Name.Contains("TargetFramework")));
-        //var identifier = DefaultIdentifier;
-        //var versionString = DefaultFrameworkVersion;
-        //string profile = null;
-        //if (group != null)
-        //{
-        //    // .NETFramework
-        //    identifier = group.GetPropertyValue("TargetFrameworkIdentifier") ?? DefaultIdentifier;
-        //    // 4.8
-        //    versionString = group.GetPropertyValue("TargetFrameworkVersion") ?? DefaultFrameworkVersion;
-        //    // SE
-        //    profile = group.GetPropertyValue("TargetFrameworkProfile");
-        //    var version = Version.Parse(versionString.Replace("v", "").Replace("V", ""));
-        //    return new FrameworkName(identifier, version, profile);
-        //}
-        //return null; // DetectNetSdkVersion();
     }
 }

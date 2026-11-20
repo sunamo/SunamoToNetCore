@@ -9,7 +9,6 @@ internal partial class FS
     /// </summary>
     internal static bool CopyMoveFilePrepare(ref string item, ref string fileTo, FileMoveCollisionOptionDC collisionOption)
     {
-        //var fileTo = fileTo2.ToString();
         item = @"\\?\" + item;
         MakeUncLongPath(ref fileTo);
         CreateUpfoldersPsysicallyUnlessThere(fileTo);
@@ -97,7 +96,6 @@ internal partial class FS
             }
             catch (Exception)
             {
-            //ThisApp.Error(item + " : " + ex.Message);
             }
     }
 
@@ -196,7 +194,6 @@ internal partial class FS
     internal static void CreateFoldersPsysicallyUnlessThere(string path)
     {
         ThrowEx.IsNullOrEmpty(nameof(path), path);
-        //ThrowEx.IsNotWindowsPathFormat(nameof(path), path);
         if (Directory.Exists(path))
         {
             return;

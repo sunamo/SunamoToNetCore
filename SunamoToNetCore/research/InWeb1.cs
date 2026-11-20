@@ -84,13 +84,7 @@ public partial class MoveToNet5
         foreach (var webProjectPath in projectsData.Item1)
         {
             Console.WriteLine(webProjectPath);
-            //DebugLogger.Instance.WriteLine(webProjectPath);
-            //var dx =
             await ReplaceOrRemoveFile(WithWebEnd, ElementsItemGroup.ProjectReference, [oldProjectReference], webProjectPath, newProjectReference);
-        //if (dx != -1)
-        //{
-        //    //break;
-        //}
         }
     }
 

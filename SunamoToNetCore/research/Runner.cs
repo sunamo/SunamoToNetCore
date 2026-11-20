@@ -17,23 +17,13 @@ public partial class MoveToNet5 //: ProgramShared
         tog.List(temp.Item2, "Not web projects");
         var output = tog.ToString();
 
-        //        ProgramShared.Output = output;
-        //        ProgramShared.OutputOpen();
         //#elif !DEBUG
-        //        ProgramShared.Output = output;
-        //        ProgramShared.OutputOpen();
-        //        //showTextResultWindow = new ShowTextResultWindow(output);
-        //        //showTextResultWindow.ShowDialog();
         //#endif
 
         return output;
     }
 
     //Tuple<List<string>, List<string>> WebAndNonWebProjects()
-    //{
-    //    MoveToNet5 m = new MoveToNet5();
-    //    return m.WebAndNonWebProjects();
-    //}
 
 
 }

@@ -23,9 +23,7 @@ public partial class MoveToNet5
     }
 
     // 25-9-2022 Protože mi opět něco smazalo assembly se *.sunamo.cz csproj - .Web.Services, Data, .Web => commented, dole náhrada.
-    //     const string neededWebReferences = @"System.Web
     // System.Web.Services
-    // System.Data";
     const string neededWebReferences = "";
 
     public
@@ -47,7 +45,6 @@ public partial class MoveToNet5
         }
 
         var neededReferences = SHGetLines.GetLines(neededWebReferences);
-        //CA.PostfixIfNotEnding(".dll", l2);
         foreach (var item in temp.CsprojSdkStyleList)
         {
             foreach (var item2 in neededReferences)
@@ -58,9 +55,6 @@ public partial class MoveToNet5
             }
         }
 
-        // 1 = sdk style, not netstandard2.0
-        // 2 = sdk style, netstandard2.0
-        // 3 = non sdk style
         foreach (var item in temp.NonCsprojSdkStyleList)
         {
             foreach (var item2 in neededReferences)
@@ -94,22 +88,6 @@ public partial class MoveToNet5
         foreach (var item in list.CsprojSdkStyleList)
         {
             throw new Exception("žádné koncovky old v csproj tu nemám. tak tedy nevím co jsem tu chtěl dělat ");
-        //var old = item + ".old";
-        //if (FS.ExistsFile(old))
-        //{
-        //    if (SunamoCsprojHelper.IsProjectCsprojSdkStyleIsCore(old, false))
-        //    {
-        //        haveBackupSdkStyle.Add(item);
-        //    }
-        //    else
-        //    {
-        //        dontHaveBackupSdkStyle.Add(item);
-        //    }
-        //}
-        //else
-        //{
-        //    dontHaveBackup.Add(item);
-        //}
         }
 
         TextOutputGenerator tog = new TextOutputGenerator();
@@ -149,8 +127,6 @@ public partial class MoveToNet5
             tog.ListSB(item.Value, item.Key.ToString());
         }
 
-        //Output = tog.ToString();
-        //OutputOpen();
         return tog.ToString();
     }
 
@@ -179,8 +155,6 @@ public partial class MoveToNet5
         return stringBuilder.ToString();
     }
 
-    // 1 = sdk style, not netstandard2.0
-    // 2 = sdk style, netstandard2.0
     public
     async Task<Tuple<List<TWithStringDC<string>>, List<TWithStringDC<string>>>>
     DetectFrameworkForWebProjects(ILogger logger, bool appendHeader)
@@ -230,8 +204,6 @@ public partial class MoveToNet5
         tog.List(result.CsprojSdkStyleList, nameof(result.CsprojSdkStyleList));
         tog.List(result.NetstandardList, nameof(result.NetstandardList));
         tog.List(result.NonCsprojSdkStyleList, nameof(result.NonCsprojSdkStyleList));
-        //ProgramShared.Output = tog.ToString();
-        //ProgramShared.OutputOpen();
         return tog.ToString();
     }
 }

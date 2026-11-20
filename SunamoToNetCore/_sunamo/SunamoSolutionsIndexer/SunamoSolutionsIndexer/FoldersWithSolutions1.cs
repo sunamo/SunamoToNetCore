@@ -39,8 +39,6 @@ public partial class FoldersWithSolutions
         solutionFolderInstance.DisplayedText = GetDisplayedName(solutionFolder);
         solutionFolderInstance.FullPathFolder = solutionFolder;
         // Nevím zda je to nutné tak jsem to zakomentoval aby to bylo rychlejší
-        //solutionFolderInstance.projects = new DebugCollection<string>( SolutionsIndexerHelper.ProjectsInSolution(true, solutionFolderInstance.FullPathFolder));
-        //solutionFolderInstance.SourceOfProjects = SourceOfProjects.ProjectsInSolution;
         solutionFolderInstance.UpdateModules(logger, toSelling);
         solutionFolderInstance.NameSolutionWithoutDiacritic = SH.TextWithoutDiacritic(projName);
         return solutionFolderInstance;
@@ -131,7 +129,6 @@ public partial class FoldersWithSolutions
                 }
             }
         }
-        //result.RemoveAll(d => CAG.IsEqualToAnyElement(d.NameSolution, skip));
         ////////DebugLogger.Instance.WriteCount("Solutions in " + documentsFolder, solutions);
         return result;
     }
@@ -143,14 +140,6 @@ public partial class FoldersWithSolutions
     {
         List<string> projects = new List<string>();
         var basePath = BasePathsHelper.BpMb;
-        //if (Directory.Exists(basePath))
-        //{
-        //if (BasePathsHelper.BpVps == basePath)
-        //{
-        //    AddProjectsFolder(projects, basePath);
-        //}
-        //else
-        //{
         List<string> visualStudioFolders = new List<string>([basePath]); // Directory.GetDirectories(folderWithVisualStudioFolders, VpsHelperSunamo.IsQ ? "_" : SolutionsIndexerStrings.VisualStudio2017, SearchOption.TopDirectoryOnly));
         foreach (var folder in additionalFolders)
         {
@@ -170,7 +159,6 @@ public partial class FoldersWithSolutions
                 continue;
             }
 
-            //languageFoldersOutsideVs17SH.Leading(Path.Combine(folderWithVisualStudioFolders.Replace("E:\\", "D:\\"), SolutionsIndexerConsts.BitBucket));
             foreach (var languageFolder in languageFolders)
             {
 #region New
@@ -194,16 +182,6 @@ public partial class FoldersWithSolutions
             }
         }
 
-        //}
-        //}
-        //else if (VpsHelperSunamo.IsVps)
-        //{
-        //    return new List<string>();
-        //}
-        //else
-        //{
-        //    throw new Exception(folderWithVisualStudioFolders + " not exists, therefore will be return none slsn");
-        //}
         CAChangeContent.ChangeContent0(null!, projects, SH.FirstCharUpper);
         return projects;
     }

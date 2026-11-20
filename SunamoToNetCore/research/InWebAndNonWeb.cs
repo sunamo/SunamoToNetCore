@@ -21,7 +21,6 @@ public partial class MoveToNet5
         var desktopInNonWeb = nonWebFn.Where(projectName => projectName.Contains("desktop"));
 
         int webIndex, nonWebIndex;
-        //List<Tuple<ProjFw, ProjFw>> toTable = new List<Tuple<ProjFw, ProjFw>>();
 
         foreach (var projectName in both)
         {
@@ -31,7 +30,6 @@ public partial class MoveToNet5
             var webProjectPath = web[webIndex];
             var nonWebProjectPath = nonWeb[nonWebIndex];
 
-            //ProjFw pfWeb = new ProjFw { path = f1, temp = FrameworkNameDetector.Detect(f1). };
 
         }
 

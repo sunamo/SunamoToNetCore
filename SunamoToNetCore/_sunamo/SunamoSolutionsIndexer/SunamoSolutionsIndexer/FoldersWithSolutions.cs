@@ -39,7 +39,6 @@ public partial class FoldersWithSolutions
     // CZ: Složka ve které se má hledat na složku Projects a složky Visual Studia. Přidává se mi zde když volám ctor FoldersWithSolutions. Pokud nemám sln, zavolat new FoldersWithSolutions(BasePathsHelper.Vs, null);
     public static FoldersWithSolutionsList Fwss { get; set; } = new FoldersWithSolutionsList();
 
-    // A1 = D:\Documents
     // This class should be instaniate only once and then call reload by needs
     // A1 toSelling can be null
     /// <summary>
@@ -53,16 +52,10 @@ public partial class FoldersWithSolutions
         if (addAlsoSolutions)
         {
             Solutions = Reload(logger, documentsFolder, toSelling);
-        //if (Fwss.Count == 0)
-        //{
-        //    Fwss.AddRange(new FoldersWithSolutions() );
-        //}
         }
 
         Fwss.Add(this);
-    //    FoldersWithSolutions.Fwss.Add(new FoldersWithSolutions());
     // Nemůžu použít, FoldersWithSolutions není odvozené od FoldersWithSolutions
-    //Fwss.Add(new FoldersWithSolutions(this));
     }
 
     /// <summary>
@@ -114,11 +107,6 @@ public partial class FoldersWithSolutions
         }
 
         var basePath = documentsFolder;
-        //var p2 = BasePathsHelper.bp;
-        //if (!Directory.Exists(p2))
-        //{
-        //    return;
-        //}
         var folders = Directory.GetDirectories(basePath, "*", SearchOption.TopDirectoryOnly);
         foreach (var item in folders)
         {
@@ -133,9 +121,6 @@ public partial class FoldersWithSolutions
                     case "C++":
                         parameter = ProjectsTypes.Cpp;
                         break;
-                    //case "":
-                    //    parameter = ProjectsTypes.Cs;
-                    //    break;
                     default:
                         parameter = EnumHelper.Parse(normalizedName, ProjectsTypes.None);
                         break;

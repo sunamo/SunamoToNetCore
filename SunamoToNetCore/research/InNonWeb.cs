@@ -90,7 +90,6 @@ public partial class MoveToNet5
     }
 
     // 25-9-2022 Protože mi opět něco smazalo assembly se *.sunamo.cz csproj - .Web.Services, Data, .Web => commented, dole náhrada.
-    //     const string refToRemove = @"Microsoft.CSharp
     // System.ComponentModel.Composition
     // System.Core
     // System.Data
@@ -111,7 +110,6 @@ public partial class MoveToNet5
     // System.Xml.Ling
     // sunamoPortable
     // swf
-    // System.Device";
     const string refToRemove = @"sunamoPortable
 swf";
 

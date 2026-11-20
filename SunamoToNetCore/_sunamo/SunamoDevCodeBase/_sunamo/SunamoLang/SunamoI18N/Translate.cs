@@ -8,7 +8,6 @@ namespace SunamoToNetCore._sunamo.SunamoDevCodeBase._sunamo.SunamoLang.SunamoI18
 //#else
 //SunamoLang
 //#endif
-//;
 internal class Translate
 {
     // Usage: Exceptions.IsNotWindowsPathFormat

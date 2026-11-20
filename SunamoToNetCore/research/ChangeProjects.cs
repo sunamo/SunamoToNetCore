@@ -23,11 +23,6 @@ public class ChangeProjects
         var count = ChangeProjects.IsNetCore5UpMoniker(net70Windows);
         var data = ChangeProjects.IsNetCore5UpMoniker(net7Windows);
     }
-    //public static void ChangeProjectsTo(ILogger logger, string to2, bool web)
-    //{
-    //    var text = MoveToNet5.Instance.WebAndNonWebProjects(logger, true);
-    //    ChangeProjectsTo( to2, web);
-    //}
 
     public static IsNetCore5UpMonikerResult? IsNetCore5UpMoniker(string moniker)
     {
@@ -84,10 +79,6 @@ public class ChangeProjects
         }
         var parsedMonikerFrom = IsNetCore5UpMoniker(targetFramework);
         // už nechci, nestačí aby byly stejné targetFramework, musí být stejné i TFM. Vše na mém kompu bude -windows
-        //if (parsedMonikerFrom?.TargetFramework == parsedMonikerTo?.TargetFramework)
-        //{
-        //    return;
-        //}
         if (targetFramework != to2)
         {
             string? from = null;
