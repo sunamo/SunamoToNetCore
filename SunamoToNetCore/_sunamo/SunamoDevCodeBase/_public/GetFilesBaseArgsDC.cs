@@ -1,7 +1,6 @@
 namespace SunamoToNetCore._sunamo.SunamoDevCodeBase._public;
 
-// EN: Base arguments class for getting files
-// CZ: Základní třída argumentů pro získávání souborů
+// Base arguments class for getting files
 internal class GetFilesBaseArgsDC /*: GetFoldersEveryFolderArgs - do not inherit - read comment above*/
 {
     internal bool FollowJunctions { get; set; } = false;

@@ -1,7 +1,6 @@
 namespace SunamoToNetCore._sunamo.SunamoDevCodeBase._sunamo.SunamoFileSystem;
 
-// EN: Variable names have been checked and replaced with self-descriptive names
-// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+// Variable names have been checked and replaced with self-descriptive names
 internal partial class FS
 {
 
@@ -22,8 +21,7 @@ internal partial class FS
         }
         catch (Exception)
         {
-        // EN: It's try so don't know what this is doing here
-        // CZ: Je to try takže nevím co tu dělá tohle
+        // It's try so don't know what this is doing here
         }
 
         var files = GetFiles(directoryPath, "*", SearchOption.AllDirectories);

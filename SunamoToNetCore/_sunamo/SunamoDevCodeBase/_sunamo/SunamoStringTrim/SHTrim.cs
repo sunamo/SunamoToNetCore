@@ -13,7 +13,7 @@ internal class SHTrim
         return text;
     }
 
-    // EN: Method TrimLeadingNumbersAtStart was removed - inlined in ConstsManager.cs:110
+    // Method TrimLeadingNumbersAtStart was removed - inlined in ConstsManager.cs:110
 
     /// <summary>
     /// Trim end.
@@ -25,7 +25,7 @@ internal class SHTrim
         return text;
     }
 
-    // EN: Method TrimStartAndEnd was removed - inlined in XmlLocalisationInterchangeFileFormat2.cs:691
+    // Method TrimStartAndEnd was removed - inlined in XmlLocalisationInterchangeFileFormat2.cs:691
 
     /// <summary>
     /// Trim start.

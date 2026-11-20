@@ -1,15 +1,12 @@
 namespace SunamoToNetCore._sunamo.SunamoSolutionsIndexer.SunamoSolutionsIndexer;
 
-// EN: Variable names have been checked and replaced with self-descriptive names
-// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+// Variable names have been checked and replaced with self-descriptive names
 public partial class FoldersWithSolutions
 {
-    // EN: Was static on 3-10-23 but don't know why when solutions is instance field
-    // CZ: 3-10-23 bylo static ale nevím proč když solutions je instanční
+    // Was static on 3-10-23 but don't know why when solutions is instance field
     public List<SolutionFolder> Solutions { get; set; } = null!;
 
-    // EN: Path to documents folder, e.g., D:\Documents
-    // CZ: D:\Documents
+    // Path to documents folder, e.g., D:\Documents
     public string DocumentsFolder { get; set; } = null!;
     /// <summary>
     /// Identify project type.
@@ -35,8 +32,7 @@ public partial class FoldersWithSolutions
         }
     }
 
-    // EN: Folder where to search for Projects folder and Visual Studio folders. Added here when calling FoldersWithSolutions ctor. If no sln, call new FoldersWithSolutions(BasePathsHelper.Vs, null);
-    // CZ: Složka ve které se má hledat na složku Projects a složky Visual Studia. Přidává se mi zde když volám ctor FoldersWithSolutions. Pokud nemám sln, zavolat new FoldersWithSolutions(BasePathsHelper.Vs, null);
+    // Folder where to search for Projects folder and Visual Studio folders. Added here when calling FoldersWithSolutions ctor. If no sln, call new FoldersWithSolutions(BasePathsHelper.Vs, null);
     public static FoldersWithSolutionsList Fwss { get; set; } = new FoldersWithSolutionsList();
 
     // This class should be instaniate only once and then call reload by needs
@@ -77,8 +73,7 @@ public partial class FoldersWithSolutions
         PairProjectFolderWithEnum(logger, documentsFolder);
         // Get all projects in A1(Visual Studio Projects *) and GitHub folder
         List<string> solutionFolders = ReturnAllProjectFolders(documentsFolder /*, Path.Combine(documentsFolder, SolutionsIndexerStrings.GitHubMy)*/);
-        // EN: Remove trailing backslashes before extracting names
-        // CZ: Odstraň trailing backslashe před extrakcí názvů
+        // Remove trailing backslashes before extracting names
         var solutionFoldersWithoutTrailingSlash = solutionFolders.Select(folder => folder.TrimEnd('\\')).ToArray();
         List<string> projOnlyNames = new List<string>(solutionFolders.Count);
         var onlyNames = FS.OnlyNamesNoDirectEdit(solutionFoldersWithoutTrailingSlash);
