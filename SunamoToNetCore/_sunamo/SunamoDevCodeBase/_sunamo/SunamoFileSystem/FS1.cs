@@ -11,7 +11,7 @@ internal partial class FS
         item = @"\\?\" + item;
         MakeUncLongPath(ref fileTo);
         CreateUpfoldersPsysicallyUnlessThere(fileTo);
-        // Toto tu je důležité, nevím který kokot to zakomentoval
+        // This is important here, I do not know who commented it out
         if (File.Exists(fileTo))
         {
             if (collisionOption == FileMoveCollisionOptionDC.AddFileSize)

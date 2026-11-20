@@ -87,7 +87,7 @@ public partial class MoveToNet5
 
     public string GenerateTryConvert(string csprojPath)
     {
-        // poslední verze try-convert je 0.9.232202 a ta funguje na .NET 5. Proto musím přidávat ty 2 parametry
+        // the latest version of try-convert is 0.9.232202 and it works on .NET 5. That is why I have to add those 2 parameters
         return @"try-convert  --target-framework net5.0 -m 'C:\Program Files\dotnet\sdk\5.0.100\' -w '" + csprojPath + "'";
     }
 

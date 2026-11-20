@@ -7,11 +7,11 @@ public partial class MoveToNet5
     {
     }
 
-    // Pravděpodobně to kurví csproj
+    // It probably breaks the csproj
     // A1 can be
     //
-    // Tohle asi nemělo příliš smysl. Když jsem to změnil celé v jakémkoliv řešení z AnyCPU na x86 tak jsem měl u plno projektů modrou ikonku.
-    // Navíc s tímto nastavením když jsem spustil EveryLine a ač sln bylo nastavené AnyCPu, hned po spuštení že nemůže načíst EveryLine. Když jsem jeho csproj změnil na AnyCPU, chybu začalo hlásit zase u desktop.
+    // This probably did not make much sense. When I changed it everywhere in any solution from AnyCPU to x86, I got a blue icon on many projects.
+    // Moreover, with this setting, when I ran EveryLine and although the sln was set to AnyCPU, right at startup it said it could not load EveryLine. When I changed its csproj to AnyCPU, the error started to be reported again for desktop.
     //
     // A1 can be x86,x64.AnyCPU
     public
@@ -27,7 +27,7 @@ public partial class MoveToNet5
 
     public static Type TypeInfo { get; } = typeof(MoveToNet5);
 
-    // Vyčistí od dočasných souborů z NonWeb
+    // Cleans up temporary files from NonWeb
     public void ClearUnnecessaryFromNonWeb(ILogger logger, string folderWithTemporaryMovedContentWithoutBackslash)
     {
         Console.WriteLine("ClearUnnecessaryFromNonWeb");
@@ -39,7 +39,7 @@ public partial class MoveToNet5
         }
     }
 
-    // Zakomentuje importy se kterými nemůže být převedeno na .net 5
+    // Comments out imports that cannot be converted to .net 5
     private
     async Task
     ReplaceUnneedUsings(string vsProjectsFolder)
@@ -89,7 +89,7 @@ public partial class MoveToNet5
         }
     }
 
-    // 25-9-2022 Protože mi opět něco smazalo assembly se *.sunamo.cz csproj - .Web.Services, Data, .Web => commented, dole náhrada.
+    // 25-9-2022 Because something deleted the assembly with *.sunamo.cz csproj again - .Web.Services, Data, .Web => commented, replacement below.
     // System.ComponentModel.Composition
     // System.Core
     // System.Data
@@ -113,7 +113,7 @@ public partial class MoveToNet5
     const string refToRemove = @"sunamoPortable
 swf";
 
-    // odstraní reference z c# které
+    // removes references from c# which
     public async Task ReplaceUnneedReferencesInCsprojs(string csprojPath)
     {
         var referencesToRemove = SHGetLines.GetLines(refToRemove);

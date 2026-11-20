@@ -2,7 +2,7 @@ namespace SunamoToNetCore._sunamo.SunamoAps.Aps.Projs;
 
 // Methods that were moved to SunamoMicrosoftBuild.
 // They could not remain here due to transitive dependencies.
-// Zde nemohly zůstat kvůli transitive deps.
+// They could not stay here because of transitive deps.
 internal partial class VsProjectsFileHelper
 {
     // This method has been moved to SunamoMicrosoftBuild.

@@ -3,11 +3,11 @@ namespace SunamoToNetCore.research;
 // Variable names have been checked and replaced with self-descriptive names
 public partial class MoveToNet5
 {
-    // Pravděpodobně to kurví csproj
+    // It probably breaks the csproj
     // A1 can be
     //
-    // Tohle asi nemělo příliš smysl. Když jsem to změnil celé v jakémkoliv řešení z AnyCPU na x86 tak jsem měl u plno projektů modrou ikonku.
-    // Navíc text tímto nastavením když jsem spustil EveryLine a ač sln bylo nastavené AnyCPu, hned po spuštení že nemůže načíst EveryLine. Když jsem jeho csproj změnil na AnyCPU, chybu začalo hlásit zase u desktop.
+    // This probably did not make much sense. When I changed it everywhere in any solution from AnyCPU to x86, I got a blue icon on many projects.
+    // Moreover text with this setting, when I ran EveryLine and although the sln was set to AnyCPU, right at startup it said it could not load EveryLine. When I changed its csproj to AnyCPU, the error started to be reported again for desktop.
     //
     // A1 can be x86,x64.AnyCPU
     public
@@ -21,7 +21,7 @@ public partial class MoveToNet5
         Shared.PlatformTargetTo(replaceFor, webProjects);
     }
 
-    // 25-9-2022 Protože mi opět něco smazalo assembly se *.sunamo.cz csproj - .Web.Services, Data, .Web => commented, dole náhrada.
+    // 25-9-2022 Because something deleted the assembly with *.sunamo.cz csproj again - .Web.Services, Data, .Web => commented, replacement below.
     // System.Web.Services
     const string neededWebReferences = "";
 
@@ -49,7 +49,7 @@ public partial class MoveToNet5
             foreach (var item2 in neededReferences)
             {
                 var rig = new ReferenceItemGroup(item2, item, null!);
-                // Toto tu muselo být zřejmě kvůli užívání AddItemGroupNoSdkStyle. Teď mi to dělá problémy protože .dll tam nepatří
+                // This apparently had to be here because of using AddItemGroupNoSdkStyle. Now it causes problems because .dll does not belong there
                 await VsProjectsFileHelper.AddItemGroupSdkStyle(item, ItemGroups.Reference, rig, true);
             }
         }
@@ -108,7 +108,7 @@ public partial class MoveToNet5
             var name =
                 await
             SunamoCsprojHelper.DetectNetVersion2(item);
-            // Inlined from DictionaryHelper.AppendLineOrCreate - přidává řádek do StringBuilderu nebo vytváří nový
+            // Inlined from DictionaryHelper.AppendLineOrCreate - appends a line to a StringBuilder or creates a new one
             if (stringBuilder.ContainsKey(name))
             {
                 stringBuilder[name].AppendLine(item);
@@ -144,7 +144,7 @@ public partial class MoveToNet5
         StringBuilder stringBuilder = new StringBuilder();
         foreach (var item in temp.Item1)
         {
-            // Vše zde musí být bez koncového lomítka abych podchytil i .Tests postfix
+            // Everything here must be without a trailing slash so that I also catch the .Tests postfix
             if (!item.EndsWith(".web.csproj") /*&& !item.Contains(".web64") && !item.Contains(".web5") && !item.Contains(@"\sunamo.cz") && !item.Contains(@"\sunamo.cz-old") && !item.Contains(@"\sunamo.cz64") && !item.Contains(@"\sunamo.web")*/)
             {
                 stringBuilder.AppendLine(item);

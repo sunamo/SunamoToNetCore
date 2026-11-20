@@ -21,7 +21,7 @@ internal partial class SunamoCsprojHelper
             }
         }
 
-        // bez ukončení závorkama protože může být i <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop"> atd.
+        // without closing brackets because it can also be <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop"> etc.
         return fileOrContent!.Contains("Sdk=\"Microsoft.NET.Sdk");
     }
 
@@ -93,7 +93,7 @@ internal partial class SunamoCsprojHelper
             ////Project project = new Project();
             //    from item in grp.Cast<BuildItem>()
             var list = SHGetLines.GetLines(csprojContent);
-            // žádný https://www.nuget.org/packages?q=Sunamo+Metaproject není, proto není ani TargetFramework a ctor text 2Mi args
+            // there is no https://www.nuget.org/packages?q=Sunamo+Metaproject, so there is no TargetFramework and no ctor text 2Mi args either
             var csp = CsprojFileParser.ParseCsproj( /*list,*/path);
             return new Tuple<bool, string>(isNew, /*csp.TargetFramework*/ null!);
         }

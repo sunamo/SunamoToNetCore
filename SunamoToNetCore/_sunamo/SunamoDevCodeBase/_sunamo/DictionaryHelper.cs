@@ -2,7 +2,7 @@ namespace SunamoToNetCore._sunamo.SunamoDevCodeBase._sunamo;
 
 internal class DictionaryHelper
 {
-    // Metoda AppendLineOrCreate byla odstraněna - inlined v InWeb.cs:161
+    // The AppendLineOrCreate method was removed - inlined in InWeb.cs:161
     /// <summary>
     /// Get if exists.
     /// </summary>
@@ -147,8 +147,8 @@ internal class DictionaryHelper
         }
     }
 
-    // Pokud A1 bude obsahovat skupinu pod názvem A2, vložím do této skupiny prvek A3
-    // Jinak do A1 vytvořím novou skupinu s klíčem A2 s hodnotou A3
+    // If A1 contains a group named A2, I insert element A3 into this group
+    // Otherwise I create a new group in A1 with key A2 and value A3
     /// <summary>
     /// Add or create.
     /// </summary>

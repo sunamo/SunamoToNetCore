@@ -7,8 +7,8 @@ public class ChangeProjects
     public const string netstandard20 = "netstandard2.0";
     public const string net48 = "net48";
     public const string net60 = "net6.0";
-    // Na mém PC bude mít vše net7.0-windows
-    // Bylo by to velmi náročné dělat průběžné změny mezi net7.0 argument net7.0-windows
+    // On my PC everything will have net7.0-windows
+    // It would be very demanding to make continuous changes between net7.0 and net7.0-windows
     public const string net70Windows = "net7.0-windows";
     public const string netstandard21 = "netstandard2.1";
     public const string net5Uap = "net5.0-windows10.0.19041.0";
@@ -36,7 +36,7 @@ public class ChangeProjects
         }
         if (BTS.IsInt(moniker[3].ToString()) && moniker[4] == '.' && BTS.IsInt(moniker[5].ToString()))
         {
-            // Inlined from SHSubstring.SubstringIfAvailableStart - vytváří substring pokud je dostupný
+            // Inlined from SHSubstring.SubstringIfAvailableStart - creates a substring if available
             var platformTfm = moniker.Length > 6 ? moniker.Substring(6) : moniker;
             return new IsNetCore5UpMonikerResult { TargetFramework = moniker.Substring(0, 6), PlatformTfm = platformTfm };
         }
@@ -70,7 +70,7 @@ public class ChangeProjects
         var targetFramework = SH.GetTextBetween(content, start, end, false);
         if (targetFramework == null)
         {
-            // Může se stát když to není v non sdk style
+            // It can happen when it is not in non-sdk style
             return;
         }
         if (dontChangeIfSourceIs != null && dontChangeIfSourceIs == targetFramework)
@@ -78,7 +78,7 @@ public class ChangeProjects
             return;
         }
         var parsedMonikerFrom = IsNetCore5UpMoniker(targetFramework);
-        // už nechci, nestačí aby byly stejné targetFramework, musí být stejné i TFM. Vše na mém kompu bude -windows
+        // I do not want it anymore, it is not enough for targetFramework to be the same, the TFM must be the same too. Everything on my computer will be -windows
         if (targetFramework != to2)
         {
             string? from = null;
@@ -86,7 +86,7 @@ public class ChangeProjects
             from = start + targetFramework + end;
             if (parsedMonikerFrom == null || parsedMonikerTo == null)
             {
-                // není to net core, můžu to nahradit za cokoliv
+                // it is not net core, I can replace it with anything
                 to = start + to2 + end;
             }
             else

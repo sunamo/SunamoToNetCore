@@ -84,7 +84,7 @@ internal partial class FS
     {
         if (!path.StartsWith(@"\\?\"))
         {
-        // V ASP.net mi vrátilo u každé directory.exists false. Byl jsem pod ApplicationPoolIdentity v IIS a bylo nastaveno Full Control pro IIS AppPool\DefaultAppPool
+        // In ASP.net Directory.Exists returned false for every directory. I was under ApplicationPoolIdentity in IIS and Full Control was set for IIS AppPool\DefaultAppPool
         }
 
         return path;
